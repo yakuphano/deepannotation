@@ -6,12 +6,12 @@ const resend = new Resend(process.env.RESEND_API_KEY)
 export async function POST(req: Request) {
   const body = await req.json()
   const { name, email, company, message } = body
-
+console.log("FORM EMAIL VALUE:", email)
   try {
-    // 1️⃣ SANA GELEN MAIL
+    // SANA GELEN MAIL
     await resend.emails.send({
-      from: "DeepAnnotation <onboarding@resend.dev>",
-      to: ["yakup2122@gmail.com"],
+      from: "DeepAnnotation <info@deepannotation.ai>",
+      to: ["info@deepannotation.ai"],
       subject: "New Contact Message - DeepAnnotation",
       html: `
         <p><strong>Name:</strong> ${name}</p>
@@ -21,9 +21,9 @@ export async function POST(req: Request) {
       `,
     })
 
-    // 2️⃣ ZİYARETÇİYE OTOMATİK TEŞEKKÜR MAILİ
+    //  ZİYARETÇİYE OTOMATİK TEŞEKKÜR MAILİ
     await resend.emails.send({
-      from: "DeepAnnotation <onboarding@resend.dev>",
+      from: "DeepAnnotation <info@deepannotation.ai>",
       to: [email],
       subject: "Thanks for contacting DeepAnnotation",
       html: `

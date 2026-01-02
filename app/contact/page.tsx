@@ -24,15 +24,19 @@ export default function ContactPage() {
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(payload),
       })
 
-      if (!res.ok) throw new Error("Failed")
+      if (!res.ok) {
+        throw new Error("Failed to send message")
+      }
 
       setSuccess(true)
       form.reset()
-    } catch (err) {
+    } catch (error) {
       alert("Message could not be sent. Please try again.")
     } finally {
       setLoading(false)
@@ -50,11 +54,20 @@ export default function ContactPage() {
           onSubmit={handleSubmit}
           className="space-y-6 bg-white/5 p-8 rounded-2xl border border-white/10"
         >
+          {/* Honeypot – bot koruması */}
+          <input
+            type="text"
+            name="website"
+            className="hidden"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+
           <input
             name="name"
             required
             placeholder="Your Name"
-            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10"
+            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white outline-none"
           />
 
           <input
@@ -62,14 +75,14 @@ export default function ContactPage() {
             name="email"
             required
             placeholder="Your Email"
-            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10"
+            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white outline-none"
           />
 
           <input
             name="company"
             required
             placeholder="Company Name"
-            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10"
+            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white outline-none"
           />
 
           <textarea
@@ -77,18 +90,19 @@ export default function ContactPage() {
             required
             rows={5}
             placeholder="Your Message"
-            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10"
+            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white outline-none"
           />
 
           <button
+            type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-full bg-blue-500 text-black font-semibold hover:bg-blue-400 disabled:opacity-50"
+            className="w-full py-3 rounded-full bg-blue-500 text-black font-semibold hover:bg-blue-400 transition disabled:opacity-50"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
 
           {success && (
-            <p className="text-green-400 text-center">
+            <p className="text-green-400 text-center mt-4">
               ✅ Message sent successfully!
             </p>
           )}
