@@ -9,8 +9,8 @@ export default function Home() {
       {/* LOTTIE BACKGROUND */}
       <LottieBackground />
 
-      {/* OKUNABİLİRLİK İÇİN KARARTMA */}
-      <div className="" />
+      {/* OKUNABİLİRLİK İÇİN KARARTMA (Overlay) */}
+      <div className="absolute inset-0 bg-black/40 z-10" />
 
       {/* SAYFA İÇERİĞİ */}
       <div className="relative z-20 flex flex-col items-center justify-center min-h-screen text-center px-6">
