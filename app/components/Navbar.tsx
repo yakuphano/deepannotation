@@ -48,12 +48,12 @@ export default function Navbar() {
           className="md:hidden text-white z-50 p-2" 
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={36} /> : <Menu size={36} />}
+          {isOpen ? <X size={40} /> : <Menu size={40} />}
         </button>
 
-        {/* MOBİL PANEL (DEV YAZILAR) */}
+        {/* MOBİL PANEL (DEVASA YAZILAR - 2 KAT BÜYÜTÜLDÜ) */}
         <div className={`
-          fixed inset-0 bg-slate-950 flex flex-col items-center justify-center gap-14 transition-transform duration-500 ease-in-out md:hidden
+          fixed inset-0 bg-slate-950 flex flex-col items-center justify-center gap-6 transition-transform duration-500 ease-in-out md:hidden
           ${isOpen ? "translate-y-0" : "-translate-y-full"}
         `}>
           {navItems.map((item) => (
@@ -61,7 +61,7 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className={`text-5xl font-extrabold tracking-tighter transition-colors ${
+              className={`text-7xl font-black uppercase tracking-tighter transition-colors ${
                 pathname === item.href ? "text-blue-400" : "text-white"
               }`}
             >
