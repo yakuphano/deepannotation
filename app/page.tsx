@@ -12,9 +12,11 @@ export default function Home() {
       
       {/* ARKA PLAN ANIMASYONU */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-        {/* CSS Media Query'leri Tailwind class'ları ile kesinleştiriyoruz */}
+        {/* MOBİL: w-[900px], yukarı kaydırma -%10 (Çok yukarı gitmemesi için düşürdük)
+            MD (PC): w-[1200px], sağa %15, aşağı %15
+        */}
         <div className="opacity-70 flex items-center justify-center 
-                        w-[900px] h-[900px] -translate-y-[20%] translate-x-0
+                        w-[900px] h-[900px] -translate-y-[10%] translate-x-0
                         md:w-[1200px] md:h-[1200px] md:translate-x-[15%] md:translate-y-[15%]">
           <Lottie 
             animationData={animationData} 
