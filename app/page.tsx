@@ -10,16 +10,15 @@ export default function Home() {
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center bg-slate-950 overflow-hidden">
       
-      {/* ARKA PLAN ANIMASYONU - DENGELENMİŞ SAĞ KONUM */}
+      {/* ARKA PLAN ANIMASYONU */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
         <div className={`
-          /* Boyutlar */
-          w-[500px] h-[500px] md:w-[1200px] md:h-[1200px] 
+          /* MOBİL: Ekranı kaplaması için 600px ve tam merkez */
+          /* MASAÜSTÜ: 1200px ve sağa-aşağı kaydırılmış */
+          w-[600px] h-[600px] md:w-[1200px] md:h-[1200px] 
           opacity-70 
-          /* SAĞA KAYDIRMA: %25'ten %15'e çekerek biraz sola (merkeze doğru) yaklaştırdık */
-          translate-x-0 md:translate-x-[15%] 
-          /* AŞAĞI KAYDIRMA: %15 seviyesinde sabit */
-          translate-y-[10%] md:translate-y-[15%]
+          md:translate-x-[15%] 
+          md:translate-y-[15%]
         `}>
           <Lottie 
             animationData={animationData} 
@@ -32,7 +31,8 @@ export default function Home() {
       {/* İÇERİK KATMANI */}
       <section className="relative z-10 flex flex-col items-center justify-center px-6 text-center">
         
-        <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-tight drop-shadow-2xl">
+        {/* ANA BAŞLIK: Mobilde daha küçük (text-4xl), Masaüstünde orijinal (text-8xl) */}
+        <h1 className="text-4xl md:text-8xl font-black text-white tracking-tighter leading-tight drop-shadow-2xl">
           DeepAnnotation
         </h1>
         
@@ -45,11 +45,7 @@ export default function Home() {
           production machine learning systems.
         </p>
 
-        <div className="mt-10">
-          <button className="px-10 py-4 bg-blue-600 hover:bg-blue-500 text-white font-black rounded-full transition-all shadow-[0_0_30px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95 uppercase tracking-wider">
-            Get Started
-          </button>
-        </div>
+        {/* Get Started butonu tamamen kaldırıldı */}
 
       </section>
 
