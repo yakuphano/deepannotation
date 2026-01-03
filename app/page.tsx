@@ -10,10 +10,16 @@ export default function Home() {
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center bg-slate-950 overflow-hidden">
       
-      {/* ARKA PLAN ANIMASYONU - TAM MERKEZ VE DAHA BÜYÜK */}
+      {/* ARKA PLAN ANIMASYONU - DEV BOYUT VE ÖZEL KONUM */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-        {/* Boyutları md:w-[900px] yaparak eski büyük haline getirdim */}
-        <div className="w-[400px] h-[400px] md:w-[900px] md:h-[900px] opacity-70">
+        <div className={`
+          /* Bilgisayarda dev boyut (1200px), Mobilde (500px) */
+          w-[500px] h-[500px] md:w-[1200px] md:h-[1200px] 
+          opacity-70 
+          /* Sağ tarafa (Home'a doğru) ve biraz aşağıya kaydırma */
+          translate-x-0 md:translate-x-[10%] 
+          translate-y-[10%] md:translate-y-[15%]
+        `}>
           <Lottie 
             animationData={animationData} 
             loop={true} 
@@ -25,7 +31,6 @@ export default function Home() {
       {/* İÇERİK KATMANI */}
       <section className="relative z-10 flex flex-col items-center justify-center px-6 text-center">
         
-        {/* Başlık: Mobilde sığar (text-5xl), bilgisayarda orijinal devasa (md:text-8xl) */}
         <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-tight drop-shadow-2xl">
           DeepAnnotation
         </h1>
@@ -47,7 +52,7 @@ export default function Home() {
 
       </section>
 
-      {/* Sayfa Altı Karartma - Animasyonun altını yumuşatır */}
+      {/* Alt Karartma */}
       <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-slate-950 to-transparent z-0"></div>
     </main>
   );
