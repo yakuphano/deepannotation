@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react" // İkonları ekledik
+import { Menu, X } from "lucide-react"
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -15,77 +15,57 @@ const navItems = [
 
 export default function Navbar() {
   const pathname = usePathname()
-  const [isOpen, setIsOpen] = useState(false) // Mobil menü durumu
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+    <header className="fixed top-0 left-0 w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/10">
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
-        {/* BRAND */}
-        <Link href="/" className="flex items-center gap-3 group z-50">
-          <Image
-            src="/favicon.svg"
-            alt="DeepAnnotation Icon"
-            width={32}
-            height={32}
-            className="drop-shadow-[0_0_10px_rgba(59,130,246,0.9)] group-hover:scale-105 transition w-8 h-8 md:w-10 md:h-10"
-            priority
-          />
-          <span className="text-xl md:text-2xl font-semibold tracking-tight text-white">
-            DeepAnnotation
-          </span>
+        {/* LOGO */}
+        <Link href="/" className="flex items-center gap-3 z-50">
+          <Image src="/favicon.svg" alt="Icon" width={32} height={32} />
+          <span className="text-xl font-bold text-white">DeepAnnotation</span>
         </Link>
 
-        {/* DESKTOP NAV (Mobilde gizle) */}
-        <ul className="hidden md:flex gap-12 text-lg font-medium">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href
-            return (
-              <li key={item.href} className="relative">
-                <Link
-                  href={item.href}
-                  className={`transition-colors ${
-                    isActive ? "text-blue-400" : "text-slate-300 hover:text-white"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-                {isActive && (
-                  <span className="absolute -bottom-3 left-0 w-full h-[2px] bg-blue-400 rounded-full shadow-[0_0_14px_rgba(59,130,246,0.9)]" />
-                )}
-              </li>
-            )
-          })}
-        </ul>
-
-        {/* MOBILE MENU BUTTON (Sadece mobilde göster) */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-white focus:outline-none z-50"
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-
-        {/* MOBILE MENU OVERLAY */}
-        {isOpen && (
-          <div className="fixed inset-0 z-40 bg-slate-950 flex flex-col items-center justify-center space-y-8 md:hidden">
-            {navItems.map((item) => {
-               const isActive = pathname === item.href
-               return(
-                <Link
-                key={item.href}
+        {/* MASAÜSTÜ MENÜ */}
+        <ul className="hidden md:flex gap-8 items-center">
+          {navItems.map((item) => (
+            <li key={item.href}>
+              <Link
                 href={item.href}
-                onClick={() => setIsOpen(false)} // Tıklayınca menüyü kapat
-                className={`text-2xl font-semibold ${
-                    isActive ? "text-blue-400" : "text-slate-300"
-                  }`}
+                className={`text-sm transition-colors ${
+                  pathname === item.href ? "text-blue-400" : "text-slate-300 hover:text-white"
+                }`}
               >
                 {item.label}
               </Link>
-               )
-            })}
-          </div>
-        )}
+            </li>
+          ))}
+        </ul>
+
+        {/* MOBİL BUTON */}
+        <button className="md:hidden text-white z-50 p-2" onClick={() => setIsOpen(!isOpen)}>
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* MOBİL PANEL */}
+        <div className={`
+          fixed inset-0 bg-slate-950 flex flex-col items-center justify-center gap-8 transition-transform duration-300 md:hidden
+          ${isOpen ? "translate-x-0" : "translate-x-full"}
+        `}>
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setIsOpen(false)}
+              className={`text-2xl font-semibold ${
+                pathname === item.href ? "text-blue-400" : "text-white"
+              }`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
       </nav>
     </header>
   )

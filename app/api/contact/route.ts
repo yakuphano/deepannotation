@@ -21,7 +21,7 @@ export async function POST(req: Request) {
 
     // 2. SANA GELEN BİLDİRİM MAİLİ (Admin Notification)
     await transporter.sendMail({
-      from: '"DeepAnnotation Web" <info@deepannotation.ai>', // Gönderen hep senin kurumsal mailin olmalı
+      from: '"DeepAnnotation Web" <no-reply@send.deepannotation.ai>', // Gönderen hep senin kurumsal mailin olmalı
       to: "info@deepannotation.ai", // Mesaj kime gidecek? (Sana)
       replyTo: email, // Yanıtla deyince formu dolduran kişinin maili çıksın
       subject: "New Contact Message - DeepAnnotation",
@@ -36,7 +36,7 @@ export async function POST(req: Request) {
 
     // 3. ZİYARETÇİYE GİDEN OTOMATİK TEŞEKKÜR MAİLİ (Auto-Reply)
     await transporter.sendMail({
-      from: '"DeepAnnotation" <info@deepannotation.ai>',
+      from: '"DeepAnnotation" <no-reply@send.deepannotation.ai>',
       to: email, // Ziyaretçinin mail adresi
       subject: "Thanks for contacting DeepAnnotation",
       html: `
