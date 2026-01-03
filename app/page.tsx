@@ -12,17 +12,19 @@ export default function Home() {
       
       {/* ARKA PLAN ANIMASYONU */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
-        <div className={`
-          /* MOBİL AYARLARI: Ekranın %180'i kadar genişlik (taşacak kadar büyük) ve tam merkez */
-          w-[180vw] h-[180vw] 
-          /* MASAÜSTÜ AYARLARI: md ekranlarda boyut küçülür ve sağa-aşağı kayar */
-          md:w-[1200px] md:h-[1200px] 
-          opacity-70 
-          /* Mobilde 0, Masaüstünde kaydırma */
-          translate-x-0 md:translate-x-[15%] 
-          translate-y-0 md:translate-y-[15%]
-          flex items-center justify-center
-        `}>
+        {/* Satır içi style kullanarak Tailwind önbelleğini bypass ediyoruz */}
+        <div 
+          className="opacity-70 flex items-center justify-center"
+          style={{
+            // Mobilde (varsayılan) 700px, Masaüstünde (md: 768px+) 1200px
+            width: typeof window !== 'undefined' && window.innerWidth < 768 ? '700px' : '1200px',
+            height: typeof window !== 'undefined' && window.innerWidth < 768 ? '700px' : '1200px',
+            // Mobilde tam merkez, Masaüstünde sağa ve aşağı kayık
+            transform: typeof window !== 'undefined' && window.innerWidth < 768 
+              ? 'translate(0, 0)' 
+              : 'translate(15%, 15%)'
+          }}
+        >
           <Lottie 
             animationData={animationData} 
             loop={true} 
@@ -34,7 +36,7 @@ export default function Home() {
       {/* İÇERİK KATMANI */}
       <section className="relative z-10 flex flex-col items-center justify-center px-6 text-center">
         
-        {/* ANA BAŞLIK: Mobilde 5xl (Büyük), Masaüstünde 8xl */}
+        {/* ANA BAŞLIK: Mobilde 5xl, Masaüstünde 8xl */}
         <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-tight drop-shadow-2xl">
           DeepAnnotation
         </h1>
