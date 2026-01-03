@@ -10,15 +10,15 @@ export default function Home() {
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center bg-slate-950 overflow-hidden">
       
-      {/* ARKA PLAN ANIMASYONU - DAHA FAZLA SAĞA KAYDIRILDI */}
+      {/* ARKA PLAN ANIMASYONU - DENGELENMİŞ SAĞ KONUM */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
         <div className={`
           /* Boyutlar */
           w-[500px] h-[500px] md:w-[1200px] md:h-[1200px] 
           opacity-70 
-          /* SAĞA KAYDIRMA: md:translate-x-[25%] ile Home tarafına daha çok yaklaştı */
-          translate-x-0 md:translate-x-[25%] 
-          /* AŞAĞI KAYDIRMA: md:translate-y-[15%] */
+          /* SAĞA KAYDIRMA: %25'ten %15'e çekerek biraz sola (merkeze doğru) yaklaştırdık */
+          translate-x-0 md:translate-x-[15%] 
+          /* AŞAĞI KAYDIRMA: %15 seviyesinde sabit */
           translate-y-[10%] md:translate-y-[15%]
         `}>
           <Lottie 
