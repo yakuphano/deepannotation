@@ -4,24 +4,23 @@ export default function Home() {
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center bg-slate-950 overflow-hidden">
       
-      {/* ARKA PLAN - Orijinal Katman */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+      {/* ARKA PLAN - Animasyonun göründüğü orijinal katman */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ zIndex: 0 }}>
         <Image
           src="/hero-bg.svg" 
           alt="Background Circuit"
           width={1000}
           height={1000}
-          className="object-contain opacity-70"
+          className="object-contain opacity-80"
           priority
         />
       </div>
 
-      {/* İÇERİK */}
-      <section className="relative z-10 flex flex-col items-center justify-center px-6 text-center">
+      {/* İÇERİK - Yazı boyutları dengelendi */}
+      <section className="relative flex flex-col items-center justify-center px-6 text-center" style={{ zIndex: 10 }}>
         
-        {/* BAŞLIK: Mobilde sığar, bilgisayarda devasa (Orijinal hali) */}
-        <h1 className="font-black text-white tracking-tighter drop-shadow-2xl leading-tight" 
-            style={{ fontSize: 'clamp(3rem, 10vw, 8rem)' }}>
+        {/* BAŞLIK: Mobilde sığar (5xl), Bilgisayarda orijinal devasa boyutu (8xl) */}
+        <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-tight drop-shadow-2xl">
           DeepAnnotation
         </h1>
         
@@ -42,7 +41,8 @@ export default function Home() {
 
       </section>
 
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-slate-950 to-transparent z-0"></div>
+      {/* Sayfa Altı Karartma */}
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-slate-950 to-transparent" style={{ zIndex: 5 }}></div>
     </main>
   );
 }
