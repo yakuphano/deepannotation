@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen flex flex-col items-center justify-center bg-slate-950 overflow-hidden">
       
-      {/* ARKA PLAN - Animasyonun göründüğü orijinal katman */}
+      {/* ARKA PLAN - Orijinal Katman */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
         <Image
           src="/hero-bg.svg" 
@@ -16,11 +16,12 @@ export default function Home() {
         />
       </div>
 
-      {/* İÇERİK - Yazı boyutları bilgisayarda normal, mobilde sığacak şekilde */}
-      <section className="relative z-10 flex flex-col items-center justify-center px-4 text-center">
+      {/* İÇERİK */}
+      <section className="relative z-10 flex flex-col items-center justify-center px-6 text-center">
         
-        {/* BAŞLIK: Mobilde sığması için text-5xl, Bilgisayarda orijinal text-8xl */}
-        <h1 className="text-[42px] leading-tight sm:text-6xl md:text-8xl font-black text-white tracking-tighter drop-shadow-2xl">
+        {/* BAŞLIK: Mobilde sığar, bilgisayarda devasa (Orijinal hali) */}
+        <h1 className="font-black text-white tracking-tighter drop-shadow-2xl leading-tight" 
+            style={{ fontSize: 'clamp(3rem, 10vw, 8rem)' }}>
           DeepAnnotation
         </h1>
         
@@ -41,7 +42,6 @@ export default function Home() {
 
       </section>
 
-      {/* Alt Karartma */}
       <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-slate-950 to-transparent z-0"></div>
     </main>
   );
