@@ -43,26 +43,26 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* MOBİL HAMBURGER BUTONU */}
+        {/* MOBİL BUTON */}
         <button 
           className="md:hidden text-white z-50 p-2" 
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? <X size={32} /> : <Menu size={32} />}
         </button>
 
-        {/* MOBİL MENÜ PANELİ */}
+        {/* MOBİL PANEL (YUKARIDAN AŞAĞI VE BÜYÜK YAZILI) */}
         <div className={`
-          fixed inset-0 bg-slate-950 flex flex-col items-center pt-32 gap-8 transition-transform duration-300 md:hidden
-          ${isOpen ? "translate-x-0" : "translate-x-full"}
+          fixed inset-0 bg-slate-950 flex flex-col items-center justify-center gap-12 transition-transform duration-500 ease-in-out md:hidden
+          ${isOpen ? "translate-y-0" : "-translate-y-full"}
         `}>
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              onClick={() => setIsOpen(false)} // Linke tıklayınca menü kapansın
-              className={`text-2xl font-semibold transition-colors ${
-                pathname === item.href ? "text-blue-400" : "text-white hover:text-blue-400"
+              onClick={() => setIsOpen(false)}
+              className={`text-4xl font-black tracking-tight transition-colors ${
+                pathname === item.href ? "text-blue-400" : "text-white"
               }`}
             >
               {item.label}
