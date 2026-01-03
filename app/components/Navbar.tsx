@@ -21,24 +21,30 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/10">
       <nav className="max-w-[1440px] mx-auto">
         
-        {/* ÜST KISIM (Logo ve Hamburger Butonu) */}
+        {/* ÜST KISIM */}
         <div className="flex items-center justify-between px-6 md:px-12 py-5">
-          {/* LOGO VE İKON */}
-          <Link href="/" className="flex items-center gap-3">
-            <Image 
-              src="/favicon.svg" 
-              alt="Logo Icon" 
-              width={38} 
-              height={38} 
-              priority
-              className="object-contain"
-            />
-            <span className="text-xl md:text-2xl font-black text-white tracking-tighter">
+          
+          {/* LOGO VE PARLAYAN İKON */}
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative flex items-center justify-center">
+              {/* GLOW (PARLAMA) KATMANI: İkonun arkasındaki mavi ışık */}
+              <div className="absolute w-8 h-8 bg-blue-500/40 rounded-full blur-xl group-hover:bg-blue-400/60 transition-all duration-500"></div>
+              
+              <Image 
+                src="/favicon.svg" 
+                alt="Logo Icon" 
+                width={38} 
+                height={38} 
+                priority
+                className="relative z-10 object-contain brightness-110 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]"
+              />
+            </div>
+            <span className="text-xl md:text-2xl font-black text-white tracking-tighter group-hover:text-blue-400 transition-colors duration-300">
               DeepAnnotation
             </span>
           </Link>
 
-          {/* MASAÜSTÜ MENÜ (Bilgisayarda sağda durur) */}
+          {/* MASAÜSTÜ MENÜ */}
           <ul className="hidden md:flex gap-8 items-center">
             {navItems.map((item) => (
               <li key={item.href}>
@@ -54,16 +60,13 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* MOBİL BUTON (Sadece telefonda görünür) */}
-          <button 
-            className="md:hidden text-white p-2" 
-            onClick={() => setIsOpen(!isOpen)}
-          >
+          {/* MOBİL BUTON */}
+          <button className="md:hidden text-white z-50 p-2" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={32} /> : <Menu size={32} />}
           </button>
         </div>
 
-        {/* MOBİL MENÜ LİNK LİSTESİ (Dropdown - Tıpkı attığın koddaki gibi) */}
+        {/* MOBİL MENÜ LİNK LİSTESİ */}
         <div className={`
           md:hidden overflow-hidden transition-all duration-300 ease-in-out border-t border-white/5
           ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
