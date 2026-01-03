@@ -14,9 +14,9 @@ export default function Home() {
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
         <div className={`
           opacity-70 flex items-center justify-center 
-          /* MOBİL: Boyut 900px. -translate-y-[5%] (biraz aşağı indi), translate-x-[5%] (biraz sağa kaydı) */
-          w-[900px] h-[900px] -translate-y-[5%] translate-x-[5%]
-          /* MASAÜSTÜ: Boyut 1200px. Orijinal sağ-aşağı konumu korundu */
+          /* MOBİL: 900px boyut. translate-x-[15%] (Sağa kaydırdık), translate-y-0 (Dikeyde tam orta) */
+          w-[900px] h-[900px] translate-x-[15%] translate-y-0
+          /* MASAÜSTÜ: 1200px boyut. Orijinal sevdiğin konum */
           md:w-[1200px] md:h-[1200px] md:translate-x-[15%] md:translate-y-[15%]
         `}>
           <Lottie 
