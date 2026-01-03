@@ -1,13 +1,22 @@
 import "./globals.css"
 import Navbar from "./components/Navbar"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 
-// Metadata ayarlarını genişletiyoruz
+// 1. Viewport Ayarı (Mobil Görünüm İçin Şart)
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false, // Kullanıcının zoom yapmasını engeller (Uygulama hissi verir)
+  themeColor: "#020617", // Mobil tarayıcı çubuğunun rengi
+}
+
+// 2. Metadata Ayarları (SEO İçin)
 export const metadata: Metadata = {
-  metadataBase: new URL("https://deepannotation.ai"), // Tüm göreceli URL'ler için baz alınır
+  metadataBase: new URL("https://deepannotation.ai"),
   title: {
     default: "DeepAnnotation — High-Quality Data Annotation for AI",
-    template: "%s | DeepAnnotation", // Alt sayfalarda "İletişim | DeepAnnotation" gibi görünür
+    template: "%s | DeepAnnotation",
   },
   description:
     "DeepAnnotation provides scalable, human-verified data annotation for AI, ML, and computer vision applications.",
@@ -25,7 +34,6 @@ export const metadata: Metadata = {
   creator: "DeepAnnotation",
   publisher: "DeepAnnotation",
   
-  // Arama motoru botları için talimatlar
   robots: {
     index: true,
     follow: true,
@@ -38,12 +46,10 @@ export const metadata: Metadata = {
     },
   },
 
-  // Canonical URL ayarı (Duplicate content'i önler)
   alternates: {
     canonical: "/",
   },
 
-  // Sosyal Medya Paylaşımları (Open Graph)
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -54,7 +60,7 @@ export const metadata: Metadata = {
     siteName: "DeepAnnotation",
     images: [
       {
-        url: "/og-image.png", // public/og-image.png dosyanızın olduğundan emin olun
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "DeepAnnotation AI Services",
@@ -62,18 +68,17 @@ export const metadata: Metadata = {
     ],
   },
 
-  // Twitter Kartları (X.com paylaşımları için)
   twitter: {
     card: "summary_large_image",
     title: "DeepAnnotation — High-Quality Data Annotation for AI",
     description: "Scalable data annotation for AI, ML, and computer vision applications.",
     images: ["/og-image.png"],
-    creator: "@deepannotation", // Varsa Twitter kullanıcı adınız
+    creator: "@deepannotation",
   },
 
   icons: {
     icon: "/favicon.svg",
-    apple: "/apple-touch-icon.png", // İsteğe bağlı
+    apple: "/apple-touch-icon.png",
   },
 }
 
@@ -85,8 +90,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google Search Console doğrulama */}
-        {/* <meta name="google-site-verification" content="YOUR_TOKEN_HERE" /> */}
+        {/* Google Search Console veya Analitik kodları buraya gelebilir */}
       </head>
 
       <body className="min-h-screen text-white bg-slate-950 antialiased selection:bg-blue-500 selection:text-white">
