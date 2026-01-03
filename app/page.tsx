@@ -13,12 +13,15 @@ export default function Home() {
       {/* ARKA PLAN ANIMASYONU */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
         <div className={`
-          /* MOBİL: 800px yaparak devasa boyuta çıkardım ve translate-0 ile merkeze kitledim */
-          /* MASAÜSTÜ: 1200px ve önceki sağ-aşağı konumu korudum */
-          w-[800px] h-[800px] md:w-[1200px] md:h-[1200px] 
+          /* MOBİL AYARLARI: Ekranın %180'i kadar genişlik (taşacak kadar büyük) ve tam merkez */
+          w-[180vw] h-[180vw] 
+          /* MASAÜSTÜ AYARLARI: md ekranlarda boyut küçülür ve sağa-aşağı kayar */
+          md:w-[1200px] md:h-[1200px] 
           opacity-70 
+          /* Mobilde 0, Masaüstünde kaydırma */
           translate-x-0 md:translate-x-[15%] 
           translate-y-0 md:translate-y-[15%]
+          flex items-center justify-center
         `}>
           <Lottie 
             animationData={animationData} 
@@ -31,7 +34,7 @@ export default function Home() {
       {/* İÇERİK KATMANI */}
       <section className="relative z-10 flex flex-col items-center justify-center px-6 text-center">
         
-        {/* ANA BAŞLIK: Mobilde tekrar 5xl yaptık (büyük ve okunaklı) */}
+        {/* ANA BAŞLIK: Mobilde 5xl (Büyük), Masaüstünde 8xl */}
         <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-tight drop-shadow-2xl">
           DeepAnnotation
         </h1>
