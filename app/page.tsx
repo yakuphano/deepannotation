@@ -14,9 +14,8 @@ export default function Home() {
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
         <div className={`
           opacity-70 flex items-center justify-center 
-          /* MOBİL: 900px boyut. translate-x-[15%] (Sağa kaydırdık), translate-y-0 (Dikeyde tam orta) */
+          /* Mobil ve Masaüstü Konum Ayarları (Aynen Korundu) */
           w-[900px] h-[900px] translate-x-[15%] translate-y-0
-          /* MASAÜSTÜ: 1200px boyut. Orijinal sevdiğin konum */
           md:w-[1200px] md:h-[1200px] md:translate-x-[15%] md:translate-y-[15%]
         `}>
           <Lottie 
@@ -29,11 +28,13 @@ export default function Home() {
 
       {/* İÇERİK KATMANI */}
       <section className="relative z-10 flex flex-col items-center justify-center px-6 text-center">
-        <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-tight drop-shadow-2xl">
+        
+        {/* ANA BAŞLIK: md:text-8xl olan boyutu md:text-5xl seviyesine (yaklaşık yarı yarıya) indirdim */}
+        <h1 className="text-5xl md:text-5xl font-black text-white tracking-tighter leading-tight drop-shadow-2xl">
           DeepAnnotation
         </h1>
         
-        <p className="mt-6 text-xl md:text-2xl text-blue-400 font-bold tracking-wide">
+        <p className="mt-4 text-xl md:text-2xl text-blue-400 font-bold tracking-wide">
           High-Quality Data for Smarter AI
         </p>
         
@@ -41,6 +42,7 @@ export default function Home() {
           Enterprise-grade data annotation and AI training services for 
           production machine learning systems.
         </p>
+
       </section>
 
       {/* Alt Karartma */}
