@@ -13,12 +13,12 @@ export default function Home() {
       {/* ARKA PLAN ANIMASYONU */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
         <div className={`
-          /* MOBİL: Ekranı kaplaması için 600px ve tam merkez */
-          /* MASAÜSTÜ: 1200px ve sağa-aşağı kaydırılmış */
-          w-[600px] h-[600px] md:w-[1200px] md:h-[1200px] 
+          /* MOBİL: 800px yaparak devasa boyuta çıkardım ve translate-0 ile merkeze kitledim */
+          /* MASAÜSTÜ: 1200px ve önceki sağ-aşağı konumu korudum */
+          w-[800px] h-[800px] md:w-[1200px] md:h-[1200px] 
           opacity-70 
-          md:translate-x-[15%] 
-          md:translate-y-[15%]
+          translate-x-0 md:translate-x-[15%] 
+          translate-y-0 md:translate-y-[15%]
         `}>
           <Lottie 
             animationData={animationData} 
@@ -31,21 +31,19 @@ export default function Home() {
       {/* İÇERİK KATMANI */}
       <section className="relative z-10 flex flex-col items-center justify-center px-6 text-center">
         
-        {/* ANA BAŞLIK: Mobilde daha küçük (text-4xl), Masaüstünde orijinal (text-8xl) */}
-        <h1 className="text-4xl md:text-8xl font-black text-white tracking-tighter leading-tight drop-shadow-2xl">
+        {/* ANA BAŞLIK: Mobilde tekrar 5xl yaptık (büyük ve okunaklı) */}
+        <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-tight drop-shadow-2xl">
           DeepAnnotation
         </h1>
         
-        <p className="mt-6 text-lg md:text-2xl text-blue-400 font-bold tracking-wide">
+        <p className="mt-6 text-xl md:text-2xl text-blue-400 font-bold tracking-wide">
           High-Quality Data for Smarter AI
         </p>
         
-        <p className="mt-4 text-slate-400 text-sm md:text-lg max-w-[600px] mx-auto leading-relaxed">
+        <p className="mt-4 text-slate-400 text-base md:text-lg max-w-[600px] mx-auto leading-relaxed">
           Enterprise-grade data annotation and AI training services for 
           production machine learning systems.
         </p>
-
-        {/* Get Started butonu tamamen kaldırıldı */}
 
       </section>
 
