@@ -9,25 +9,26 @@ const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen flex flex-col items-center justify-center bg-slate-950 overflow-hidden">
+    <main className="relative min-h-screen w-full flex flex-col items-center justify-center bg-slate-950 overflow-hidden">
       
-      {/* 1. ARKA PLAN RESMİ (En alt katman) */}
+      {/* 1. ANA ARKA PLAN RESMİ (Noise kaldırıldı, artık direkt bu görünecek) */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/background.png" 
           alt="Background"
           fill
           priority
-          className="object-cover opacity-40" // Opacity ile parlaklığı ayarlayabilirsin
+          quality={100}
+          className="object-cover opacity-60" // Görünürlüğü buradan artırabilirsin (örn: opacity-80)
         />
-        {/* Resmin üzerine hafif bir gradyan ekleyerek yazıları belirginleştiriyoruz */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-transparent to-slate-950/80"></div>
+        {/* Opsiyonel: Resmi biraz daha canlandırmak için çok hafif bir karartma */}
+        <div className="absolute inset-0 bg-slate-950/20"></div>
       </div>
 
-      {/* 2. ARKA PLAN ANIMASYONU (Resmin üzerinde, içeriğin altında) */}
+      {/* 2. ARKA PLAN ANIMASYONU (Resmin önünde) */}
       <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
         <div className={`
-          opacity-60 flex items-center justify-center 
+          opacity-70 flex items-center justify-center 
           w-[900px] h-[900px] translate-x-[15%] translate-y-0
           md:w-[1200px] md:h-[1200px] md:translate-x-[15%] md:translate-y-[15%]
         `}>
@@ -55,8 +56,8 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Alt Karartma */}
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-slate-950 to-transparent z-20"></div>
+      {/* Alt Karartma Gradyanı */}
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-slate-950 to-transparent z-30 pointer-events-none"></div>
     </main>
   );
 }
