@@ -18,7 +18,7 @@ export default function AboutPage() {
           {/* 1. WHO WE ARE */}
           <section className="relative">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <span className="text-blue-500 text-lg font-black">01.</span> Who We Are
+              <span className="text-blue-500 text-lg font-black"> </span> Who We Are
             </h2>
             <p className="text-lg md:text-xl text-white leading-relaxed border-l-4 border-blue-600 pl-6 bg-white/5 py-4 rounded-r-xl">
               "DeepAnnotation is a young and passionate technology venture that believes in the power of data in the world of Artificial Intelligence and Machine Learning. We set out with the awareness that the success of AI models depends on the quality of the data behind them."
@@ -28,7 +28,7 @@ export default function AboutPage() {
           {/* 2. OUR MISSION */}
           <section>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <span className="text-blue-500 text-lg font-black">02.</span> Why We Are Here (Our Mission)
+              <span className="text-blue-500 text-lg font-black"> </span> Why We Are Here (Our Mission)
             </h2>
             <div className="space-y-4">
               <p className="text-lg text-white leading-relaxed">
@@ -43,7 +43,7 @@ export default function AboutPage() {
           {/* 3. CORE VALUES */}
           <section>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 flex items-center gap-3">
-              <span className="text-blue-500 text-lg font-black">03.</span> What Makes Us Different?
+              <span className="text-blue-500 text-lg font-black"> </span> What Makes Us Different?
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="p-8 bg-slate-900 border border-white/20 rounded-2xl hover:bg-slate-800 transition-all duration-300">
