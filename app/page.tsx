@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen w-full flex flex-col items-center justify-center bg-slate-950 overflow-hidden">
       
-      {/* 1. ANA ARKA PLAN RESMİ (Noise kaldırıldı, artık direkt bu görünecek) */}
+      {/* 1. ANA ARKA PLAN RESMİ */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/background.png" 
@@ -19,13 +19,12 @@ export default function Home() {
           fill
           priority
           quality={100}
-          className="object-cover opacity-60" // Görünürlüğü buradan artırabilirsin (örn: opacity-80)
+          className="object-cover opacity-60"
         />
-        {/* Opsiyonel: Resmi biraz daha canlandırmak için çok hafif bir karartma */}
         <div className="absolute inset-0 bg-slate-950/20"></div>
       </div>
 
-      {/* 2. ARKA PLAN ANIMASYONU (Resmin önünde) */}
+      {/* 2. ARKA PLAN ANIMASYONU */}
       <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
         <div className={`
           opacity-70 flex items-center justify-center 
@@ -40,7 +39,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 3. İÇERİK KATMANI (En üstte) */}
+      {/* 3. İÇERİK KATMANI */}
       <section className="relative z-20 flex flex-col items-center justify-center px-6 text-center">
         <h1 className="text-5xl md:text-5xl font-black text-white tracking-tighter leading-tight drop-shadow-2xl">
           DeepAnnotation
@@ -50,7 +49,8 @@ export default function Home() {
           High-Quality Data for Smarter AI
         </p>
         
-        <p className="mt-4 text-slate-400 text-base md:text-lg max-w-[600px] mx-auto leading-relaxed">
+        {/* GÜNCELLENEN KISIM: Renk text-white yapıldı ve gölge artırıldı */}
+        <p className="mt-4 text-white text-base md:text-lg max-w-[600px] mx-auto leading-relaxed drop-shadow-lg font-medium">
           Enterprise-grade data annotation and AI training services for 
           production machine learning systems.
         </p>
