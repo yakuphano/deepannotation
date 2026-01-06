@@ -21,7 +21,7 @@ const reasons = [
   },
   {
     title: "Security & Confidentiality First",
-    description: "We follow strict enterprise-grade security standards including NDA enforcement, access control, data isolation, and secure infrastructure — protecting your most sensitive datasets.",
+    description: "We follow strict enterprise-grade security standards including NDA enforcement, access control, data isolation, and secure infrastructure  protecting your most sensitive datasets.",
     icon: Lock,
   },
   {

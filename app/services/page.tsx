@@ -11,7 +11,7 @@ const services = [
   },
   {
     title: "Search Relevance",
-    description: "Query-result relevance identification, relevance event validation, and entity classification.",
+    description: "Query result relevance identification, relevance event validation, and entity classification.",
     icon: Brain,
   },
   {
@@ -21,7 +21,7 @@ const services = [
   },
   {
     title: "Speech Transcription",
-    description: "Audio-to-text validation, conversation transcription, and speech relevance accuracy checks.",
+    description: "Audio to text validation, conversation transcription, and speech relevance accuracy checks.",
     icon: Brain,
   },
   {
@@ -36,12 +36,12 @@ const services = [
   },
   {
     title: "AI Model Training",
-    description: "Custom model training and fine-tuning optimized for production-scale AI systems.",
+    description: "Custom model training and fine-tuning optimized for production scale AI systems.",
     icon: Brain,
   },
   {
     title: "Enterprise AI Solutions",
-    description: "End-to-end AI pipelines, MLOps integration, and scalable infrastructure.",
+    description: "End to end AI pipelines, MLOps integration, and scalable infrastructure.",
     icon: Cpu,
   },
 ]
