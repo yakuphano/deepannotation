@@ -18,7 +18,7 @@ export default function AboutPage() {
           {/*  WHO WE ARE */}
           <section className="relative group">
             <h2 className="text-2xl md:text-3xl font-bold text-blue-400 mb-6 flex items-center gap-3">
-              <span className="text-slate-500 text-lg">01.</span> Who We Are
+              <span className="text-slate-500 text-lg"> </span> Who We Are
             </h2>
             <p className="text-lg md:text-xl text-slate-300 leading-relaxed border-l-2 border-blue-500/30 pl-6 italic">
               "DeepAnnotation is a young and passionate technology venture that believes in the power of data in the world of Artificial Intelligence and Machine Learning. We set out with the awareness that the success of AI models depends on the quality of the data behind them."
@@ -28,7 +28,7 @@ export default function AboutPage() {
           {/*  OUR MISSION */}
           <section>
             <h2 className="text-2xl md:text-3xl font-bold text-blue-400 mb-6 flex items-center gap-3">
-              <span className="text-slate-500 text-lg">02.</span> Why We Are Here (Our Mission)
+              <span className="text-slate-500 text-lg"> </span> Why We Are Here (Our Mission)
             </h2>
             <p className="text-lg text-slate-300 leading-relaxed mb-4">
               We transform complex datasets into meaningful and actionable insights for your AI models.
@@ -41,7 +41,7 @@ export default function AboutPage() {
           {/*  CORE VALUES (KUTUCUKLU TASARIM) */}
           <section>
             <h2 className="text-2xl md:text-3xl font-bold text-blue-400 mb-8 flex items-center gap-3">
-              <span className="text-slate-500 text-lg">03.</span> What Makes Us Different?
+              <span className="text-slate-500 text-lg"> </span> What Makes Us Different?
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="p-8 bg-slate-900/50 border border-white/10 rounded-2xl hover:border-blue-500/50 transition-all duration-300">
