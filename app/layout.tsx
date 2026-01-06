@@ -1,8 +1,9 @@
 import "./globals.css"
 import Navbar from "./components/Navbar"
 import type { Metadata, Viewport } from "next"
+import Script from "next/script" // Next.js Script bileşenini içe aktarıyoruz
 
-// Mobil uyumluluk (viewport) artık bu şekilde ayrı bir export olarak yazılmalı
+// Mobil uyumluluk (viewport)
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -38,6 +39,23 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        {/* Google Analytics Kodu Başlangıcı */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-NM1989RPBG"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-NM1989RPBG');
+          `}
+        </Script>
+        {/* Google Analytics Kodu Bitişi */}
+      </head>
       <body className="min-h-screen text-white bg-slate-950 overflow-x-hidden">
         <Navbar />
         <main>{children}</main>
