@@ -15,7 +15,7 @@ export default function AboutPage() {
 
         <div className="grid gap-16">
           
-          {/* 1. WHO WE ARE */}
+          {/*  WHO WE ARE */}
           <section className="relative group">
             <h2 className="text-2xl md:text-3xl font-bold text-blue-400 mb-6 flex items-center gap-3">
               <span className="text-slate-500 text-lg">01.</span> Who We Are
@@ -25,7 +25,7 @@ export default function AboutPage() {
             </p>
           </section>
 
-          {/* 2. OUR MISSION */}
+          {/*  OUR MISSION */}
           <section>
             <h2 className="text-2xl md:text-3xl font-bold text-blue-400 mb-6 flex items-center gap-3">
               <span className="text-slate-500 text-lg">02.</span> Why We Are Here (Our Mission)
@@ -38,7 +38,7 @@ export default function AboutPage() {
             </p>
           </section>
 
-          {/* 3. CORE VALUES (KUTUCUKLU TASARIM) */}
+          {/*  CORE VALUES (KUTUCUKLU TASARIM) */}
           <section>
             <h2 className="text-2xl md:text-3xl font-bold text-blue-400 mb-8 flex items-center gap-3">
               <span className="text-slate-500 text-lg">03.</span> What Makes Us Different?
@@ -59,7 +59,7 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* 4. VISION */}
+          {/*  VISION */}
           <section className="p-10 bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-3xl text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Our Vision</h2>
             <p className="text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed">
