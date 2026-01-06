@@ -10,7 +10,7 @@ export default function AboutPage() {
           <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-6 text-white">
             Shaping the Future of Data
           </h1>
-          <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)]"></div>
+          <div className="w-24 h-1  mx-auto rounded-full shadow-[0_0_15px_rgba(59,130,246,0.8)]"></div>
         </div>
 
         <div className="grid gap-16">
@@ -18,7 +18,7 @@ export default function AboutPage() {
           {/* 1. WHO WE ARE - MAVİ ÇİZGİ KALDIRILDI VE HİZALANDI */}
           <section className="relative">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <span className="text-blue-500 text-lg font-black">01.</span> Who We Are
+              <span className="text-blue-500 text-lg font-black"> </span> Who We Are
             </h2>
             <p className="text-lg md:text-xl text-gray-400 leading-relaxed py-2">
               "DeepAnnotation is a young and passionate technology venture that believes in the power of data in the world of Artificial Intelligence and Machine Learning. We set out with the awareness that the success of AI models depends on the quality of the data behind them."
@@ -28,7 +28,7 @@ export default function AboutPage() {
           {/* 2. OUR MISSION - HİZALAMA KONTROL EDİLDİ */}
           <section>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
-              <span className="text-blue-500 text-lg font-black">02.</span> Why We Are Here (Our Mission)
+              <span className="text-blue-500 text-lg font-black"> </span> Why We Are Here (Our Mission)
             </h2>
             <div className="space-y-4">
               <p className="text-lg text-gray-400 leading-relaxed">
@@ -43,7 +43,7 @@ export default function AboutPage() {
           {/* 3. CORE VALUES - GLOW EFEKTLİ KUTULAR */}
           <section>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 flex items-center gap-3">
-              <span className="text-blue-500 text-lg font-black">03.</span> What Makes Us Different?
+              <span className="text-blue-500 text-lg font-black"> </span> What Makes Us Different?
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               {[
