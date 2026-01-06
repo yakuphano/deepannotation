@@ -7,62 +7,64 @@ export default function AboutPage() {
         
         {/* ANA BAŞLIK */}
         <div className="text-center mb-20">
-          <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-6 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-6 bg-gradient-to-r from-blue-100 via-white to-blue-100 bg-clip-text text-transparent">
             Shaping the Future of Data
           </h1>
-          <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-blue-500 mx-auto rounded-full shadow-[0_0_10px_rgba(59,130,246,0.8)]"></div>
         </div>
 
         <div className="grid gap-16">
           
-          {/*  WHO WE ARE */}
-          <section className="relative group">
-            <h2 className="text-2xl md:text-3xl font-bold text-blue-400 mb-6 flex items-center gap-3">
-              <span className="text-slate-500 text-lg"> </span> Who We Are
+          {/* 1. WHO WE ARE */}
+          <section className="relative">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
+              <span className="text-blue-500 text-lg font-black">01.</span> Who We Are
             </h2>
-            <p className="text-lg md:text-xl text-slate-300 leading-relaxed border-l-2 border-blue-500/30 pl-6 italic">
+            <p className="text-lg md:text-xl text-white leading-relaxed border-l-4 border-blue-600 pl-6 bg-white/5 py-4 rounded-r-xl">
               "DeepAnnotation is a young and passionate technology venture that believes in the power of data in the world of Artificial Intelligence and Machine Learning. We set out with the awareness that the success of AI models depends on the quality of the data behind them."
             </p>
           </section>
 
-          {/*  OUR MISSION */}
+          {/* 2. OUR MISSION */}
           <section>
-            <h2 className="text-2xl md:text-3xl font-bold text-blue-400 mb-6 flex items-center gap-3">
-              <span className="text-slate-500 text-lg"> </span> Why We Are Here (Our Mission)
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
+              <span className="text-blue-500 text-lg font-black">02.</span> Why We Are Here (Our Mission)
             </h2>
-            <p className="text-lg text-slate-300 leading-relaxed mb-4">
-              We transform complex datasets into meaningful and actionable insights for your AI models.
-            </p>
-            <p className="text-lg text-slate-300 leading-relaxed">
-              Our goal is to accelerate innovation processes by providing high-precision, human-verified data labeling services to technology teams of all scales.
-            </p>
+            <div className="space-y-4">
+              <p className="text-lg text-white leading-relaxed">
+                We transform complex datasets into meaningful and actionable insights for your AI models.
+              </p>
+              <p className="text-lg text-white leading-relaxed opacity-90">
+                Our goal is to accelerate innovation processes by providing high-precision, human-verified data labeling services to technology teams of all scales.
+              </p>
+            </div>
           </section>
 
-          {/*  CORE VALUES (KUTUCUKLU TASARIM) */}
+          {/* 3. CORE VALUES */}
           <section>
-            <h2 className="text-2xl md:text-3xl font-bold text-blue-400 mb-8 flex items-center gap-3">
-              <span className="text-slate-500 text-lg"> </span> What Makes Us Different?
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 flex items-center gap-3">
+              <span className="text-blue-500 text-lg font-black">03.</span> What Makes Us Different?
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="p-8 bg-slate-900/50 border border-white/10 rounded-2xl hover:border-blue-500/50 transition-all duration-300">
-                <h3 className="text-xl font-bold text-white mb-4">Precision</h3>
-                <p className="text-slate-400 text-sm">A meticulous working principle that does not miss even the smallest detail.</p>
+              <div className="p-8 bg-slate-900 border border-white/20 rounded-2xl hover:bg-slate-800 transition-all duration-300">
+                <h3 className="text-xl font-black text-white mb-4 uppercase tracking-tighter">Precision</h3>
+                <p className="text-white/80 text-sm leading-relaxed">A meticulous working principle that does not miss even the smallest detail.</p>
               </div>
-              <div className="p-8 bg-slate-900/50 border border-white/10 rounded-2xl hover:border-blue-500/50 transition-all duration-300">
-                <h3 className="text-xl font-bold text-white mb-4">Scalability</h3>
-                <p className="text-slate-400 text-sm">The promise of maintaining the same quality standards no matter how large your project is.</p>
+              <div className="p-8 bg-slate-900 border border-white/20 rounded-2xl hover:bg-slate-800 transition-all duration-300">
+                <h3 className="text-xl font-black text-white mb-4 uppercase tracking-tighter">Scalability</h3>
+                <p className="text-white/80 text-sm leading-relaxed">The promise of maintaining the same quality standards no matter how large your project is.</p>
               </div>
-              <div className="p-8 bg-slate-900/50 border border-white/10 rounded-2xl hover:border-blue-500/50 transition-all duration-300">
-                <h3 className="text-xl font-bold text-white mb-4">Security</h3>
-                <p className="text-slate-400 text-sm">The confidentiality and security of your data are our highest priorities.</p>
+              <div className="p-8 bg-slate-900 border border-white/20 rounded-2xl hover:bg-slate-800 transition-all duration-300">
+                <h3 className="text-xl font-black text-white mb-4 uppercase tracking-tighter">Security</h3>
+                <p className="text-white/80 text-sm leading-relaxed">The confidentiality and security of your data are our highest priorities.</p>
               </div>
             </div>
           </section>
 
-          {/*  VISION */}
-          <section className="p-10 bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-3xl text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Our Vision</h2>
-            <p className="text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed">
+          {/* 4. VISION */}
+          <section className="p-10 bg-white/10 border-2 border-white/20 rounded-3xl text-center backdrop-blur-sm">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 uppercase tracking-widest">Our Vision</h2>
+            <p className="text-xl text-white max-w-2xl mx-auto leading-relaxed font-medium">
               "To contribute to the potential of Artificial Intelligence to improve the world and to be the most trusted solution partner that comes to mind when it comes to data annotation."
             </p>
           </section>
