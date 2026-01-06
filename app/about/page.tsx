@@ -2,56 +2,71 @@ import React from 'react';
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-6 py-32 min-h-screen">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-6xl font-bold mb-10 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-          About Us
-        </h1>
+    <div className="min-h-screen bg-slate-950 text-white pt-32 pb-20">
+      <div className="container mx-auto px-6 max-w-5xl">
         
-        <div className="space-y-12 text-gray-300 leading-relaxed text-lg">
-          <section>
-            <h2 className="text-2xl text-white font-semibold mb-4">Empowering AI Innovation through Precision Data</h2>
-            <p>
-              At DeepAnnotation, we believe that the next generation of Artificial Intelligence is only as good as the data that fuels it. 
-              As a forward-thinking data services provider, we bridge the gap between complex raw information and high-performing machine learning models.
+        {/* ANA BAŞLIK */}
+        <div className="text-center mb-20">
+          <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-6 bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+            Shaping the Future of Data
+          </h1>
+          <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
+        </div>
+
+        <div className="grid gap-16">
+          
+          {/* 1. WHO WE ARE */}
+          <section className="relative group">
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-400 mb-6 flex items-center gap-3">
+              <span className="text-slate-500 text-lg">01.</span> Who We Are
+            </h2>
+            <p className="text-lg md:text-xl text-slate-300 leading-relaxed border-l-2 border-blue-500/30 pl-6 italic">
+              "DeepAnnotation is a young and passionate technology venture that believes in the power of data in the world of Artificial Intelligence and Machine Learning. We set out with the awareness that the success of AI models depends on the quality of the data behind them."
             </p>
           </section>
 
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-8 bg-slate-900/40 border border-slate-800 rounded-2xl backdrop-blur-sm">
-              <h3 className="text-blue-400 font-bold text-xl mb-3">Our Mission</h3>
-              <p className="text-sm md:text-base">
-                To accelerate AI development by providing seamless, scalable, and high-precision data annotation services. 
-                We empower AI teams to focus on model architecture while we ensure their training data is accurate.
-              </p>
-            </div>
-            
-            <div className="p-8 bg-slate-900/40 border border-slate-800 rounded-2xl backdrop-blur-sm">
-              <h3 className="text-purple-400 font-bold text-xl mb-3">Our Vision</h3>
-              <p className="text-sm md:text-base">
-                To become the global cornerstone of data integrity in the AI ecosystem, fostering a world where technology 
-                understands and interacts with human reality more accurately than ever before.
-              </p>
+          {/* 2. OUR MISSION */}
+          <section>
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-400 mb-6 flex items-center gap-3">
+              <span className="text-slate-500 text-lg">02.</span> Why We Are Here (Our Mission)
+            </h2>
+            <p className="text-lg text-slate-300 leading-relaxed mb-4">
+              We transform complex datasets into meaningful and actionable insights for your AI models.
+            </p>
+            <p className="text-lg text-slate-300 leading-relaxed">
+              Our goal is to accelerate innovation processes by providing high-precision, human-verified data labeling services to technology teams of all scales.
+            </p>
+          </section>
+
+          {/* 3. CORE VALUES (KUTUCUKLU TASARIM) */}
+          <section>
+            <h2 className="text-2xl md:text-3xl font-bold text-blue-400 mb-8 flex items-center gap-3">
+              <span className="text-slate-500 text-lg">03.</span> What Makes Us Different?
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="p-8 bg-slate-900/50 border border-white/10 rounded-2xl hover:border-blue-500/50 transition-all duration-300">
+                <h3 className="text-xl font-bold text-white mb-4">Precision</h3>
+                <p className="text-slate-400 text-sm">A meticulous working principle that does not miss even the smallest detail.</p>
+              </div>
+              <div className="p-8 bg-slate-900/50 border border-white/10 rounded-2xl hover:border-blue-500/50 transition-all duration-300">
+                <h3 className="text-xl font-bold text-white mb-4">Scalability</h3>
+                <p className="text-slate-400 text-sm">The promise of maintaining the same quality standards no matter how large your project is.</p>
+              </div>
+              <div className="p-8 bg-slate-900/50 border border-white/10 rounded-2xl hover:border-blue-500/50 transition-all duration-300">
+                <h3 className="text-xl font-bold text-white mb-4">Security</h3>
+                <p className="text-slate-400 text-sm">The confidentiality and security of your data are our highest priorities.</p>
+              </div>
             </div>
           </section>
 
-          <section>
-            <h2 className="text-2xl text-white font-semibold mb-6">Why DeepAnnotation?</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="space-y-2">
-                <h4 className="text-white font-medium">Human-in-the-Loop</h4>
-                <p className="text-sm text-gray-400">Meticulous human verification to ensure every data point meets the highest quality standards.</p>
-              </div>
-              <div className="space-y-2">
-                <h4 className="text-white font-medium">Scalability & Agility</h4>
-                <p className="text-sm text-gray-400">A dynamic team that scales quickly according to your project's evolving needs.</p>
-              </div>
-              <div className="space-y-2">
-                <h4 className="text-white font-medium">Data Security</h4>
-                <p className="text-sm text-gray-400">Rigorous security protocols to protect your proprietary information and intellectual property.</p>
-              </div>
-            </div>
+          {/* 4. VISION */}
+          <section className="p-10 bg-gradient-to-br from-blue-600/10 to-purple-600/10 border border-blue-500/20 rounded-3xl text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Our Vision</h2>
+            <p className="text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed">
+              "To contribute to the potential of Artificial Intelligence to improve the world and to be the most trusted solution partner that comes to mind when it comes to data annotation."
+            </p>
           </section>
+
         </div>
       </div>
     </div>
