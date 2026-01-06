@@ -10,7 +10,8 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
   { label: "Why Us", href: "/why-us" },
-  { label: "About Us", href: "/about" }, // Sadece bu satırı ekledik
+  { label: "About Us", href: "/about" },
+  { label: "Blog", href: "/blog" }, // Blog buraya eklendi
   { label: "Contact", href: "/contact" },
 ]
 
@@ -28,7 +29,7 @@ export default function Navbar() {
           {/* LOGO VE PARLAYAN İKON */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative flex items-center justify-center">
-              {/* GLOW (PARLAMA) KATMANI: İkonun arkasındaki mavi ışık */}
+              {/* GLOW (PARLAMA) KATMANI */}
               <div className="absolute w-8 h-8 bg-blue-500/40 rounded-full blur-xl group-hover:bg-blue-400/60 transition-all duration-500"></div>
               
               <Image 
