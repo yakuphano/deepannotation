@@ -21,7 +21,7 @@ export default function AboutPage() {
               <span className="text-blue-500 text-lg font-black"> </span> Who We Are
             </h2>
             <p className="text-lg md:text-xl text-gray-400 leading-relaxed border-l-4 border-blue-600 pl-6 py-2">
-              "DeepAnnotation is a young and passionate technology venture that believes in the power of data in the world of Artificial Intelligence and Machine Learning. We set out with the awareness that the success of AI models depends on the quality of the data behind them."
+              DeepAnnotation is a young and passionate technology venture that believes in the power of data in the world of Artificial Intelligence and Machine Learning. We set out with the awareness that the success of AI models depends on the quality of the data behind them.
             </p>
           </section>
 
