@@ -45,12 +45,12 @@ export default function ContactPage() {
         <h1 className="text-4xl md:text-5xl font-black mb-4 text-center tracking-tighter">Contact Us</h1>
         <p className="text-slate-400 text-center mb-12 text-lg">Let&apos;s build the future of AI together.</p>
 
-        {/* Ana form çerçevesi border-white/5 yapılarak inceltildi */}
         <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6 bg-white/5 p-6 md:p-10 rounded-3xl border border-white/5 shadow-2xl backdrop-blur-sm">
           <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
 
+          {/* Label renkleri text-blue-400 yerine text-white yapılarak güncellendi */}
           <div className="space-y-2">
-            <label className="text-sm font-bold text-blue-400 ml-1 uppercase tracking-widest">Name</label>
+            <label className="text-sm font-bold text-white ml-1 uppercase tracking-widest">Name</label>
             <input 
               name="name" 
               required 
@@ -60,7 +60,7 @@ export default function ContactPage() {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-bold text-blue-400 ml-1 uppercase tracking-widest">Email</label>
+            <label className="text-sm font-bold text-white ml-1 uppercase tracking-widest">Email</label>
             <input 
               type="email" 
               name="email" 
@@ -71,7 +71,7 @@ export default function ContactPage() {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-bold text-blue-400 ml-1 uppercase tracking-widest">Company</label>
+            <label className="text-sm font-bold text-white ml-1 uppercase tracking-widest">Company</label>
             <input 
               name="company" 
               required 
@@ -81,7 +81,7 @@ export default function ContactPage() {
           </div>
 
           <div className="space-y-2">
-            <label className="text-sm font-bold text-blue-400 ml-1 uppercase tracking-widest">Message</label>
+            <label className="text-sm font-bold text-white ml-1 uppercase tracking-widest">Message</label>
             <textarea 
               name="message" 
               required 
