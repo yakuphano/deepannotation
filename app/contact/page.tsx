@@ -52,17 +52,16 @@ export default function ContactPage() {
 
         <form
           onSubmit={handleSubmit}
-          className="space-y-4 md:space-y-6 bg-white/5 p-6 md:p-8 rounded-2xl border border-white/10"
+          className="space-y-4 md:space-y-6 bg-white/5 p-6 md:p-8 rounded-2xl border-[1px] border-white/20 shadow-xl"
         >
-          {/* Honeypot */}
           <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
 
-          {/* input ve textarea sınıflarına text-slate-300 ve border-white/20 eklendi */}
+          {/* border-[1px] eklenerek masaüstünde görünmeme sorunu çözüldü */}
           <input
             name="name"
             required
             placeholder="Your Name"
-            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/20 text-slate-300 placeholder:text-slate-500 outline-none focus:border-blue-500 transition shadow-sm"
+            className="w-full px-4 py-3 rounded-lg bg-black/60 border-[1px] border-white/30 text-white placeholder:text-gray-400 outline-none focus:border-blue-500 transition shadow-inner"
           />
 
           <input
@@ -70,14 +69,14 @@ export default function ContactPage() {
             name="email"
             required
             placeholder="Your Email"
-            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/20 text-slate-300 placeholder:text-slate-500 outline-none focus:border-blue-500 transition shadow-sm"
+            className="w-full px-4 py-3 rounded-lg bg-black/60 border-[1px] border-white/30 text-white placeholder:text-gray-400 outline-none focus:border-blue-500 transition shadow-inner"
           />
 
           <input
             name="company"
             required
             placeholder="Company Name"
-            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/20 text-slate-300 placeholder:text-slate-500 outline-none focus:border-blue-500 transition shadow-sm"
+            className="w-full px-4 py-3 rounded-lg bg-black/60 border-[1px] border-white/30 text-white placeholder:text-gray-400 outline-none focus:border-blue-500 transition shadow-inner"
           />
 
           <textarea
@@ -85,19 +84,19 @@ export default function ContactPage() {
             required
             rows={5}
             placeholder="Your Message"
-            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/20 text-slate-300 placeholder:text-slate-500 outline-none focus:border-blue-500 transition shadow-sm"
+            className="w-full px-4 py-3 rounded-lg bg-black/60 border-[1px] border-white/30 text-white placeholder:text-gray-400 outline-none focus:border-blue-500 transition shadow-inner"
           />
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-full bg-blue-500 text-black font-semibold hover:bg-blue-400 transition disabled:opacity-50"
+            className="w-full py-3 rounded-full bg-blue-500 text-black font-semibold hover:bg-blue-400 transition shadow-lg shadow-blue-500/20 disabled:opacity-50"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
 
           {success && (
-            <p className="text-green-400 text-center mt-4">
+            <p className="text-green-400 text-center mt-4 font-medium">
               ✅ Message sent successfully!
             </p>
           )}
