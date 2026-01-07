@@ -3,7 +3,6 @@
 import { Shield, Layers, Users, Lock, Zap } from "lucide-react"
 
 const reasons = [
-  // ... (Veri listesi aynı)
   {
     title: "Multi-Level Quality Control",
     description: "Every annotation task at DeepAnnotation passes through multiple layers of quality assurance. We combine expert human reviewers, consensus-based validation, and automated checks to ensure consistently high accuracy at scale.",
@@ -33,10 +32,8 @@ const reasons = [
 
 export default function WhyUsPage() {
   return (
-    // Padding ayarı
     <main className="min-h-screen bg-slate-950 text-white px-6 py-24 md:py-32">
       <div className="max-w-6xl mx-auto">
-        {/* Başlık ayarı */}
         <h1 className="text-3xl md:text-5xl font-bold text-center mb-6">
           Why Choose DeepAnnotation
         </h1>
@@ -47,30 +44,33 @@ export default function WhyUsPage() {
           real-world machine learning systems.
         </p>
 
-        {/* Grid ayarı */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
           {reasons.map((reason, index) => {
             const Icon = reason.icon
             return (
-              <div
-                key={index}
-                className="
-                  group relative rounded-2xl
-                  border border-white/10 bg-white/5
-                  p-6 md:p-8 transition-all duration-300
-                  hover:bg-white/10
-                  hover:shadow-[0_0_40px_rgba(59,130,246,0.25)]
-                "
-              >
-                <Icon className="w-10 h-10 md:w-12 md:h-12 text-blue-400 mb-4 md:mb-6 group-hover:scale-110 transition-transform" />
+              <div key={index} className="group relative">
+                {/* GLOW KATMANI */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-500"></div>
 
-                <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4">
-                  {reason.title}
-                </h3>
+                <div
+                  className="
+                    relative rounded-2xl
+                    border border-white/10 bg-slate-950
+                    p-6 md:p-8 transition-all duration-300
+                    group-hover:border-blue-500/50
+                    h-full
+                  "
+                >
+                  <Icon className="w-10 h-10 md:w-12 md:h-12 text-blue-400 mb-4 md:mb-6 group-hover:scale-110 transition-transform" />
 
-                <p className="text-slate-400 leading-relaxed text-sm md:text-base">
-                  {reason.description}
-                </p>
+                  <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4">
+                    {reason.title}
+                  </h3>
+
+                  <p className="text-slate-400 leading-relaxed text-sm md:text-base">
+                    {reason.description}
+                  </p>
+                </div>
               </div>
             )
           })}

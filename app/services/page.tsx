@@ -3,7 +3,6 @@
 import { Brain, Database, Cpu } from "lucide-react"
 
 const services = [
-  // ... (Buradaki veri listesi aynı kalacak, değiştirmene gerek yok)
   {
     title: "Image Annotation",
     description: "Image classification, semantic segmentation, and object detection for computer vision models.",
@@ -48,10 +47,8 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    // Padding azaltıldı: py-24 -> py-20 md:py-32
     <section className="min-h-screen px-6 py-20 md:py-32 bg-slate-950 text-white">
       <div className="max-w-6xl mx-auto">
-        {/* Font küçültüldü: text-5xl -> text-3xl md:text-5xl */}
         <h1 className="text-3xl md:text-5xl font-bold text-center mb-6">
           Our Services
         </h1>
@@ -61,29 +58,32 @@ export default function ServicesPage() {
           mission-critical machine learning systems.
         </p>
 
-        {/* Grid mobilde 1 sütun (default), mediumda 3 sütun */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
-              <div
-                key={index}
-                className="
-                  group relative rounded-2xl border border-white/10 p-6 md:p-8
-                  transition-all duration-300
-                  hover:bg-white/5
-                  hover:shadow-[0_0_40px_rgba(59,130,246,0.25)]
-                "
-              >
-                <Icon className="w-10 h-10 md:w-12 md:h-12 text-blue-400 mb-4 md:mb-6 group-hover:scale-110 transition-transform" />
+              <div key={index} className="group relative">
+                {/* GLOW KATMANI */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl blur opacity-10 group-hover:opacity-40 transition duration-500"></div>
+                
+                <div
+                  className="
+                    relative rounded-2xl border border-white/10 p-6 md:p-8
+                    bg-slate-950 transition-all duration-300
+                    group-hover:border-blue-500/50
+                    h-full
+                  "
+                >
+                  <Icon className="w-10 h-10 md:w-12 md:h-12 text-blue-400 mb-4 md:mb-6 group-hover:scale-110 transition-transform" />
 
-                <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4">
-                  {service.title}
-                </h3>
+                  <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4">
+                    {service.title}
+                  </h3>
 
-                <p className="text-slate-400 leading-relaxed text-sm md:text-base">
-                  {service.description}
-                </p>
+                  <p className="text-slate-400 leading-relaxed text-sm md:text-base">
+                    {service.description}
+                  </p>
+                </div>
               </div>
             )
           })}
