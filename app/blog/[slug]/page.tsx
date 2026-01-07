@@ -14,7 +14,7 @@ const blogPostsData: Record<string, { title: string; date: string; readTime: str
     content: [
       "In the contemporary AI landscape, the paradigm has shifted from 'Big Data' to 'Smart Data'. As neural networks become more sophisticated, their performance is increasingly bottlenecked by the quality of the training sets provided.",
       "At DeepAnnotation, we address the 'Garbage In, Garbage Out' challenge by implementing multi-layer verification protocols. Quality data ensures that models learn accurate features rather than noise, significantly reducing the risk of algorithmic bias.",
-      "Furthermore, clean data accelerates the convergence of models during training, saving thousands of dollars in compute costs. By prioritizing precision over volume, technology teams can build robust AI systems that generalize better to real-world scenarios."
+      "Furthermore, clean data accelerates the convergence of models during training, saving thousands of dollars in compute costs."
     ]
   },
   "understanding-semantic-segmentation": {
@@ -25,7 +25,7 @@ const blogPostsData: Record<string, { title: string; date: string; readTime: str
     content: [
       "Semantic segmentation represents the pinnacle of computer vision complexity, requiring the classification of every individual pixel within an image. For autonomous systems, this provides a granular understanding of the environment.",
       "The year 2026 has brought new challenges with the rise of Level 5 autonomy. Models now require annotation that accounts for weather occlusions, motion blur, and varying light conditions.",
-      "This level of detail allows AI to not only recognize objects but to understand their exact spatial occupancy. This is the difference between a self-driving car knowing there is a pedestrian nearby and knowing exactly where the pedestrian's footprint ends."
+      "This level of detail allows AI to not only recognize objects but to understand their exact spatial occupancy."
     ]
   },
   "future-of-nlp-trends": {
@@ -34,21 +34,21 @@ const blogPostsData: Record<string, { title: string; date: string; readTime: str
     readTime: "9 min read",
     image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&q=80&w=1200",
     content: [
-      "Large Language Models (LLMs) have transformed how we interact with technology, but their growth is fueled by increasingly complex text annotation. We are moving beyond basic sentiment analysis into the realm of 'Intent Mapping'.",
-      "Modern NLP datasets require annotators who understand linguistic subtleties and industry-specific jargon. DeepAnnotation bridges this gap by employing specialists who ensure contextually rich data.",
-      "As we look toward 2027, the focus will be on 'Reinforcement Learning from Human Feedback' (RLHF). This process relies on human-ranked responses to fine-tune AI behavior safely and ethically."
+      "Large Language Models (LLMs) have transformed how we interact with technology, but their growth is fueled by increasingly complex text annotation. We are moving beyond basic sentiment analysis.",
+      "Modern NLP datasets require annotators who understand linguistic subtleties and industry-specific jargon. DeepAnnotation bridges this gap by employing specialists.",
+      "As we look toward 2027, the focus will be on 'Reinforcement Learning from Human Feedback' (RLHF)."
     ]
   },
   "lidar-annotation-robotics": {
     title: "Neural Robotics: Mastering 3D Point Cloud LiDAR Annotation",
     date: "Jan 08, 2026",
     readTime: "12 min read",
-    // GÜNCELLENMİŞ NEURAL ROBOT GÖRSELİ
-    image: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=1200", 
+    // YENİ GÖRSEL: Soyut Sinir Ağları (Robot içermeyen, tamamen neural odaklı)
+    image: "https://images.unsplash.com/photo-1501166788412-2ca2435a452f?auto=format&fit=crop&q=80&w=1200", 
     content: [
       "Robotics is undergoing a neural revolution. To navigate complex 3D spaces, robots rely on LiDAR sensors that generate millions of data points every second. Translating this into intelligence requires sophisticated 3D cuboid annotation.",
-      "Unlike 2D images, 3D data requires an understanding of depth, orientation, and velocity. Annotating a moving object in a 3D space involves tracking its trajectory across multiple frames, ensuring temporal consistency.",
-      "From warehouse automation to delivery drones, the safety of robotic systems depends on the precision of their training data. We enable the next generation of robots to interact with the physical world fluidly and safely."
+      "Unlike 2D images, 3D data requires an understanding of depth, orientation, and velocity. Annotating a moving object in 3D involves tracking its trajectory across frames, ensuring temporal consistency.",
+      "From warehouse automation to delivery drones, the safety of robotic systems depends on the precision of their training data. We enable the next generation of robots to interact with the physical world fluidly."
     ]
   }
 };
@@ -83,7 +83,7 @@ export default function BlogPost() {
              alt={post.title} 
              className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
              onError={(e) => {
-               (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200";
+               (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200";
              }}
            />
         </div>

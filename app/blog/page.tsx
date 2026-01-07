@@ -41,8 +41,8 @@ const blogPosts = [
     readTime: "12 min read",
     category: "Robotics",
     slug: "lidar-annotation-robotics",
-    // YENİ GÜNCELLENMİŞ NEURAL ROBOT GÖRSELİ
-    image: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=800"
+    // YENİ GÖRSEL: Soyut Sinir Ağları ve Nöron Akışı
+    image: "https://images.unsplash.com/photo-1501166788412-2ca2435a452f?auto=format&fit=crop&q=80&w=800"
   }
 ];
 
@@ -50,7 +50,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-white pt-32 pb-20">
       <div className="container mx-auto px-6 max-w-5xl">
-        <h1 className="text-4xl md:text-6xl font-black mb-12 tracking-tighter italic underline decoration-blue-500">Blog</h1>
+        <h1 className="text-4xl md:text-6xl font-black mb-12 tracking-tighter">Blog</h1>
         <div className="grid gap-8">
           {blogPosts.map((post) => (
             <Link href={`/blog/${post.slug}`} key={post.id} className="group relative block">
@@ -60,7 +60,7 @@ export default function BlogPage() {
                 <div className="flex-1">
                   <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">{post.category}</span>
                   <h2 className="text-2xl font-bold mt-2 group-hover:text-blue-400 transition-colors">{post.title}</h2>
-                  <p className="text-gray-400 mt-2 text-sm leading-relaxed line-clamp-2">{post.excerpt}</p>
+                  <p className="text-gray-400 mt-2 text-sm leading-relaxed">{post.excerpt}</p>
                 </div>
                 <div className="text-blue-500 group-hover:translate-x-2 transition-transform hidden md:block">
                    <ChevronRight size={24} />
