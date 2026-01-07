@@ -27,22 +27,23 @@ export default function Home() {
       </div>
 
       {/* 2. ANA İÇERİK YAPISI */}
-      <section className="container mx-auto px-6 relative z-20 w-full pt-20 md:pt-24">
+      {/* pt-36 ekleyerek mobilde içeriği Navbar'dan tamamen uzaklaştırdık */}
+      <section className="container mx-auto px-6 relative z-20 w-full pt-36 md:pt-24">
         <div className="grid lg:grid-cols-2 gap-4 items-start">
           
           {/* SOL TARAF */}
           <div className="flex flex-col items-start text-left max-w-2xl animate-fade-in">
             
-            {/* MOBİLDE NAVBAR ALTINDAN KURTARILAN YAZI */}
-            {/* mt-12 eklenerek aşağı indirildi, mb-2 ile altındaki başlığa yaklaştırıldı */}
-            <div className="mt-12 md:mt-0 mb-2 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase">
+            {/* MOBİLDE NAVBAR ALTINDAN KURTARILAN BADGE */}
+            {/* mb-0 ile altındaki başlığa yapıştırdık */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase mb-0">
               <Zap size={14} />
               <span>AI-Powered Data Solutions</span>
             </div>
 
             <div className="space-y-4">
-              {/* DeepAnnotation başlığı konumu değişmedi */}
-              <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-none drop-shadow-2xl">
+              {/* -mt-1 ile üstteki yazıya olan mesafeyi mobilde iyice daralttık */}
+              <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-none drop-shadow-2xl -mt-1">
                 DeepAnnotation
               </h1>
               <h2 className="text-xl md:text-3xl font-bold text-blue-400 tracking-tight">
@@ -55,7 +56,7 @@ export default function Home() {
               production machine learning systems.
             </p>
 
-            {/* BUTONLAR */}
+            {/* BUTON */}
             <div className="flex flex-wrap gap-4 pt-6">
               <Link href="/contact" className="px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all flex items-center gap-2 group shadow-[0_0_25px_rgba(37,99,235,0.4)]">
                 Get Started 
@@ -65,7 +66,7 @@ export default function Home() {
           </div>
 
           {/* SAĞ TARAF: Animasyon */}
-          <div className="relative flex items-center justify-end h-[350px] md:h-[600px] -mt-10 md:mt-0">
+          <div className="relative flex items-center justify-end h-[350px] md:h-[600px] -mt-5 md:mt-0">
             <div className="w-full max-w-[750px] transform lg:translate-x-48 lg:translate-y-24 flex justify-center items-center scale-110 md:scale-150">
               <Lottie 
                 animationData={animationData} 
