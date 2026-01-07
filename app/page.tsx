@@ -27,11 +27,10 @@ export default function Home() {
       </div>
 
       {/* 2. ANA İÇERİK YAPISI */}
-      {/* Mobilde Navbar altında kalmaması için pt-40 (yaklaşık 160px) boşluk eklendi */}
       <section className="container mx-auto px-6 relative z-20 w-full pt-40 md:pt-0">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           
-          {/* SOL TARAF: Beyaz Başlık ve Metinler */}
+          {/* SOL TARAF: Metin İçeriği */}
           <div className="flex flex-col items-start text-left space-y-8 max-w-2xl animate-fade-in">
             
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase">
@@ -40,7 +39,6 @@ export default function Home() {
             </div>
 
             <div className="space-y-4">
-              {/* Başlık tamamen beyaz (text-white) ve mobilde Navbar çakışması için korunaklı */}
               <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-none drop-shadow-2xl">
                 DeepAnnotation
               </h1>
@@ -54,7 +52,6 @@ export default function Home() {
               production machine learning systems.
             </p>
 
-            {/* BUTONLAR */}
             <div className="flex flex-wrap gap-4 pt-4">
               <Link href="/contact" className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all flex items-center gap-2 group shadow-[0_0_25px_rgba(37,99,235,0.4)]">
                 Get Started 
@@ -66,10 +63,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* SAĞ TARAF: Daha Sağ-Aşağı Konumlandırılmış Animasyon */}
+          {/* SAĞ TARAF: Daha Fazla Sağa Kaydırılmış Animasyon */}
           <div className="relative flex items-end justify-end h-[400px] md:h-[700px]">
-            {/* lg:translate-x-32 ve lg:translate-y-32 ile animasyon daha da sağ-aşağı itildi */}
-            <div className="w-full max-w-[750px] transform lg:translate-x-32 lg:translate-y-32 flex justify-center items-center scale-110 md:scale-150">
+            {/* lg:translate-x-48 ile animasyonu biraz daha sağa çektik */}
+            <div className="w-full max-w-[750px] transform lg:translate-x-48 lg:translate-y-32 flex justify-center items-center scale-110 md:scale-150">
               <Lottie 
                 animationData={animationData} 
                 loop={true} 
