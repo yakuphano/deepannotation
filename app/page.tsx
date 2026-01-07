@@ -11,8 +11,7 @@ const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 export default function Home() {
   return (
-    /* bg-slate-950 yerine bg-transparent yapıldı, düzen korundu */
-    <main className="relative min-h-screen w-full bg-transparent overflow-x-hidden">
+    <main className="relative min-h-screen w-full bg-slate-950 overflow-x-hidden">
       
       <div className="absolute inset-0 z-0">
         <Image

@@ -1,3 +1,4 @@
+/* app/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,21 +9,15 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  /* CANLI VE NET LACİVERT GRADYAN */
-  background: radial-gradient(
-    circle at top,
-    #1e40af 0%,   /* Parlak Lacivert */
-    #0f172a 70%,  /* Derin Lacivert */
-    #020617 100%  /* Koyu Lacivert */
-  );
+  /* İstediğin canlı ve net lacivert gradyan */
+  background: radial-gradient(circle at top, #1e40af 0%, #020617 100%);
   background-attachment: fixed;
   min-height: 100vh;
   margin: 0;
 }
 
-/* Yerleşimleri bozmamak için global kutu modeli */
+/* Sayfa genelinde netlik ayarı */
 * {
-  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
