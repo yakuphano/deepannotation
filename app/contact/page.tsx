@@ -10,37 +10,33 @@ export default function ContactPage() {
     e.preventDefault()
     setLoading(true)
     setSuccess(false)
-
     const form = e.currentTarget
     const formData = new FormData(form)
-
     const payload = {
       name: formData.get("name"),
       email: formData.get("email"),
       company: formData.get("company"),
       message: formData.get("message"),
     }
-
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       })
-
-      if (!res.ok) throw new Error("Failed to send message")
-
+      if (!res.ok) throw new Error("Failed")
       setSuccess(true)
       form.reset()
     } catch (error) {
-      alert("Message could not be sent. Please try again.")
+      alert("Message could not be sent.")
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <main className="min-h-screen bg-slate-950 text-white px-6 pt-32 pb-20 md:py-40 flex flex-col items-center">
+    /* bg-slate-950 silindi, yerine bg-transparent eklendi */
+    <main className="min-h-screen bg-transparent text-white px-6 pt-32 pb-20 md:py-40 flex flex-col items-center">
       <div className="w-full max-w-xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-black mb-4 text-center tracking-tighter">Contact Us</h1>
         <p className="text-slate-400 text-center mb-12 text-lg">Let&apos;s build the future of AI together.</p>
