@@ -27,7 +27,6 @@ export default function Home() {
       </div>
 
       {/* 2. ANA İÇERİK YAPISI */}
-      {/* pt-28 (Mobil yukarı çekildi) | md:pt-24 (Masaüstü dengelendi) */}
       <section className="container mx-auto px-6 relative z-20 w-full pt-28 md:pt-24 lg:pt-32">
         <div className="grid lg:grid-cols-2 gap-4 items-start">
           
@@ -40,7 +39,6 @@ export default function Home() {
             </div>
 
             <div className="space-y-2">
-              {/* Masaüstü boyutu md:text-6xl olarak küçültüldü */}
               <h1 className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-tight drop-shadow-2xl mt-0">
                 DeepAnnotation
               </h1>
@@ -49,9 +47,9 @@ export default function Home() {
               </h2>
             </div>
             
-            <p className="mt-6 text-white text-lg md:text-xl leading-relaxed font-medium max-w-lg drop-shadow-md">
-              Enterprise-grade data annotation and AI training services for 
-              production machine learning systems.
+            {/* GÜNCELLENEN DAHA UZUN METİN */}
+            <p className="mt-6 text-white text-lg md:text-xl leading-relaxed font-medium max-w-xl drop-shadow-md">
+              Enterprise-grade data annotation and AI training services for production machine learning systems. We provide precision-driven data labeling, high-accuracy model training assets, and scalable workforce solutions designed to empower next-generation artificial intelligence.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-6">
@@ -62,10 +60,11 @@ export default function Home() {
             </div>
           </div>
 
-          {/* SAĞ TARAF: Konumu güncellenmiş animasyon */}
-          {/* Mobilde -mt-20 ile yukarı çekildi | md:mt-0 ile masaüstü korundu */}
-          <div className="relative flex items-center justify-end h-[300px] md:h-[600px] -mt-20 md:mt-0">
-            <div className="w-full max-w-[750px] transform lg:translate-x-48 lg:translate-y-24 flex justify-center items-center scale-125 md:scale-150">
+          {/* SAĞ TARAF: Mobilde Konumu Dengelenmiş Animasyon */}
+          {/* -mt-5 ile mobilde biraz aşağı çektik, md:mt-0 masaüstünü korur */}
+          <div className="relative flex items-center justify-end h-[350px] md:h-[600px] -mt-5 md:mt-0">
+            {/* Mobilde translate-x-4 ile biraz sağa kaydırdık */}
+            <div className="w-full max-w-[750px] transform translate-x-4 md:translate-x-0 lg:translate-x-48 lg:translate-y-24 flex justify-center items-center scale-125 md:scale-150">
               <Lottie 
                 animationData={animationData} 
                 loop={true} 
