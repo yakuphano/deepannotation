@@ -57,7 +57,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Animasyon - Mobilde Sağa Kaydırılmış Versiyon */}
+          {/* Sağ Taraf: Animasyon (Mobilde Sağa Kaydırılmış) */}
           <div className="relative flex items-center justify-end h-[350px] md:h-[600px] -mt-5 md:mt-0">
             <div className="w-full max-w-[750px] transform translate-x-12 md:translate-x-0 lg:translate-x-48 lg:translate-y-24 flex justify-center items-center scale-125 md:scale-150">
               <Lottie 
