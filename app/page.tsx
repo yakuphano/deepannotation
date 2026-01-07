@@ -11,7 +11,7 @@ const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-full flex items-start md:items-center bg-slate-950 overflow-hidden">
+    <main className="relative min-h-screen w-full flex items-start bg-slate-950 overflow-hidden">
       
       {/* 1. ARKA PLAN KATMANI */}
       <div className="absolute inset-0 z-0">
@@ -27,11 +27,11 @@ export default function Home() {
       </div>
 
       {/* 2. ANA İÇERİK YAPISI */}
-      {/* pt-24 (mobilde navbarın hemen altı) ve md:pt-12 (masaüstünde yukarı taşıma) */}
-      <section className="container mx-auto px-6 relative z-20 w-full pt-24 md:pt-12">
-        <div className="grid lg:grid-cols-2 gap-4 items-start md:items-center">
+      {/* pt-20 ile yazıları hem mobilde hem masaüstünde Navbar'ın hemen altına taşıdık */}
+      <section className="container mx-auto px-6 relative z-20 w-full pt-20 md:pt-24">
+        <div className="grid lg:grid-cols-2 gap-4 items-start">
           
-          {/* SOL TARAF: Yukarı taşınmış metinler */}
+          {/* SOL TARAF: Navbar'ın hemen altından başlayan metinler */}
           <div className="flex flex-col items-start text-left space-y-6 md:space-y-8 max-w-2xl animate-fade-in">
             
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase">
@@ -53,21 +53,18 @@ export default function Home() {
               production machine learning systems.
             </p>
 
+            {/* BUTONLAR (Our Services kaldırıldı) */}
             <div className="flex flex-wrap gap-4 pt-2">
-              <Link href="/contact" className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all flex items-center gap-2 group shadow-[0_0_25px_rgba(37,99,235,0.4)]">
+              <Link href="/contact" className="px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all flex items-center gap-2 group shadow-[0_0_25px_rgba(37,99,235,0.4)]">
                 Get Started 
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link href="/services" className="px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-full font-bold transition-all backdrop-blur-sm">
-                Our Services
               </Link>
             </div>
           </div>
 
-          {/* SAĞ TARAF: Mobilde yukarı çekilmiş, Masaüstünde sağ-aşağıda animasyon */}
-          {/* Mobilde -mt-10 ile yazıların bitimine yaklaştırıldı */}
-          <div className="relative flex items-center justify-end h-[350px] md:h-[700px] -mt-10 md:mt-0">
-            <div className="w-full max-w-[750px] transform lg:translate-x-48 lg:translate-y-32 flex justify-center items-center scale-110 md:scale-150">
+          {/* SAĞ TARAF: Konumu korunan animasyon */}
+          <div className="relative flex items-center justify-end h-[350px] md:h-[600px] -mt-10 md:mt-0">
+            <div className="w-full max-w-[750px] transform lg:translate-x-48 lg:translate-y-24 flex justify-center items-center scale-110 md:scale-150">
               <Lottie 
                 animationData={animationData} 
                 loop={true} 
