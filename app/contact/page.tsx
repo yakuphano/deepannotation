@@ -1,107 +1,86 @@
 "use client"
 
-import { useState } from "react"
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
+import { ArrowRight, Zap } from 'lucide-react';
+// @ts-ignore
+import animationData from "@/public/lottie/ai-brain.json"; 
 
-export default function ContactPage() {
-  const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState(false)
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setLoading(true)
-    setSuccess(false)
-
-    const form = e.currentTarget
-    const formData = new FormData(form)
-
-    const payload = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      company: formData.get("company"),
-      message: formData.get("message"),
-    }
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      })
-
-      if (!res.ok) {
-        throw new Error("Failed to send message")
-      }
-
-      setSuccess(true)
-      form.reset()
-    } catch (error) {
-      alert("Message could not be sent. Please try again.")
-    } finally {
-      setLoading(false)
-    }
-  }
-
+export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white px-6 pt-32 pb-20 md:py-32 flex flex-col items-center">
-      <div className="w-full max-w-xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-          Contact Us
-        </h1>
-
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-4 md:space-y-6 bg-white/5 p-6 md:p-8 rounded-2xl border-[1px] border-white/20 shadow-xl"
-        >
-          <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
-
-          {/* border-[1px] eklenerek masaüstünde görünmeme sorunu çözüldü */}
-          <input
-            name="name"
-            required
-            placeholder="Your Name"
-            className="w-full px-4 py-3 rounded-lg bg-black/60 border-[1px] border-white/30 text-white placeholder:text-gray-400 outline-none focus:border-blue-500 transition shadow-inner"
-          />
-
-          <input
-            type="email"
-            name="email"
-            required
-            placeholder="Your Email"
-            className="w-full px-4 py-3 rounded-lg bg-black/60 border-[1px] border-white/30 text-white placeholder:text-gray-400 outline-none focus:border-blue-500 transition shadow-inner"
-          />
-
-          <input
-            name="company"
-            required
-            placeholder="Company Name"
-            className="w-full px-4 py-3 rounded-lg bg-black/60 border-[1px] border-white/30 text-white placeholder:text-gray-400 outline-none focus:border-blue-500 transition shadow-inner"
-          />
-
-          <textarea
-            name="message"
-            required
-            rows={5}
-            placeholder="Your Message"
-            className="w-full px-4 py-3 rounded-lg bg-black/60 border-[1px] border-white/30 text-white placeholder:text-gray-400 outline-none focus:border-blue-500 transition shadow-inner"
-          />
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full py-3 rounded-full bg-blue-500 text-black font-semibold hover:bg-blue-400 transition shadow-lg shadow-blue-500/20 disabled:opacity-50"
-          >
-            {loading ? "Sending..." : "Send Message"}
-          </button>
-
-          {success && (
-            <p className="text-green-400 text-center mt-4 font-medium">
-              ✅ Message sent successfully!
-            </p>
-          )}
-        </form>
+    <main className="relative min-h-screen w-full flex items-start bg-slate-950 overflow-hidden">
+      
+      {/* 1. ARKA PLAN KATMANI */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/background.png" 
+          alt="Background"
+          fill
+          priority
+          quality={100}
+          className="object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent"></div>
       </div>
+
+      {/* 2. ANA İÇERİK YAPISI */}
+      <section className="container mx-auto px-6 relative z-20 w-full pt-20 md:pt-24">
+        <div className="grid lg:grid-cols-2 gap-4 items-start">
+          
+          {/* SOL TARAF */}
+          <div className="flex flex-col items-start text-left max-w-2xl animate-fade-in">
+            
+            {/* MOBİLDE NAVBAR ALTINDAN KURTARILAN YAZI */}
+            {/* mt-12 eklenerek aşağı indirildi, mb-2 ile altındaki başlığa yaklaştırıldı */}
+            <div className="mt-12 md:mt-0 mb-2 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase">
+              <Zap size={14} />
+              <span>AI-Powered Data Solutions</span>
+            </div>
+
+            <div className="space-y-4">
+              {/* DeepAnnotation başlığı konumu değişmedi */}
+              <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-none drop-shadow-2xl">
+                DeepAnnotation
+              </h1>
+              <h2 className="text-xl md:text-3xl font-bold text-blue-400 tracking-tight">
+                High-Quality Data for Smarter AI
+              </h2>
+            </div>
+            
+            <p className="mt-8 text-white text-lg md:text-xl leading-relaxed font-medium max-w-lg drop-shadow-md">
+              Enterprise-grade data annotation and AI training services for 
+              production machine learning systems.
+            </p>
+
+            {/* BUTONLAR */}
+            <div className="flex flex-wrap gap-4 pt-6">
+              <Link href="/contact" className="px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all flex items-center gap-2 group shadow-[0_0_25px_rgba(37,99,235,0.4)]">
+                Get Started 
+                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </div>
+
+          {/* SAĞ TARAF: Animasyon */}
+          <div className="relative flex items-center justify-end h-[350px] md:h-[600px] -mt-10 md:mt-0">
+            <div className="w-full max-w-[750px] transform lg:translate-x-48 lg:translate-y-24 flex justify-center items-center scale-110 md:scale-150">
+              <Lottie 
+                animationData={animationData} 
+                loop={true} 
+                className="w-full h-full opacity-100 drop-shadow-[0_0_80px_rgba(59,130,246,0.4)]"
+              />
+              <div className="absolute inset-0 bg-blue-500/10 blur-[150px] rounded-full -z-10"></div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Alt Karartma */}
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-slate-950 to-transparent z-30 pointer-events-none"></div>
     </main>
-  )
+  );
 }
