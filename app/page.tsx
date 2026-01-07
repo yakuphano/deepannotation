@@ -13,7 +13,6 @@ export default function Home() {
   return (
     <main className="relative min-h-screen w-full bg-slate-950 overflow-x-hidden">
       
-      {/* Arka Plan Katmanı */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/background.png" 
@@ -26,7 +25,6 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent"></div>
       </div>
 
-      {/* Ana İçerik Yapısı */}
       <section className="container mx-auto px-6 relative z-20 w-full pt-28 md:pt-24 lg:pt-32">
         <div className="grid lg:grid-cols-2 gap-4 items-start">
           
@@ -57,7 +55,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Sağ Taraf: Animasyon (Mobilde Sağa Kaydırılmış) */}
           <div className="relative flex items-center justify-end h-[350px] md:h-[600px] -mt-5 md:mt-0">
             <div className="w-full max-w-[750px] transform translate-x-12 md:translate-x-0 lg:translate-x-48 lg:translate-y-24 flex justify-center items-center scale-125 md:scale-150">
               <Lottie 
