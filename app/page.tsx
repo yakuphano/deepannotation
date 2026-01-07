@@ -39,7 +39,7 @@ export default function Home() {
             </div>
 
             <div className="space-y-2">
-              <h1 className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-tight drop-shadow-2xl mt-0">
+              <h1 className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-none drop-shadow-2xl mt-0">
                 DeepAnnotation
               </h1>
               <h2 className="text-xl md:text-2xl font-bold text-blue-400 tracking-tight">
@@ -47,7 +47,6 @@ export default function Home() {
               </h2>
             </div>
             
-            {/* GÜNCELLENEN DAHA UZUN METİN */}
             <p className="mt-6 text-white text-lg md:text-xl leading-relaxed font-medium max-w-xl drop-shadow-md">
               Enterprise-grade data annotation and AI training services for production machine learning systems. We provide precision-driven data labeling, high-accuracy model training assets, and scalable workforce solutions designed to empower next-generation artificial intelligence.
             </p>
@@ -60,11 +59,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* SAĞ TARAF: Mobilde Konumu Dengelenmiş Animasyon */}
-          {/* -mt-5 ile mobilde biraz aşağı çektik, md:mt-0 masaüstünü korur */}
+          {/* SAĞ TARAF: Mobilde daha sağa kaydırılmış animasyon */}
           <div className="relative flex items-center justify-end h-[350px] md:h-[600px] -mt-5 md:mt-0">
-            {/* Mobilde translate-x-4 ile biraz sağa kaydırdık */}
-            <div className="w-full max-w-[750px] transform translate-x-4 md:translate-x-0 lg:translate-x-48 lg:translate-y-24 flex justify-center items-center scale-125 md:scale-150">
+            {/* translate-x-12 ekleyerek mobilde sağa kaydırdık. lg:translate-x-48 masaüstünü korur */}
+            <div className="w-full max-w-[750px] transform translate-x-12 md:translate-x-0 lg:translate-x-48 lg:translate-y-24 flex justify-center items-center scale-125 md:scale-150">
               <Lottie 
                 animationData={animationData} 
                 loop={true} 
