@@ -27,8 +27,8 @@ export default function Home() {
       </div>
 
       {/* 2. ANA İÇERİK YAPISI */}
-      {/* pt-32 ve md:pt-0 ekleyerek mobilde Navbar'ın altında kalmasını engelledik */}
-      <section className="container mx-auto px-6 relative z-20 w-full pt-32 md:pt-0">
+      {/* Mobilde Navbar altında kalmaması için pt-40 (yaklaşık 160px) boşluk eklendi */}
+      <section className="container mx-auto px-6 relative z-20 w-full pt-40 md:pt-0">
         <div className="grid lg:grid-cols-2 gap-8 items-center">
           
           {/* SOL TARAF: Beyaz Başlık ve Metinler */}
@@ -40,7 +40,7 @@ export default function Home() {
             </div>
 
             <div className="space-y-4">
-              {/* Başlık tamamen beyaz yapıldı ve mobil boyutu optimize edildi */}
+              {/* Başlık tamamen beyaz (text-white) ve mobilde Navbar çakışması için korunaklı */}
               <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-none drop-shadow-2xl">
                 DeepAnnotation
               </h1>
@@ -66,11 +66,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* SAĞ TARAF: Sağ-Alt Konumlu Lottie Animasyonu */}
-          {/* justify-end ve items-end ile sağ-alt konumu sağlandı */}
+          {/* SAĞ TARAF: Daha Sağ-Aşağı Konumlandırılmış Animasyon */}
           <div className="relative flex items-end justify-end h-[400px] md:h-[700px]">
-            {/* lg:translate-y-20 ve lg:translate-x-24 ile aşağı ve sağa itildi */}
-            <div className="w-full max-w-[750px] transform lg:translate-x-24 lg:translate-y-20 flex justify-center items-center scale-110 md:scale-150">
+            {/* lg:translate-x-32 ve lg:translate-y-32 ile animasyon daha da sağ-aşağı itildi */}
+            <div className="w-full max-w-[750px] transform lg:translate-x-32 lg:translate-y-32 flex justify-center items-center scale-110 md:scale-150">
               <Lottie 
                 animationData={animationData} 
                 loop={true} 
