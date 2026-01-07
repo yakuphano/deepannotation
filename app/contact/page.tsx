@@ -44,7 +44,6 @@ export default function ContactPage() {
   }
 
   return (
-    // Navbar payı eklendi (pt-24)
     <main className="min-h-screen bg-slate-950 text-white px-6 pt-32 pb-20 md:py-32 flex flex-col items-center">
       <div className="w-full max-w-xl mx-auto">
         <h1 className="text-3xl md:text-4xl font-bold mb-8 text-center">
@@ -58,11 +57,12 @@ export default function ContactPage() {
           {/* Honeypot */}
           <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
 
+          {/* input ve textarea sınıflarına text-slate-300 ve border-white/20 eklendi */}
           <input
             name="name"
             required
             placeholder="Your Name"
-            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white outline-none focus:border-blue-500 transition"
+            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/20 text-slate-300 placeholder:text-slate-500 outline-none focus:border-blue-500 transition shadow-sm"
           />
 
           <input
@@ -70,14 +70,14 @@ export default function ContactPage() {
             name="email"
             required
             placeholder="Your Email"
-            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white outline-none focus:border-blue-500 transition"
+            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/20 text-slate-300 placeholder:text-slate-500 outline-none focus:border-blue-500 transition shadow-sm"
           />
 
           <input
             name="company"
             required
             placeholder="Company Name"
-            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white outline-none focus:border-blue-500 transition"
+            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/20 text-slate-300 placeholder:text-slate-500 outline-none focus:border-blue-500 transition shadow-sm"
           />
 
           <textarea
@@ -85,7 +85,7 @@ export default function ContactPage() {
             required
             rows={5}
             placeholder="Your Message"
-            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/10 text-white outline-none focus:border-blue-500 transition"
+            className="w-full px-4 py-3 rounded-lg bg-black/40 border border-white/20 text-slate-300 placeholder:text-slate-500 outline-none focus:border-blue-500 transition shadow-sm"
           />
 
           <button
