@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen w-full flex items-center bg-slate-950 overflow-hidden">
       
-      {/* 1. ARKA PLAN RESMİ (Daha soft hale getirildi) */}
+      {/* 1. ARKA PLAN KATMANI */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/background.png" 
@@ -21,23 +21,22 @@ export default function Home() {
           fill
           priority
           quality={100}
-          className="object-cover opacity-40"
+          className="object-cover opacity-30"
         />
-        {/* Sol tarafa yazılar için karartma katmanı */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent"></div>
+        {/* Yazıların altını karartan gradyan */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent"></div>
       </div>
 
-      {/* 2. ANA İÇERİK (İki Sütunlu Yapı) */}
+      {/* 2. ANA İÇERİK (Grid Yapısı) */}
       <section className="container mx-auto px-6 relative z-20 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-4 items-center">
           
-          {/* SOL SÜTUN: Okunaklı Metinler ve Butonlar */}
+          {/* SOL TARAF: Okunaklı Metinler */}
           <div className="flex flex-col items-start text-left space-y-8 max-w-2xl">
             
-            {/* Küçük Üst Başlık */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase">
               <Zap size={14} />
-              <span>Next-Generation AI Training</span>
+              <span>AI-Powered Data Solutions</span>
             </div>
 
             <div className="space-y-4">
@@ -51,10 +50,10 @@ export default function Home() {
             
             <p className="text-white text-lg md:text-xl leading-relaxed font-medium max-w-lg drop-shadow-md">
               Enterprise-grade data annotation and AI training services for 
-              production machine learning systems. We transform raw information into structured, intelligent assets.
+              production machine learning systems. We transform raw information into structured assets.
             </p>
 
-            {/* CTA BUTONLARI */}
+            {/* BUTONLAR */}
             <div className="flex flex-wrap gap-4 pt-4">
               <Link href="/contact" className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all flex items-center gap-2 group shadow-[0_0_25px_rgba(37,99,235,0.4)]">
                 Get Started 
@@ -66,23 +65,24 @@ export default function Home() {
             </div>
           </div>
 
-          {/* SAĞ SÜTUN: Lottie Animasyonu (Yazıdan bağımsız sağ tarafta) */}
-          <div className="relative flex justify-center items-center h-[500px] md:h-[700px]">
-            <div className="w-full h-full scale-110 md:scale-150 flex items-center justify-center">
+          {/* SAĞ TARAF: Sağ-Ortaya Hizalı Lottie */}
+          <div className="relative flex items-center justify-end h-[500px] md:h-[700px]">
+            {/* lg:translate-x-20 ile sağa, md:scale-150 ile büyüklüğe müdahale edildi */}
+            <div className="w-full max-w-[750px] transform lg:translate-x-24 flex justify-center items-center scale-110 md:scale-150">
               <Lottie 
                 animationData={animationData} 
                 loop={true} 
-                className="w-full h-full opacity-90 drop-shadow-[0_0_50px_rgba(59,130,246,0.3)]"
+                className="w-full h-full opacity-100 drop-shadow-[0_0_70px_rgba(59,130,246,0.4)]"
               />
+              {/* Animasyon arkası aura efekti */}
+              <div className="absolute inset-0 bg-blue-500/10 blur-[150px] rounded-full -z-10"></div>
             </div>
-            {/* Animasyonun arkasına hafif bir parlama efekti */}
-            <div className="absolute inset-0 bg-blue-600/5 blur-[120px] rounded-full -z-10"></div>
           </div>
 
         </div>
       </section>
 
-      {/* Alt Karartma Gradyanı */}
+      {/* Alt Karartma */}
       <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-slate-950 to-transparent z-30 pointer-events-none"></div>
     </main>
   );
