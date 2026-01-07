@@ -23,16 +23,16 @@ export default function Home() {
           quality={100}
           className="object-cover opacity-30"
         />
-        {/* Yazıların altını karartan gradyan */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent"></div>
       </div>
 
-      {/* 2. ANA İÇERİK (Grid Yapısı) */}
-      <section className="container mx-auto px-6 relative z-20 w-full">
-        <div className="grid lg:grid-cols-2 gap-4 items-center">
+      {/* 2. ANA İÇERİK YAPISI */}
+      {/* pt-32 ve md:pt-0 ekleyerek mobilde Navbar'ın altında kalmasını engelledik */}
+      <section className="container mx-auto px-6 relative z-20 w-full pt-32 md:pt-0">
+        <div className="grid lg:grid-cols-2 gap-8 items-center">
           
-          {/* SOL TARAF: Okunaklı Metinler */}
-          <div className="flex flex-col items-start text-left space-y-8 max-w-2xl">
+          {/* SOL TARAF: Beyaz Başlık ve Metinler */}
+          <div className="flex flex-col items-start text-left space-y-8 max-w-2xl animate-fade-in">
             
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase">
               <Zap size={14} />
@@ -40,17 +40,18 @@ export default function Home() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-none drop-shadow-2xl">
-                Deep<span className="text-blue-500">Annotation</span>
+              {/* Başlık tamamen beyaz yapıldı ve mobil boyutu optimize edildi */}
+              <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-none drop-shadow-2xl">
+                DeepAnnotation
               </h1>
-              <h2 className="text-2xl md:text-3xl font-bold text-blue-400 tracking-tight">
+              <h2 className="text-xl md:text-3xl font-bold text-blue-400 tracking-tight">
                 High-Quality Data for Smarter AI
               </h2>
             </div>
             
             <p className="text-white text-lg md:text-xl leading-relaxed font-medium max-w-lg drop-shadow-md">
               Enterprise-grade data annotation and AI training services for 
-              production machine learning systems. We transform raw information into structured assets.
+              production machine learning systems.
             </p>
 
             {/* BUTONLAR */}
@@ -65,16 +66,16 @@ export default function Home() {
             </div>
           </div>
 
-          {/* SAĞ TARAF: Sağ-Ortaya Hizalı Lottie */}
-          <div className="relative flex items-center justify-end h-[500px] md:h-[700px]">
-            {/* lg:translate-x-20 ile sağa, md:scale-150 ile büyüklüğe müdahale edildi */}
-            <div className="w-full max-w-[750px] transform lg:translate-x-24 flex justify-center items-center scale-110 md:scale-150">
+          {/* SAĞ TARAF: Sağ-Alt Konumlu Lottie Animasyonu */}
+          {/* justify-end ve items-end ile sağ-alt konumu sağlandı */}
+          <div className="relative flex items-end justify-end h-[400px] md:h-[700px]">
+            {/* lg:translate-y-20 ve lg:translate-x-24 ile aşağı ve sağa itildi */}
+            <div className="w-full max-w-[750px] transform lg:translate-x-24 lg:translate-y-20 flex justify-center items-center scale-110 md:scale-150">
               <Lottie 
                 animationData={animationData} 
                 loop={true} 
-                className="w-full h-full opacity-100 drop-shadow-[0_0_70px_rgba(59,130,246,0.4)]"
+                className="w-full h-full opacity-100 drop-shadow-[0_0_80px_rgba(59,130,246,0.4)]"
               />
-              {/* Animasyon arkası aura efekti */}
               <div className="absolute inset-0 bg-blue-500/10 blur-[150px] rounded-full -z-10"></div>
             </div>
           </div>
