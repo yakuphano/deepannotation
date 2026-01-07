@@ -11,7 +11,7 @@ const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-full flex items-start bg-slate-950 overflow-hidden">
+    <main className="relative min-h-screen w-full bg-slate-950 overflow-x-hidden">
       
       {/* 1. ARKA PLAN KATMANI */}
       <div className="absolute inset-0 z-0">
@@ -27,23 +27,22 @@ export default function Home() {
       </div>
 
       {/* 2. ANA İÇERİK YAPISI */}
-      {/* pt-36 ekleyerek mobilde içeriği Navbar'dan tamamen uzaklaştırdık */}
-      <section className="container mx-auto px-6 relative z-20 w-full pt-36 md:pt-24">
+      {/* Mobilde pt-48 (yaklaşık 192px) vererek Navbar'ın altına girmesini engelledik */}
+      <section className="container mx-auto px-6 relative z-20 w-full pt-48 md:pt-32 lg:pt-40">
         <div className="grid lg:grid-cols-2 gap-4 items-start">
           
           {/* SOL TARAF */}
           <div className="flex flex-col items-start text-left max-w-2xl animate-fade-in">
             
-            {/* MOBİLDE NAVBAR ALTINDAN KURTARILAN BADGE */}
-            {/* mb-0 ile altındaki başlığa yapıştırdık */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase mb-0">
+            {/* MOBİLDE NAVBAR'DAN TAMAMEN KURTARILAN BÖLÜM */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1">
               <Zap size={14} />
               <span>AI-Powered Data Solutions</span>
             </div>
 
-            <div className="space-y-4">
-              {/* -mt-1 ile üstteki yazıya olan mesafeyi mobilde iyice daralttık */}
-              <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-none drop-shadow-2xl -mt-1">
+            <div className="space-y-2">
+              {/* mt-0 ve leading-tight ile üstteki yazıya tam yaklaştırdık */}
+              <h1 className="text-5xl md:text-8xl font-black text-white tracking-tighter leading-tight drop-shadow-2xl mt-0">
                 DeepAnnotation
               </h1>
               <h2 className="text-xl md:text-3xl font-bold text-blue-400 tracking-tight">
@@ -51,7 +50,7 @@ export default function Home() {
               </h2>
             </div>
             
-            <p className="mt-8 text-white text-lg md:text-xl leading-relaxed font-medium max-w-lg drop-shadow-md">
+            <p className="mt-6 text-white text-lg md:text-xl leading-relaxed font-medium max-w-lg drop-shadow-md">
               Enterprise-grade data annotation and AI training services for 
               production machine learning systems.
             </p>
@@ -66,8 +65,9 @@ export default function Home() {
           </div>
 
           {/* SAĞ TARAF: Animasyon */}
-          <div className="relative flex items-center justify-end h-[350px] md:h-[600px] -mt-5 md:mt-0">
-            <div className="w-full max-w-[750px] transform lg:translate-x-48 lg:translate-y-24 flex justify-center items-center scale-110 md:scale-150">
+          {/* Mobilde yazıların çok altında kalmaması için mt-8 eklendi */}
+          <div className="relative flex items-center justify-end h-[300px] md:h-[600px] mt-8 md:mt-0">
+            <div className="w-full max-w-[750px] transform lg:translate-x-48 lg:translate-y-24 flex justify-center items-center scale-125 md:scale-150">
               <Lottie 
                 animationData={animationData} 
                 loop={true} 
