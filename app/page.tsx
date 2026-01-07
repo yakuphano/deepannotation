@@ -11,7 +11,7 @@ const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-full flex items-center bg-slate-950 overflow-hidden">
+    <main className="relative min-h-screen w-full flex items-start md:items-center bg-slate-950 overflow-hidden">
       
       {/* 1. ARKA PLAN KATMANI */}
       <div className="absolute inset-0 z-0">
@@ -27,11 +27,12 @@ export default function Home() {
       </div>
 
       {/* 2. ANA İÇERİK YAPISI */}
-      <section className="container mx-auto px-6 relative z-20 w-full pt-40 md:pt-0">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
+      {/* pt-24 (mobilde navbarın hemen altı) ve md:pt-12 (masaüstünde yukarı taşıma) */}
+      <section className="container mx-auto px-6 relative z-20 w-full pt-24 md:pt-12">
+        <div className="grid lg:grid-cols-2 gap-4 items-start md:items-center">
           
-          {/* SOL TARAF: Metin İçeriği */}
-          <div className="flex flex-col items-start text-left space-y-8 max-w-2xl animate-fade-in">
+          {/* SOL TARAF: Yukarı taşınmış metinler */}
+          <div className="flex flex-col items-start text-left space-y-6 md:space-y-8 max-w-2xl animate-fade-in">
             
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold tracking-widest uppercase">
               <Zap size={14} />
@@ -52,7 +53,7 @@ export default function Home() {
               production machine learning systems.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-2">
               <Link href="/contact" className="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all flex items-center gap-2 group shadow-[0_0_25px_rgba(37,99,235,0.4)]">
                 Get Started 
                 <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -63,9 +64,9 @@ export default function Home() {
             </div>
           </div>
 
-          {/* SAĞ TARAF: Daha Fazla Sağa Kaydırılmış Animasyon */}
-          <div className="relative flex items-end justify-end h-[400px] md:h-[700px]">
-            {/* lg:translate-x-48 ile animasyonu biraz daha sağa çektik */}
+          {/* SAĞ TARAF: Mobilde yukarı çekilmiş, Masaüstünde sağ-aşağıda animasyon */}
+          {/* Mobilde -mt-10 ile yazıların bitimine yaklaştırıldı */}
+          <div className="relative flex items-center justify-end h-[350px] md:h-[700px] -mt-10 md:mt-0">
             <div className="w-full max-w-[750px] transform lg:translate-x-48 lg:translate-y-32 flex justify-center items-center scale-110 md:scale-150">
               <Lottie 
                 animationData={animationData} 
