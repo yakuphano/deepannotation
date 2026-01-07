@@ -55,9 +55,8 @@ export default function ContactPage() {
 
         <form
           onSubmit={handleSubmit}
-          className="space-y-4 md:space-y-6 bg-white/5 p-6 md:p-10 rounded-3xl border-[1px] border-white/20 shadow-2xl backdrop-blur-sm"
+          className="space-y-4 md:space-y-6 bg-white/5 p-6 md:p-10 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-sm"
         >
-          {/* Honeypot for spam protection */}
           <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
 
           <div className="space-y-2">
@@ -66,7 +65,7 @@ export default function ContactPage() {
               name="name"
               required
               placeholder="Your Full Name"
-              className="w-full px-5 py-4 rounded-xl bg-black/60 border-[1px] border-white/30 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition shadow-inner"
+              className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/10 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner"
             />
           </div>
 
@@ -77,7 +76,7 @@ export default function ContactPage() {
               name="email"
               required
               placeholder="your@email.com"
-              className="w-full px-5 py-4 rounded-xl bg-black/60 border-[1px] border-white/30 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition shadow-inner"
+              className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/10 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner"
             />
           </div>
 
@@ -87,7 +86,7 @@ export default function ContactPage() {
               name="company"
               required
               placeholder="Company Name"
-              className="w-full px-5 py-4 rounded-xl bg-black/60 border-[1px] border-white/30 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition shadow-inner"
+              className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/10 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner"
             />
           </div>
 
@@ -98,7 +97,7 @@ export default function ContactPage() {
               required
               rows={5}
               placeholder="How can we help your AI project?"
-              className="w-full px-5 py-4 rounded-xl bg-black/60 border-[1px] border-white/30 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition shadow-inner resize-none"
+              className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/10 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner resize-none"
             />
           </div>
 
@@ -113,7 +112,7 @@ export default function ContactPage() {
           {success && (
             <div className="bg-green-500/10 border border-green-500/50 p-4 rounded-xl mt-4">
               <p className="text-green-400 text-center font-bold">
-                ✅ Message sent successfully! We will get back to you soon.
+                ✅ Message sent successfully!
               </p>
             </div>
           )}
