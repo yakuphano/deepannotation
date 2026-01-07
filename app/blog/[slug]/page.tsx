@@ -12,9 +12,9 @@ const blogPostsData: Record<string, { title: string; date: string; readTime: str
     readTime: "8 min read",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200",
     content: [
-      "In the contemporary AI landscape, the paradigm has shifted from 'Big Data' to 'Smart Data'. As neural networks become more sophisticated, their performance is increasingly bottlenecked by the quality of the training sets provided.",
-      "At DeepAnnotation, we address the 'Garbage In, Garbage Out' challenge by implementing multi-layer verification protocols. Quality data ensures that models learn accurate features rather than noise, significantly reducing the risk of algorithmic bias.",
-      "Furthermore, clean data accelerates the convergence of models during training, saving thousands of dollars in compute costs."
+      "In the contemporary AI landscape, the paradigm has shifted from 'Big Data' to 'Smart Data'. High-fidelity data annotation is now a strategic imperative.",
+      "At DeepAnnotation, we address the 'Garbage In, Garbage Out' challenge with multi-layer verification. Quality data ensures that models learn accurate features.",
+      "Furthermore, clean data accelerates model convergence, saving significant compute costs and building robust AI systems."
     ]
   },
   "understanding-semantic-segmentation": {
@@ -23,9 +23,9 @@ const blogPostsData: Record<string, { title: string; date: string; readTime: str
     readTime: "10 min read",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200",
     content: [
-      "Semantic segmentation represents the pinnacle of computer vision complexity, requiring the classification of every individual pixel within an image. For autonomous systems, this provides a granular understanding of the environment.",
-      "The year 2026 has brought new challenges with the rise of Level 5 autonomy. Models now require annotation that accounts for weather occlusions, motion blur, and varying light conditions.",
-      "This level of detail allows AI to not only recognize objects but to understand their exact spatial occupancy."
+      "Semantic segmentation requires the classification of every individual pixel. For autonomous systems, this provides a granular understanding of the environment.",
+      "The year 2026 has brought new challenges with Level 5 autonomy. Models now require annotation that accounts for all weather and light conditions.",
+      "This level of detail allows AI to understand exact spatial occupancy, crucial for safe navigation in real-world scenarios."
     ]
   },
   "future-of-nlp-trends": {
@@ -34,21 +34,21 @@ const blogPostsData: Record<string, { title: string; date: string; readTime: str
     readTime: "9 min read",
     image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&q=80&w=1200",
     content: [
-      "Large Language Models (LLMs) have transformed how we interact with technology, but their growth is fueled by increasingly complex text annotation. We are moving beyond basic sentiment analysis.",
-      "Modern NLP datasets require annotators who understand linguistic subtleties and industry-specific jargon. DeepAnnotation bridges this gap by employing specialists.",
-      "As we look toward 2027, the focus will be on 'Reinforcement Learning from Human Feedback' (RLHF)."
+      "LLMs have transformed technology, but their growth is fueled by complex text annotation beyond basic sentiment analysis.",
+      "Modern NLP datasets require annotators who understand linguistic subtleties. DeepAnnotation employs specialists for contextually rich data.",
+      "Looking toward 2027, the focus is on RLHF to fine-tune AI behavior safely and ethically for human interaction."
     ]
   },
   "lidar-annotation-robotics": {
     title: "Neural Robotics: Mastering 3D Point Cloud LiDAR Annotation",
     date: "Jan 08, 2026",
     readTime: "12 min read",
-    // YENİ GÖRSEL: Soyut Sinir Ağları (Robot içermeyen, tamamen neural odaklı)
-    image: "https://images.unsplash.com/photo-1501166788412-2ca2435a452f?auto=format&fit=crop&q=80&w=1200", 
+    // SENİN GÖRSELİN BURADA KULLANILIYOR:
+    image: "/robotics-neural.jpg", 
     content: [
-      "Robotics is undergoing a neural revolution. To navigate complex 3D spaces, robots rely on LiDAR sensors that generate millions of data points every second. Translating this into intelligence requires sophisticated 3D cuboid annotation.",
-      "Unlike 2D images, 3D data requires an understanding of depth, orientation, and velocity. Annotating a moving object in 3D involves tracking its trajectory across frames, ensuring temporal consistency.",
-      "From warehouse automation to delivery drones, the safety of robotic systems depends on the precision of their training data. We enable the next generation of robots to interact with the physical world fluidly."
+      "Robotics is undergoing a neural revolution. To navigate complex 3D spaces, robots rely on LiDAR sensors generating millions of data points per second.",
+      "Unlike 2D images, 3D data requires an understanding of depth, orientation, and velocity. Annotating moving objects involves tracking trajectory across frames.",
+      "The safety of robotic systems depends on the precision of their spatial training data. We enable the next generation of robots to interact safely."
     ]
   }
 };
@@ -63,7 +63,7 @@ export default function BlogPost() {
       <div className="min-h-screen bg-slate-950 flex items-center justify-center text-white">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Post Not Found</h1>
-          <Link href="/blog" className="text-blue-500 hover:underline">Return to Blog</Link>
+          <Link href="/blog" className="text-blue-500 hover:underline font-bold text-lg italic">Return to Blog</Link>
         </div>
       </div>
     );
@@ -72,7 +72,7 @@ export default function BlogPost() {
   return (
     <div className="min-h-screen bg-slate-950 text-white pt-32 pb-20">
       <div className="container mx-auto px-6 max-w-3xl">
-        <Link href="/blog" className="flex items-center gap-2 text-blue-400 mb-8 hover:underline group font-bold">
+        <Link href="/blog" className="flex items-center gap-2 text-blue-400 mb-8 hover:underline group font-bold italic">
           <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> 
           Back to Blog
         </Link>
@@ -81,10 +81,7 @@ export default function BlogPost() {
            <img 
              src={post.image} 
              alt={post.title} 
-             className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-             onError={(e) => {
-               (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200";
-             }}
+             className="w-full h-full object-cover"
            />
         </div>
         

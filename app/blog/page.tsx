@@ -41,8 +41,8 @@ const blogPosts = [
     readTime: "12 min read",
     category: "Robotics",
     slug: "lidar-annotation-robotics",
-    // YENİ GÖRSEL: Soyut Sinir Ağları ve Nöron Akışı
-    image: "https://images.unsplash.com/photo-1501166788412-2ca2435a452f?auto=format&fit=crop&q=80&w=800"
+    // SENİN GÖRSELİN BURADA KULLANILIYOR:
+    image: "/robotics-neural.jpg"
   }
 ];
 
@@ -56,13 +56,13 @@ export default function BlogPage() {
             <Link href={`/blog/${post.slug}`} key={post.id} className="group relative block">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-500"></div>
               <div className="relative p-6 bg-slate-900/40 border border-white/10 rounded-2xl flex flex-col md:flex-row gap-6 items-center transition-all duration-300 group-hover:border-blue-500/50">
-                <img src={post.image} alt={post.title} className="w-full md:w-48 h-32 object-cover rounded-xl shadow-lg border border-white/5" />
+                <img src={post.image} alt={post.title} className="w-full md:w-48 h-32 object-cover rounded-xl" />
                 <div className="flex-1">
                   <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">{post.category}</span>
                   <h2 className="text-2xl font-bold mt-2 group-hover:text-blue-400 transition-colors">{post.title}</h2>
-                  <p className="text-gray-400 mt-2 text-sm leading-relaxed">{post.excerpt}</p>
+                  <p className="text-gray-400 mt-2 text-sm">{post.excerpt}</p>
                 </div>
-                <div className="text-blue-500 group-hover:translate-x-2 transition-transform hidden md:block">
+                <div className="text-blue-500 group-hover:translate-x-2 transition-transform">
                    <ChevronRight size={24} />
                 </div>
               </div>
