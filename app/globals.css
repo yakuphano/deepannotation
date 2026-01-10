@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 body {
   margin: 0;
   padding: 0;
-  color: #ededed;
+  color: #ffffff !important; /* Tüm metinleri beyaz yap */
   font-family: Arial, Helvetica, sans-serif;
   
-  /* YENİ ARKA PLAN RESMİ AYARI */
-  background-image: url('/backround1.jpg'); 
+  background-image: url('/backround1.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* İçerik kayarken resim sabit kalır */
+  background-attachment: fixed;
   background-repeat: no-repeat;
-  background-color: #020617; /* Resim yüklenene kadar görünecek yedek renk */
+  background-color: #020617;
 }
 
-html {
-  background: transparent;
+/* Sayfa ana gövdelerini şeffaf yap */
+main, section, div.min-h-screen {
+  background-color: transparent !important;
+}
+
+/* Kartların içindeki gri metinleri beyaza zorla */
+p, span, h1, h2, h3 {
+  color: #ffffff !important;
 }
