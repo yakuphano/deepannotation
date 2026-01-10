@@ -19,15 +19,11 @@ export default function Home() {
   }, []);
 
   return (
-    /* pt-20: Mobilde navbarın hemen altından başlaması için üst boşluğu azalttık (yaklaşık 1-2 cm)
-       lg:pt-0: Masaüstünde dikey ortalamayı bozmamak için sıfırladık
-    */
-    <div className="min-h-screen flex flex-col lg:grid lg:grid-cols-2 gap-4 items-center px-6 md:px-24 pt-20 lg:pt-0 relative z-10 overflow-x-hidden">
+    /* pt-28: Mobilde yazıları navbarın 1 cm altına çekecek şekilde boşluk artırıldı */
+    <div className="min-h-screen flex flex-col lg:grid lg:grid-cols-2 gap-4 items-center px-6 md:px-24 pt-28 lg:pt-0 relative z-10 overflow-x-hidden">
       
-      {/* --- METİN ALANI (Mobilde En Üstte) --- */}
-      <div className="text-left space-y-6 md:space-y-8 order-1 lg:order-1 w-full
-                      /* Mobilde metni en yukarı yasladık */
-                      mt-4 lg:mt-0">
+      {/* --- METİN ALANI --- */}
+      <div className="text-left space-y-6 md:space-y-8 order-1 lg:order-1 w-full mt-2 lg:mt-0">
         
         <h1 className="text-4xl md:text-7xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 pb-2 opacity-0 animate-[slideInLeft_1s_ease-out_forwards]">
           DeepAnnotation
@@ -43,11 +39,11 @@ export default function Home() {
         </div>
       </div>
 
-      {/* --- ANİMASYON ALANI (Mobilde Metnin Altında) --- */}
+      {/* --- ANİMASYON ALANI --- */}
       <div className="flex justify-center items-center w-full order-2 lg:order-2 relative
-                      /* MOBİL: Metnin altında ferah bir boşluk bırakıp sağa/aşağı kaydırdık */
-                      mt-12 translate-y-8 translate-x-4
-                      /* MASAÜSTÜ: Pozisyonu koru */
+                      /* MOBİL: mt-4 ile yukarı çektik, translate-x-10 ile sağa ittik */
+                      mt-4 -translate-y-4 translate-x-10
+                      /* MASAÜSTÜ: Sabit pozisyon */
                       lg:mt-0 lg:translate-x-16 lg:translate-y-12">
         
         <div className="absolute inset-0 bg-blue-600/10 blur-[80px] rounded-full pointer-events-none"></div>
