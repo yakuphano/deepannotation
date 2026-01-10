@@ -10,10 +10,8 @@ export default function ContactPage() {
     e.preventDefault()
     setLoading(true)
     setSuccess(false)
-
     const form = e.currentTarget
     const formData = new FormData(form)
-
     const payload = {
       name: formData.get("name"),
       email: formData.get("email"),
@@ -27,9 +25,7 @@ export default function ContactPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       })
-
       if (!res.ok) throw new Error("Failed to send message")
-
       setSuccess(true)
       form.reset()
     } catch (error) {
@@ -40,14 +36,13 @@ export default function ContactPage() {
   }
 
   return (
-    /* pt-32 olan üst boşluk pt-24 yapılarak içerik yukarı çekildi */
-    <main className="min-h-screen bg-slate-950 text-white px-6 pt-24 pb-20 md:pt-32 flex flex-col items-center">
+    /* bg-slate-950 kaldırıldı, bg-transparent yapıldı */
+    <main className="min-h-screen bg-transparent text-white px-6 pt-24 pb-20 md:pt-32 flex flex-col items-center">
       <div className="w-full max-w-xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-black mb-4 text-center tracking-tighter">Contact Us</h1>
         <p className="text-slate-400 text-center mb-12 text-lg">Let&apos;s build the future of AI together.</p>
 
         <div className="relative group">
-          {/* ÇERÇEVE GLOW EFEKTİ - About sayfasındakiyle uyumlu */}
           <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-3xl blur-xl opacity-70 group-hover:opacity-100 transition duration-700"></div>
           
           <form 
@@ -58,55 +53,28 @@ export default function ContactPage() {
 
             <div className="space-y-2">
               <label className="text-sm font-bold text-white ml-1 uppercase tracking-widest">Name</label>
-              <input 
-                name="name" 
-                required 
-                placeholder="Your Full Name" 
-                className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/5 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner" 
-              />
+              <input name="name" required placeholder="Your Full Name" className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/5 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner" />
             </div>
 
             <div className="space-y-2">
               <label className="text-sm font-bold text-white ml-1 uppercase tracking-widest">Email</label>
-              <input 
-                type="email" 
-                name="email" 
-                required 
-                placeholder="your@email.com" 
-                className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/5 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner" 
-              />
+              <input type="email" name="email" required placeholder="your@email.com" className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/5 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner" />
             </div>
 
             <div className="space-y-2">
               <label className="text-sm font-bold text-white ml-1 uppercase tracking-widest">Company</label>
-              <input 
-                name="company" 
-                required 
-                placeholder="Company Name" 
-                className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/5 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner" 
-              />
+              <input name="company" required placeholder="Company Name" className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/5 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner" />
             </div>
 
             <div className="space-y-2">
               <label className="text-sm font-bold text-white ml-1 uppercase tracking-widest">Message</label>
-              <textarea 
-                name="message" 
-                required 
-                rows={5} 
-                placeholder="How can we help your AI project?" 
-                className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/5 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner resize-none" 
-              />
+              <textarea name="message" required rows={5} placeholder="How can we help your AI project?" className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/5 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner resize-none" />
             </div>
 
             <button type="submit" disabled={loading} className="w-full py-4 mt-4 rounded-full bg-blue-600 text-white font-black text-lg hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/30 disabled:opacity-50 active:scale-[0.98]">
               {loading ? "Sending..." : "Send Message"}
             </button>
-
-            {success && (
-              <div className="bg-green-500/10 border border-green-500/50 p-4 rounded-xl mt-4 text-center">
-                <p className="text-green-400 font-bold">✅ Message sent successfully!</p>
-              </div>
-            )}
+            {success && <p className="text-green-400 text-center font-bold mt-4">✅ Message sent successfully!</p>}
           </form>
         </div>
       </div>

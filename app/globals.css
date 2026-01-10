@@ -11,7 +11,7 @@ body {
   color: #ededed;
   font-family: Arial, Helvetica, sans-serif;
   
-  /* YENİ ARKA PLAN AYARI */
+  /* YENİ ARKA PLAN RESMİ AYARI */
   background-image: url('/backround1.jpg'); 
   background-size: cover;
   background-position: center;
@@ -21,6 +21,5 @@ body {
 }
 
 html {
-  margin: 0;
-  padding: 0;
+  background: transparent;
 }

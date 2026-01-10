@@ -1,6 +1,5 @@
 "use client"
 
-import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { Zap } from 'lucide-react';
 // @ts-ignore
@@ -10,22 +9,11 @@ const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-full bg-slate-950 overflow-x-hidden">
+    /* bg-slate-950 silindi, bg-transparent yapıldı */
+    <main className="relative min-h-screen w-full bg-transparent overflow-x-hidden">
       
-      {/* Arka Plan Katmanı */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/background.png" 
-          alt="Background"
-          fill
-          priority
-          quality={100}
-          className="object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent"></div>
-      </div>
+      {/* Eski arka plan Image katmanı buradan kaldırıldı, artık globals.css üzerinden geliyor */}
 
-      {/* Ana İçerik Yapısı */}
       <section className="container mx-auto px-6 relative z-20 w-full pt-28 md:pt-24 lg:pt-32">
         <div className="grid lg:grid-cols-2 gap-4 items-start">
           
@@ -47,11 +35,8 @@ export default function Home() {
             <p className="mt-6 text-white text-lg md:text-xl leading-relaxed font-medium max-w-xl drop-shadow-md">
               Enterprise-grade data annotation and AI training services for production machine learning systems. We provide precision-driven data labeling, high-accuracy model training assets, and scalable workforce solutions designed to empower next-generation artificial intelligence.
             </p>
-
-            {/* "Get Started" Buton alanı buradan kaldırıldı */}
           </div>
 
-          {/* Sağ Taraf: Animasyon */}
           <div className="relative flex items-center justify-end h-[350px] md:h-[600px] -mt-5 md:mt-0">
             <div className="w-full max-w-[750px] transform translate-x-12 md:translate-x-0 lg:translate-x-48 lg:translate-y-24 flex justify-center items-center scale-125 md:scale-150">
               <Lottie 
@@ -65,7 +50,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-slate-950 to-transparent z-30 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-slate-950/0 to-transparent z-30 pointer-events-none"></div>
     </main>
   );
 }
