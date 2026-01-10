@@ -34,12 +34,13 @@ export default function Contact() {
               </div>
             </div>
 
+            {/* SUBJECT YERİNE COMPANY NAME GÜNCELLENDİ */}
             <div className="space-y-2">
-              <label className="text-sm font-bold uppercase text-slate-400">Subject</label>
+              <label className="text-sm font-bold uppercase text-slate-400">Company Name</label>
               <input 
                 type="text" 
                 className="w-full bg-slate-950/50 border border-white/10 rounded-lg px-4 py-3 text-white outline-none focus:border-blue-500 transition-all"
-                placeholder="How can we help?"
+                placeholder="Enter your company name"
               />
             </div>
 
