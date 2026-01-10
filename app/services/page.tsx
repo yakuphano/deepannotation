@@ -27,10 +27,9 @@ export default function ServicesPage() {
             return (
               <div key={index} className="group relative">
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                
-                {/* Kart bg-white/10 ve ikon text-slate-900 */}
                 <div className="relative rounded-2xl border border-white/20 p-6 md:p-8 bg-white/10 backdrop-blur-md transition-all duration-300 group-hover:border-white/50 h-full">
-                  <Icon className="w-10 h-10 text-slate-900 mb-4 group-hover:scale-110 transition-transform" />
+                  {/* İKON RENGİ BEYAZ YAPILDI */}
+                  <Icon className="w-10 h-10 text-white mb-4 group-hover:scale-110 transition-transform" />
                   <h3 className="text-xl md:text-2xl font-semibold mb-3 text-white">{service.title}</h3>
                   <p className="text-white/80 leading-relaxed text-sm md:text-base">{service.description}</p>
                 </div>
