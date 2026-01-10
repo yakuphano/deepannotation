@@ -2,8 +2,7 @@
 
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
-import { ArrowRight, Zap } from 'lucide-react';
+import { Zap } from 'lucide-react';
 // @ts-ignore
 import animationData from "@/public/lottie/ai-brain.json"; 
 
@@ -13,6 +12,7 @@ export default function Home() {
   return (
     <main className="relative min-h-screen w-full bg-slate-950 overflow-x-hidden">
       
+      {/* Arka Plan Katmanı */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/background.png" 
@@ -25,6 +25,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent"></div>
       </div>
 
+      {/* Ana İçerik Yapısı */}
       <section className="container mx-auto px-6 relative z-20 w-full pt-28 md:pt-24 lg:pt-32">
         <div className="grid lg:grid-cols-2 gap-4 items-start">
           
@@ -47,14 +48,10 @@ export default function Home() {
               Enterprise-grade data annotation and AI training services for production machine learning systems. We provide precision-driven data labeling, high-accuracy model training assets, and scalable workforce solutions designed to empower next-generation artificial intelligence.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-6">
-              <Link href="/contact" className="px-10 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all flex items-center gap-2 group shadow-[0_0_25px_rgba(37,99,235,0.4)]">
-                Get Started 
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+            {/* "Get Started" Buton alanı buradan kaldırıldı */}
           </div>
 
+          {/* Sağ Taraf: Animasyon */}
           <div className="relative flex items-center justify-end h-[350px] md:h-[600px] -mt-5 md:mt-0">
             <div className="w-full max-w-[750px] transform translate-x-12 md:translate-x-0 lg:translate-x-48 lg:translate-y-24 flex justify-center items-center scale-125 md:scale-150">
               <Lottie 
