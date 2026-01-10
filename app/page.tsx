@@ -19,15 +19,21 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-6 md:px-24 pt-20 lg:pt-0 relative z-10">
+    /* pt-20: Mobilde navbarın hemen altından başlaması için üst boşluğu azalttık (yaklaşık 1-2 cm)
+       lg:pt-0: Masaüstünde dikey ortalamayı bozmamak için sıfırladık
+    */
+    <div className="min-h-screen flex flex-col lg:grid lg:grid-cols-2 gap-4 items-center px-6 md:px-24 pt-20 lg:pt-0 relative z-10 overflow-x-hidden">
       
-      {/* SOL SÜTUN - Yazı Alanı */}
-      <div className="text-left space-y-8 order-2 lg:order-1">
-        <h1 className="text-5xl md:text-7xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 pb-2 opacity-0 animate-[slideInLeft_1s_ease-out_forwards]">
+      {/* --- METİN ALANI (Mobilde En Üstte) --- */}
+      <div className="text-left space-y-6 md:space-y-8 order-1 lg:order-1 w-full
+                      /* Mobilde metni en yukarı yasladık */
+                      mt-4 lg:mt-0">
+        
+        <h1 className="text-4xl md:text-7xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 pb-2 opacity-0 animate-[slideInLeft_1s_ease-out_forwards]">
           DeepAnnotation
         </h1>
 
-        <div className="max-w-2xl space-y-6 text-lg md:text-xl text-white/90 leading-relaxed font-light opacity-0 animate-[slideInLeft_1s_ease-out_0.5s_forwards]">
+        <div className="max-w-2xl space-y-4 md:space-y-6 text-base md:text-xl text-white/90 leading-relaxed font-light opacity-0 animate-[slideInLeft_1s_ease-out_0.5s_forwards]">
           <p>
             At DeepAnnotation, we architect the definitive ground truth that powers the world&apos;s most advanced Artificial Intelligence systems. We go beyond simple data labeling to provide a comprehensive, enterprise-grade data infrastructure that transforms raw, unstructured information into high-fidelity training assets.
           </p>
@@ -37,17 +43,16 @@ export default function Home() {
         </div>
       </div>
 
-      {/* SAĞ SÜTUN - Animasyon Alanı (Sağa ve Aşağıya Kaydırıldı) */}
-      <div className="flex justify-center items-center h-full w-full order-1 lg:order-2 relative
-                      /* Mobilde aşağı kaydırma (mt-10) ve hafif sağa itme (pl-4) */
-                      mt-12 lg:mt-24 
-                      /* Masaüstünde sağa kaydırma (lg:translate-x-20) ve aşağı kaydırma (lg:translate-y-10) */
-                      lg:translate-x-16 lg:translate-y-12">
+      {/* --- ANİMASYON ALANI (Mobilde Metnin Altında) --- */}
+      <div className="flex justify-center items-center w-full order-2 lg:order-2 relative
+                      /* MOBİL: Metnin altında ferah bir boşluk bırakıp sağa/aşağı kaydırdık */
+                      mt-12 translate-y-8 translate-x-4
+                      /* MASAÜSTÜ: Pozisyonu koru */
+                      lg:mt-0 lg:translate-x-16 lg:translate-y-12">
         
-        {/* Glow (Parlarma) Efekti */}
-        <div className="absolute inset-0 bg-blue-600/10 blur-[120px] rounded-full pointer-events-none translate-x-10 translate-y-10"></div>
+        <div className="absolute inset-0 bg-blue-600/10 blur-[80px] rounded-full pointer-events-none"></div>
 
-        <div className="relative w-full max-w-[450px] md:max-w-[550px] z-10">
+        <div className="relative w-full max-w-[280px] md:max-w-[550px] z-10">
           {animationData && (
             <Lottie 
               animationData={animationData} 
