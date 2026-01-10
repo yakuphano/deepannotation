@@ -11,7 +11,7 @@ const navItems = [
   { label: "Services", href: "/services" },
   { label: "Why Us", href: "/why-us" },
   { label: "About Us", href: "/about" },
-  { label: "Blog", href: "/blog" }, // Blog buraya eklendi
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ]
 
@@ -20,7 +20,8 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-white/10">
+    /* Arka plan bg-black/40 ve blur artırıldı (backdrop-blur-xl) */
+    <header className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-white/10 transition-colors duration-500">
       <nav className="max-w-[1440px] mx-auto">
         
         {/* ÜST KISIM */}
@@ -73,7 +74,8 @@ export default function Navbar() {
           md:hidden overflow-hidden transition-all duration-300 ease-in-out border-t border-white/5
           ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
         `}>
-          <div className="flex flex-col bg-slate-900/50">
+          {/* Mobil menü arka planı genel tasarıma uyarlandı */}
+          <div className="flex flex-col bg-black/60 backdrop-blur-2xl">
             {navItems.map((item) => (
               <Link
                 key={item.href}
