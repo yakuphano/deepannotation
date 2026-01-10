@@ -1,47 +1,100 @@
 "use client"
+
 import { Brain, Database, Cpu } from "lucide-react"
 
 const services = [
-  { title: "Image Annotation", description: "Image classification, semantic segmentation...", icon: Database },
-  { title: "Search Relevance", description: "Query result relevance identification...", icon: Brain },
-  { title: "Video Annotation", description: "Video relevance for search queries...", icon: Cpu },
-  { title: "Speech Transcription", description: "Audio to text validation...", icon: Brain },
-  { title: "Text Annotation", description: "Sentiment analysis for social media...", icon: Database },
-  { title: "Other Services", description: "Ad hoc data collection...", icon: Cpu },
-  { title: "AI Model Training", description: "Custom model training...", icon: Brain },
-  { title: "Enterprise AI Solutions", description: "End to end AI pipelines...", icon: Cpu },
+  {
+    title: "Image Annotation",
+    description: "Unlock the full potential of computer vision with pixel-perfect labeling. From bounding boxes and polygon segmentation to keypoint annotation, we provide the high-fidelity training data needed for autonomous driving, medical imaging, and facial recognition systems.",
+    icon: Database,
+  },
+  {
+    title: "Search Relevance",
+    description: "Optimize your search algorithms with human-verified relevance scoring. We evaluate query-document pairs, analyze user intent, and classify entities to ensure your search engine delivers the most accurate and meaningful results for every user interaction.",
+    icon: Brain,
+  },
+  {
+    title: "Video Annotation",
+    description: "Train sophisticated temporal models with frame-by-frame video labeling. We handle complex object tracking, action recognition, and temporal segmentation, ensuring continuity and accuracy across dynamic video sequences for security and autonomous systems.",
+    icon: Cpu,
+  },
+  {
+    title: "Speech Transcription",
+    description: "Convert audio into actionable data with high-accuracy transcription and linguistic validation. Our native speakers handle dialects, nuances, and multi-speaker environments to perfect your speech-to-text models and conversational AI agents.",
+    icon: Brain,
+  },
+  {
+    title: "Text Annotation",
+    description: "Empower your NLP models with deep semantic understanding. We offer granular sentiment analysis, named entity recognition (NER), and intent classification to help your AI grasp the subtleties of human language across diverse domains.",
+    icon: Database,
+  },
+  {
+    title: "Other Services",
+    description: "Beyond standard labeling, we offer bespoke data solutions tailored to your unique needs. This includes ad-hoc data collection, content moderation, surveys, and information correction services designed to address niche edge cases.",
+    icon: Cpu,
+  },
+  {
+    title: "AI Model Training",
+    description: "Accelerate your path to production with our custom model training services. We fine-tune state-of-the-art architectures on your proprietary data, optimizing for specific performance metrics to deliver deployment-ready AI solutions.",
+    icon: Brain,
+  },
+  {
+    title: "Enterprise AI Solutions",
+    description: "Scale your AI operations with end-to-end infrastructure support. We design and implement robust MLOps pipelines, manage scalable annotation workflows, and provide the strategic consulting needed to integrate AI into your core business processes.",
+    icon: Cpu,
+  },
 ]
 
 export default function ServicesPage() {
   return (
     <section className="min-h-screen px-6 py-20 md:py-32 bg-transparent text-white">
       <div className="max-w-6xl mx-auto">
-        <h1 className="text-3xl md:text-5xl font-bold text-center mb-6 text-white">Our Services</h1>
-        <p className="text-center text-white/90 max-w-2xl mx-auto mb-12 md:mb-16">
-          Enterprise-grade AI services trusted by global teams.
+        
+        {/* Başlık Alanı */}
+        <h1 className="text-3xl md:text-5xl font-bold text-center mb-6 text-white">
+          Our Services
+        </h1>
+
+        <p className="text-center text-white/90 max-w-2xl mx-auto mb-12 md:mb-16 text-sm md:text-base">
+          Enterprise-grade AI services trusted by global teams building
+          mission-critical machine learning systems.
         </p>
 
+        {/* Hizmet Kartları */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
               <div key={index} className="group relative">
+                {/* Glow Efekti */}
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                <div className="relative rounded-2xl border border-white/20 p-6 md:p-8 bg-white/10 backdrop-blur-md transition-all duration-300 group-hover:border-white/50 h-full">
-                  {/* İKON RENGİ BEYAZ YAPILDI */}
-                  <Icon className="w-10 h-10 text-white mb-4 group-hover:scale-110 transition-transform" />
-                  <h3 className="text-xl md:text-2xl font-semibold mb-3 text-white">{service.title}</h3>
-                  <p className="text-white/80 leading-relaxed text-sm md:text-base">{service.description}</p>
+                
+                {/* Kart Tasarımı: Şeffaf (bg-white/10) ve Beyaz İkonlar */}
+                <div
+                  className="
+                    relative rounded-2xl border border-white/20 p-6 md:p-8
+                    bg-white/10 backdrop-blur-md transition-all duration-300
+                    group-hover:border-white/50
+                    h-full
+                  "
+                >
+                  <Icon className="w-10 h-10 md:w-12 md:h-12 text-white mb-4 md:mb-6 group-hover:scale-110 transition-transform" />
+
+                  <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4 text-white">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-white/90 leading-relaxed text-sm md:text-base">
+                    {service.description}
+                  </p>
                 </div>
               </div>
             )
           })}
         </div>
-        <div className="text-center mt-12 md:mt-20">
-          <a href="/contact" className="inline-block px-8 py-3 md:px-10 md:py-4 rounded-full bg-blue-500 text-black font-semibold hover:bg-blue-400 transition">
-            Get a Custom Quote
-          </a>
-        </div>
+
+        {/* 'Get a Custom Quote' Butonu KALDIRILDI */}
+        
       </div>
     </section>
   )
