@@ -11,52 +11,50 @@ export default function Contact() {
           Contact Us
         </h1>
 
-        {/* Form Konteynerı - Mevcut yapın korundu, sadece border ve bg uyumlandı */}
-        <div className="bg-black/20 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-3xl">
+        <div className="bg-slate-900/50 backdrop-blur-md border border-white/10 p-8 md:p-12 rounded-2xl">
           <form className="space-y-6">
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-sm font-bold uppercase text-blue-400">Full Name</label>
+                <label className="text-sm font-bold uppercase text-slate-400">Full Name</label>
                 <input 
                   type="text" 
-                  /* Border rengi arka plana uygun şeffaf beyaza çekildi */
-                  className="w-full bg-transparent border border-white/20 rounded-xl px-4 py-3 text-white outline-none focus:border-blue-500 transition-all"
-                  placeholder="John Doe"
+                  className="w-full bg-slate-950/50 border border-white/10 rounded-lg px-4 py-3 text-white outline-none focus:border-blue-500 transition-all"
+                  placeholder="Enter your name"
                 />
               </div>
 
               <div className="space-y-2">
-                <label className="text-sm font-bold uppercase text-blue-400">Email Address</label>
+                <label className="text-sm font-bold uppercase text-slate-400">Email Address</label>
                 <input 
                   type="email" 
-                  className="w-full bg-transparent border border-white/20 rounded-xl px-4 py-3 text-white outline-none focus:border-blue-500 transition-all"
-                  placeholder="john@example.com"
+                  className="w-full bg-slate-950/50 border border-white/10 rounded-lg px-4 py-3 text-white outline-none focus:border-blue-500 transition-all"
+                  placeholder="email@example.com"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold uppercase text-blue-400">Subject</label>
+              <label className="text-sm font-bold uppercase text-slate-400">Subject</label>
               <input 
                 type="text" 
-                className="w-full bg-transparent border border-white/20 rounded-xl px-4 py-3 text-white outline-none focus:border-blue-500 transition-all"
-                placeholder="Data Annotation Services"
+                className="w-full bg-slate-950/50 border border-white/10 rounded-lg px-4 py-3 text-white outline-none focus:border-blue-500 transition-all"
+                placeholder="How can we help?"
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-bold uppercase text-blue-400">Your Message</label>
+              <label className="text-sm font-bold uppercase text-slate-400">Message</label>
               <textarea 
                 rows={5}
-                className="w-full bg-transparent border border-white/20 rounded-xl px-4 py-3 text-white outline-none focus:border-blue-500 transition-all resize-none"
-                placeholder="Tell us about your project..."
+                className="w-full bg-slate-950/50 border border-white/10 rounded-lg px-4 py-3 text-white outline-none focus:border-blue-500 transition-all resize-none"
+                placeholder="Your message here..."
               ></textarea>
             </div>
 
             <button 
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black uppercase py-4 rounded-xl transition-all"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-lg transition-all"
             >
               Send Message
             </button>
