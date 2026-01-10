@@ -1,83 +1,76 @@
 "use client"
 
-import { useState } from "react"
+import React from 'react'
 
-export default function ContactPage() {
-  const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState(false)
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setLoading(true)
-    setSuccess(false)
-    const form = e.currentTarget
-    const formData = new FormData(form)
-    const payload = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      company: formData.get("company"),
-      message: formData.get("message"),
-    }
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      })
-      if (!res.ok) throw new Error("Failed to send message")
-      setSuccess(true)
-      form.reset()
-    } catch (error) {
-      alert("Message could not be sent. Please try again.")
-    } finally {
-      setLoading(false)
-    }
-  }
-
+export default function Contact() {
   return (
-    /* bg-slate-950 kaldırıldı, bg-transparent yapıldı */
-    <main className="min-h-screen bg-transparent text-white px-6 pt-24 pb-20 md:pt-32 flex flex-col items-center">
-      <div className="w-full max-w-xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-black mb-4 text-center tracking-tighter">Contact Us</h1>
-        <p className="text-slate-400 text-center mb-12 text-lg">Let&apos;s build the future of AI together.</p>
+    <div className="min-h-screen flex items-center justify-center px-6 pt-32 pb-20 relative z-10">
+      
+      {/* Arka plan parlama efekti */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-        <div className="relative group">
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-3xl blur-xl opacity-70 group-hover:opacity-100 transition duration-700"></div>
-          
-          <form 
-            onSubmit={handleSubmit} 
-            className="relative space-y-4 md:space-y-6 bg-slate-900/40 p-6 md:p-10 rounded-3xl border border-white/5 shadow-2xl backdrop-blur-sm"
-          >
-            <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
+      <div className="w-full max-w-2xl relative z-10">
+        <h1 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-8 text-center opacity-0 animate-[slideInLeft_1s_ease-out_forwards]">
+          Contact Us
+        </h1>
 
-            <div className="space-y-2">
-              <label className="text-sm font-bold text-white ml-1 uppercase tracking-widest">Name</label>
-              <input name="name" required placeholder="Your Full Name" className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/5 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner" />
+        {/* FORM KONTEYNERI */}
+        <div className="bg-black/30 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-3xl shadow-2xl">
+          <form className="space-y-6">
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Name Field */}
+              <div className="space-y-2">
+                <label className="text-sm font-bold uppercase tracking-wider text-blue-400">Full Name</label>
+                <input 
+                  type="text" 
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all duration-300"
+                  placeholder="John Doe"
+                />
+              </div>
+
+              {/* Email Field */}
+              <div className="space-y-2">
+                <label className="text-sm font-bold uppercase tracking-wider text-blue-400">Email Address</label>
+                <input 
+                  type="email" 
+                  className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all duration-300"
+                  placeholder="john@example.com"
+                />
+              </div>
             </div>
 
+            {/* Subject Field */}
             <div className="space-y-2">
-              <label className="text-sm font-bold text-white ml-1 uppercase tracking-widest">Email</label>
-              <input type="email" name="email" required placeholder="your@email.com" className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/5 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner" />
+              <label className="text-sm font-bold uppercase tracking-wider text-blue-400">Subject</label>
+              <input 
+                type="text" 
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all duration-300"
+                placeholder="Data Annotation Services"
+              />
             </div>
 
+            {/* Message Field */}
             <div className="space-y-2">
-              <label className="text-sm font-bold text-white ml-1 uppercase tracking-widest">Company</label>
-              <input name="company" required placeholder="Company Name" className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/5 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner" />
+              <label className="text-sm font-bold uppercase tracking-wider text-blue-400">Your Message</label>
+              <textarea 
+                rows={5}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all duration-300 resize-none"
+                placeholder="Tell us about your project..."
+              ></textarea>
             </div>
 
-            <div className="space-y-2">
-              <label className="text-sm font-bold text-white ml-1 uppercase tracking-widest">Message</label>
-              <textarea name="message" required rows={5} placeholder="How can we help your AI project?" className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/5 text-white placeholder:text-gray-500 outline-none focus:border-blue-500 transition shadow-inner resize-none" />
-            </div>
-
-            <button type="submit" disabled={loading} className="w-full py-4 mt-4 rounded-full bg-blue-600 text-white font-black text-lg hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/30 disabled:opacity-50 active:scale-[0.98]">
-              {loading ? "Sending..." : "Send Message"}
+            {/* Submit Button */}
+            <button 
+              type="submit"
+              className="w-full bg-blue-600 hover:bg-blue-500 text-white font-black uppercase tracking-widest py-4 rounded-xl transition-all duration-300 transform hover:scale-[1.02] shadow-lg shadow-blue-600/20"
+            >
+              Send Message
             </button>
-            {success && <p className="text-green-400 text-center font-bold mt-4">✅ Message sent successfully!</p>}
+
           </form>
         </div>
       </div>
-    </main>
+    </div>
   )
 }
