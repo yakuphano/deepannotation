@@ -6,7 +6,7 @@ export default function AboutPage() {
     <div className="min-h-screen bg-transparent text-white pt-48 pb-20">
       <div className="container mx-auto px-6 max-w-5xl">
         
-        {/* Başlık */}
+        {/* Başlık Alanı */}
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-6 text-white">
             Shaping the Future of Data
@@ -15,7 +15,7 @@ export default function AboutPage() {
 
         <div className="grid gap-16">
           
-          {/* 1. WHO WE ARE (Önceki zenginleştirilmiş hali korundu) */}
+          {/* 1. WHO WE ARE */}
           <section className="relative">
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
               <Users className="w-6 h-6 md:w-8 md:h-8 text-white" />
@@ -31,7 +31,7 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* 2. OUR MISSION (Önceki zenginleştirilmiş hali korundu) */}
+          {/* 2. OUR MISSION */}
           <section>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 flex items-center gap-3">
               <Target className="w-6 h-6 md:w-8 md:h-8 text-white" />
@@ -42,12 +42,12 @@ export default function AboutPage() {
                 Our mission is to accelerate the global adoption of AI by solving its most critical bottleneck: high-quality data. We exist to transform complex, unstructured information into precise, actionable insights that drive model performance to new heights.
               </p>
               <p>
-                Whether it is for autonomous systems, natural language processing, or computer vision, we are committed to delivering the &quot;ground truth&quot; that empowers enterprises to build reliable, ethical, and scalable AI solutions with absolute confidence.
+                Whether it is for autonomous systems, natural language processing, or computer vision, we are committed to delivering the ground truth that empowers enterprises to build reliable, ethical, and scalable AI solutions with absolute confidence.
               </p>
             </div>
           </section>
 
-          {/* 3. CORE VALUES (YENİ VE ZENGİNLEŞTİRİLMİŞ İÇERİK) */}
+          {/* 3. CORE VALUES (GÜNCELLENEN KISIM) */}
           <section>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 flex items-center gap-3">
               <Zap className="w-6 h-6 text-white" />
@@ -58,17 +58,17 @@ export default function AboutPage() {
                 { 
                   title: "Precision", 
                   icon: <Zap className="w-5 h-5 text-white mb-4" />, 
-                  desc: "We define precision not just as correctness, but as the absolute truth. Our rigorous, multi-tiered quality control process involves expert human annotators and automated validation layers working in unison to capture every nuance, ensuring your models are trained on data that is free from ambiguity." 
+                  desc: "We define precision not just as correctness, but as the absolute truth. Our rigorous, multi tiered quality control process involves expert human annotators and automated validation layers working in unison to capture every nuance, ensuring your models are trained on data that is free from ambiguity." 
                 },
                 { 
                   title: "Scalability", 
                   icon: <Maximize className="w-5 h-5 text-white mb-4" />, 
-                  desc: "Whether you need a thousand labeled images or a billion data points, our infrastructure adapts instantly. We offer an elastic, global workforce and high-throughput pipelines that guarantee rapid delivery without ever compromising the gold-standard quality that defines our brand." 
+                  desc: "Whether you need a thousand labeled images or a billion data points, our infrastructure adapts instantly. We offer an elastic, global workforce and high throughput pipelines that guarantee rapid delivery without ever compromising the gold standard quality that defines our brand." 
                 },
                 { 
                   title: "Security", 
                   icon: <ShieldCheck className="w-5 h-5 text-white mb-4" />, 
-                  desc: "In an era of sensitive information, trust is paramount. We implement defense-in-depth security measures, including strictly isolated environments, encrypted data transfer protocols, and comprehensive non-disclosure agreements, ensuring that your proprietary assets remain completely confidential." 
+                  desc: "In an era of sensitive information, trust is paramount. We implement defense in depth security measures, including strictly isolated environments, encrypted data transfer protocols, and comprehensive non disclosure agreements, ensuring that your proprietary assets remain completely confidential." 
                 }
               ].map((item, index) => (
                 <div key={index} className="group relative">
@@ -78,7 +78,8 @@ export default function AboutPage() {
                     <h3 className="text-xl font-black text-white mb-4 uppercase tracking-tighter">
                       {item.title}
                     </h3>
-                    <p className="text-white/80 text-sm leading-relaxed">
+                    {/* YAZI BOYUTU BÜYÜTÜLDÜ (text-base) */}
+                    <p className="text-white/90 text-base leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
@@ -87,7 +88,7 @@ export default function AboutPage() {
             </div>
           </section>
 
-          {/* 4. VISION (YENİ VE ZENGİNLEŞTİRİLMİŞ İÇERİK) */}
+          {/* 4. VISION */}
           <section className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-3xl blur-xl opacity-50 group-hover:opacity-100 transition duration-700"></div>
             <div className="relative p-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl text-center">
@@ -96,7 +97,7 @@ export default function AboutPage() {
                 Our Vision
               </h2>
               <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed italic">
-                &quot;We envision a future where Artificial Intelligence acts as a seamless extension of human capability, solving the world&apos;s most complex challenges. Our goal is to be the cornerstone of this revolution by providing the high-fidelity &apos;ground truth&apos; that allows AI to perceive, understand, and interact with the world ethically, accurately, and effectively.&quot;
+                We envision a future where Artificial Intelligence acts as a seamless extension of human capability, solving the world&apos;s most complex challenges. Our goal is to be the cornerstone of this revolution by providing the high-fidelity ground truth that allows AI to perceive, understand, and interact with the world ethically, accurately, and effectively.
               </p>
             </div>
           </section>
