@@ -13,7 +13,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   
   /* ARKA PLAN RESMİ AYARI */
-  /* Eğer resmin uzantısı .png ise aşağıyı '/backround1.png' yapmayı unutma */
+  /* Robotlu görsel burada tanımlanır */
   background-image: url('/backround1.jpg'); 
   background-size: cover;
   background-position: center;
@@ -22,12 +22,31 @@ body {
   background-color: #020617; /* Resim yüklenene kadar görünecek renk */
 }
 
-/* Sayfaların (Home, Contact, Blog vb.) arka planını şeffaf yapar ki resim görünsün */
+/* Sayfaların (Home, Services, Blog vb.) arka planını şeffaf yapar ki resim görünsün */
 main, section, div.min-h-screen {
   background-color: transparent !important;
 }
 
-/* Kartların içindeki başlık ve paragrafları beyaza zorlar */
-p, span, h1, h2, h3, h4, h5, h6 {
+/* Kartların içindeki tüm metin elementlerini beyaza zorlar */
+p, span, h1, h2, h3, h4, h5, h6, li, strong {
   color: #ffffff !important;
+}
+
+/* Linklerin temel rengini beyaz yapar (hover durumları Tailwind sınıflarıyla yönetilir) */
+a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ANA SAYFA ANİMASYONU İÇİN GEREKLİ KOD */
+/* Home sayfasındaki yazıların aşağıdan yukarı süzülerek gelmesini sağlar */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
