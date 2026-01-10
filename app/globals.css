@@ -8,45 +8,39 @@
 body {
   margin: 0;
   padding: 0;
-  /* Tüm site metinlerini beyaz yapar */
   color: #ffffff !important; 
   font-family: Arial, Helvetica, sans-serif;
   
-  /* ARKA PLAN RESMİ AYARI */
-  /* Robotlu görsel burada tanımlanır */
+  /* Arka plan ayarları */
   background-image: url('/backround1.jpg'); 
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Sayfa kayarken resim sabit durur */
+  background-attachment: fixed;
   background-repeat: no-repeat;
-  background-color: #020617; /* Resim yüklenene kadar görünecek renk */
+  background-color: #020617; 
 }
 
-/* Sayfaların (Home, Services, Blog vb.) arka planını şeffaf yapar ki resim görünsün */
 main, section, div.min-h-screen {
   background-color: transparent !important;
 }
 
-/* Kartların içindeki tüm metin elementlerini beyaza zorlar */
 p, span, h1, h2, h3, h4, h5, h6, li, strong {
   color: #ffffff !important;
 }
 
-/* Linklerin temel rengini beyaz yapar (hover durumları Tailwind sınıflarıyla yönetilir) */
 a {
   color: #ffffff;
   text-decoration: none;
 }
 
-/* ANA SAYFA ANİMASYONU İÇİN GEREKLİ KOD */
-/* Home sayfasındaki yazıların aşağıdan yukarı süzülerek gelmesini sağlar */
-@keyframes fadeInUp {
+/* YENİ: SOLDAN GELME ANİMASYONU */
+@keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateX(-50px); /* Soldan başla */
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0); /* Yerine otur */
   }
 }
