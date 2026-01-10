@@ -47,7 +47,8 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <section className="min-h-screen px-6 py-20 md:py-32 bg-slate-950 text-white">
+    /* bg-slate-950 kaldırıldı, bg-transparent yapıldı */
+    <section className="min-h-screen px-6 py-20 md:py-32 bg-transparent text-white">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl md:text-5xl font-bold text-center mb-6">
           Our Services
@@ -63,7 +64,6 @@ export default function ServicesPage() {
             const Icon = service.icon
             return (
               <div key={index} className="group relative">
-                {/* GLOW KATMANI */}
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl blur opacity-10 group-hover:opacity-40 transition duration-500"></div>
                 
                 <div

@@ -32,7 +32,8 @@ const reasons = [
 
 export default function WhyUsPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white px-6 py-24 md:py-32">
+    /* bg-slate-950 kaldırıldı, bg-transparent yapıldı */
+    <main className="min-h-screen bg-transparent text-white px-6 py-24 md:py-32">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-3xl md:text-5xl font-bold text-center mb-6">
           Why Choose DeepAnnotation
@@ -49,7 +50,6 @@ export default function WhyUsPage() {
             const Icon = reason.icon
             return (
               <div key={index} className="group relative">
-                {/* GLOW KATMANI */}
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-500"></div>
 
                 <div
