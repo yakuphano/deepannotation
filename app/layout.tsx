@@ -22,6 +22,11 @@ export const metadata: Metadata = {
     "deepannotation",
   ],
   metadataBase: new URL("https://deepannotation.ai"),
+  // --- GOOGLE SEARCH CONSOLE HATASI İÇİN EKLENEN KISIM ---
+  alternates: {
+    canonical: "https://www.deepannotation.ai",
+  },
+  // -----------------------------------------------------
   robots: "index, follow",
   openGraph: {
     type: "website",
