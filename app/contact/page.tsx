@@ -14,8 +14,8 @@ export default function Contact() {
     const data = Object.fromEntries(formData.entries())
 
     try {
-      // ÖNEMLİ: Aşağıdaki URL kısmına SendPulse Event Manager'dan aldığın linki yapıştır
-      const response = await fetch("https://events.sendpulse.com/events/id/BURAYA_SENDPULSE_ID_GELECEK", {
+      // SendPulse Event Manager'dan alınan POST URL eklendi
+      const response = await fetch("https://events.sendpulse.com/events/id/610c08529f23471baa666673cb6c889f/9315062", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
