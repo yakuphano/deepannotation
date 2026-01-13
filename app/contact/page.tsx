@@ -1,37 +1,44 @@
 "use client"
 
 import React, { useState } from 'react'
+import emailjs from '@emailjs/browser'
 
 export default function Contact() {
-  // Form durumunu takip etmek için state
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
+
+  // --- EMAILJS CONFIGURATION ---
+  const SERVICE_ID = "service_9e10v2s"
+  const TEMPLATE_ADMIN_ID = "template_xyxmaxt" 
+  const TEMPLATE_USER_ID = "template_juw74eq"
+  const PUBLIC_KEY = "Hkuk0z3TZ0kNzqJRz"
+  // -----------------------------
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setStatus("sending")
 
-    const formData = new FormData(e.currentTarget)
+    const form = e.currentTarget
+    
+    // Form verilerini al
+    const formData = {
+      name: (form.elements.namedItem('name') as HTMLInputElement).value,
+      email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      company: (form.elements.namedItem('company') as HTMLInputElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+    }
 
     try {
-      // Formspree Entegrasyonu (Sizin ID'niz eklendi)
-      const response = await fetch("https://formspree.io/f/mdaaolzj", {
-        method: "POST",
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      })
+      // 1. ADIM: Size bildirim gönder (Admin Notification)
+      await emailjs.send(SERVICE_ID, TEMPLATE_ADMIN_ID, formData, PUBLIC_KEY)
 
-      if (response.ok) {
-        setStatus("success")
-        ;(e.target as HTMLFormElement).reset() // Formu temizle
-      } else {
-        const data = await response.json()
-        console.error("Formspree Error:", data)
-        setStatus("error")
-      }
+      // 2. ADIM: Müşteriye teşekkür maili gönder (Auto-Reply)
+      await emailjs.send(SERVICE_ID, TEMPLATE_USER_ID, formData, PUBLIC_KEY)
+
+      setStatus("success")
+      form.reset() // Formu temizle
+
     } catch (error) {
-      console.error("Submission error:", error)
+      console.error("EmailJS Error:", error)
       setStatus("error")
     }
   }
@@ -102,12 +109,12 @@ export default function Contact() {
             {/* Bildirim Mesajları */}
             {status === "success" && (
               <div className="bg-green-500/20 border border-green-500 p-4 rounded-lg text-center animate-pulse">
-                 <p className="text-green-400 font-bold">Thank you! Your message has been sent.</p>
+                 <p className="text-green-400 font-bold">Thank you! Your message has been sent successfully.</p>
               </div>
             )}
             {status === "error" && (
               <div className="bg-red-500/20 border border-red-500 p-4 rounded-lg text-center">
-                <p className="text-red-400 font-bold">Something went wrong. Please try again.</p>
+                <p className="text-red-400 font-bold">Something went wrong. Please try again later.</p>
               </div>
             )}
 
