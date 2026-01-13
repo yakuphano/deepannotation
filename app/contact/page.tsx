@@ -3,7 +3,6 @@
 import React, { useState } from 'react'
 
 export default function Contact() {
-  // Form durumunu takip etmek için state
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -11,22 +10,23 @@ export default function Contact() {
     setStatus("sending")
 
     const formData = new FormData(e.currentTarget)
-    const data = Object.fromEntries(formData.entries())
-
+    
     try {
-      // SendPulse Event Manager'dan alınan POST URL eklendi
-      const response = await fetch("https://events.sendpulse.com/events/id/610c08529f23471baa666673cb6c889f/9315062", {
+      // BURAYA DİKKAT: "f/xmqzvqzb" kısmını kendi Formspree kodunuzla değiştirin!
+      const response = await fetch("https://formspree.io/f/xmqzvqzb", {
         method: "POST",
+        body: formData,
         headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
+          'Accept': 'application/json'
+        }
       })
 
       if (response.ok) {
         setStatus("success")
         ;(e.target as HTMLFormElement).reset() // Formu temizle
       } else {
+        const errorData = await response.json()
+        console.error("Formspree Error:", errorData)
         setStatus("error")
       }
     } catch (error) {
@@ -49,7 +49,7 @@ export default function Contact() {
               <div className="space-y-2">
                 <label className="text-sm font-bold uppercase text-slate-400">Full Name</label>
                 <input 
-                  name="name" // SendPulse'taki name değişkeniyle eşleşir
+                  name="name" 
                   required
                   type="text" 
                   className="w-full bg-slate-950/50 border border-white/10 rounded-lg px-4 py-3 text-white outline-none focus:border-blue-500 transition-all"
@@ -60,7 +60,7 @@ export default function Contact() {
               <div className="space-y-2">
                 <label className="text-sm font-bold uppercase text-slate-400">Email Address</label>
                 <input 
-                  name="email" // SendPulse'taki email değişkeniyle eşleşir
+                  name="email" 
                   required
                   type="email" 
                   className="w-full bg-slate-950/50 border border-white/10 rounded-lg px-4 py-3 text-white outline-none focus:border-blue-500 transition-all"
@@ -72,7 +72,7 @@ export default function Contact() {
             <div className="space-y-2">
               <label className="text-sm font-bold uppercase text-slate-400">Company Name</label>
               <input 
-                name="phone" // SendPulse'ta kilitli olan 'phone' alanını Company Name için kullanıyoruz
+                name="company" 
                 type="text" 
                 className="w-full bg-slate-950/50 border border-white/10 rounded-lg px-4 py-3 text-white outline-none focus:border-blue-500 transition-all"
                 placeholder="Enter your company name"
@@ -82,7 +82,7 @@ export default function Contact() {
             <div className="space-y-2">
               <label className="text-sm font-bold uppercase text-slate-400">Message</label>
               <textarea 
-                name="message" // SendPulse'ta 'Add Variable' ile eklediğin message değişkeniyle eşleşir
+                name="message" 
                 required
                 rows={5}
                 className="w-full bg-slate-950/50 border border-white/10 rounded-lg px-4 py-3 text-white outline-none focus:border-blue-500 transition-all resize-none"
