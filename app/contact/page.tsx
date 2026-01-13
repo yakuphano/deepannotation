@@ -14,7 +14,7 @@ export default function Contact() {
 
     try {
       // Formspree Entegrasyonu (Sizin ID'niz eklendi)
-      const response = await fetch("https://formspree.io/f/mkoonvwv", {
+      const response = await fetch("https://formspree.io/f/mdaaolzj", {
         method: "POST",
         body: formData,
         headers: {
