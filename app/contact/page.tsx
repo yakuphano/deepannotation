@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 
 export default function Contact() {
+  // Form durumunu takip etmek için state
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle")
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -10,10 +11,10 @@ export default function Contact() {
     setStatus("sending")
 
     const formData = new FormData(e.currentTarget)
-    
+
     try {
-      // BURAYA DİKKAT: "f/xmqzvqzb" kısmını kendi Formspree kodunuzla değiştirin!
-      const response = await fetch("https://formspree.io/f/xmqzvqzb", {
+      // Formspree Entegrasyonu (Sizin ID'niz eklendi)
+      const response = await fetch("https://formspree.io/f/mkoonvwv", {
         method: "POST",
         body: formData,
         headers: {
@@ -25,8 +26,8 @@ export default function Contact() {
         setStatus("success")
         ;(e.target as HTMLFormElement).reset() // Formu temizle
       } else {
-        const errorData = await response.json()
-        console.error("Formspree Error:", errorData)
+        const data = await response.json()
+        console.error("Formspree Error:", data)
         setStatus("error")
       }
     } catch (error) {
@@ -100,10 +101,14 @@ export default function Contact() {
 
             {/* Bildirim Mesajları */}
             {status === "success" && (
-              <p className="text-green-400 text-center font-bold">Thank you! Your message has been sent.</p>
+              <div className="bg-green-500/20 border border-green-500 p-4 rounded-lg text-center animate-pulse">
+                 <p className="text-green-400 font-bold">Thank you! Your message has been sent.</p>
+              </div>
             )}
             {status === "error" && (
-              <p className="text-red-400 text-center font-bold">Something went wrong. Please try again.</p>
+              <div className="bg-red-500/20 border border-red-500 p-4 rounded-lg text-center">
+                <p className="text-red-400 font-bold">Something went wrong. Please try again.</p>
+              </div>
             )}
 
           </form>
