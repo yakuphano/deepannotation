@@ -1,9 +1,9 @@
 import "./globals.css"
 import Navbar from "./components/Navbar"
+import VideoBackground from "./components/VideoBackground" // 1. Video bileşenini buraya çağırdık
 import type { Metadata, Viewport } from "next"
-import Script from "next/script" // Next.js Script bileşenini içe aktarıyoruz
+import Script from "next/script"
 
-// Mobil uyumluluk (viewport)
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -22,11 +22,9 @@ export const metadata: Metadata = {
     "deepannotation",
   ],
   metadataBase: new URL("https://deepannotation.ai"),
-  // --- GOOGLE SEARCH CONSOLE HATASI İÇİN EKLENEN KISIM ---
   alternates: {
     canonical: "https://www.deepannotation.ai",
   },
-  // -----------------------------------------------------
   robots: "index, follow",
   openGraph: {
     type: "website",
@@ -45,7 +43,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        {/* Google Analytics Kodu Başlangıcı */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-NM1989RPBG"
           strategy="afterInteractive"
@@ -59,9 +56,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'G-NM1989RPBG');
           `}
         </Script>
-        {/* Google Analytics Kodu Bitişi */}
       </head>
-      <body className="min-h-screen text-white bg-slate-950 overflow-x-hidden">
+      {/* 2. bg-transparent yaparak videonun görünmesini sağladık */}
+      <body className="min-h-screen text-white bg-transparent overflow-x-hidden">
+        
+        {/* 3. VİDEO ARKA PLANI BURAYA EKLENDİ (Tüm sayfalar için geçerli) */}
+        <VideoBackground />
+        
         <Navbar />
         <main>{children}</main>
       </body>

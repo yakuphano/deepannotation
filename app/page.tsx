@@ -2,8 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
-// 1. Yeni oluşturduğumuz Video Arka Plan bileşenini çağırıyoruz
-import VideoBackground from './components/VideoBackground';
+// VideoBackground importunu buradan kaldırdık çünkü artık layout'ta var.
 
 const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
@@ -11,7 +10,6 @@ export default function Home() {
   const [animationData, setAnimationData] = useState<any>(null);
 
   useEffect(() => {
-    // Mevcut 'ai-brain' animasyonunu yüklemeye devam ediyoruz
     fetch("/lottie/ai-brain.json")
       .then((res) => {
         if (!res.ok) throw new Error("Dosya bulunamadı");
@@ -22,21 +20,13 @@ export default function Home() {
   }, []);
 
   return (
-    /* Ana kapsayıcı (Main): 
-       Video arka planı ve içeriği bir arada tutar. 
-    */
+    // <VideoBackground /> BURADAN SİLİNDİ
+    
     <main className="relative">
-      
-      {/* 2. VİDEO ARKA PLAN BURAYA EKLENDİ (En arkada duracak) */}
-      <VideoBackground />
-
-      {/* 3. MEVCUT İÇERİK (Aynen korundu) */}
-      {/* pt-28: Mobilde yazıları navbarın 1 cm altına çekecek şekilde boşluk artırıldı */}
       <div className="min-h-screen flex flex-col lg:grid lg:grid-cols-2 gap-4 items-center px-6 md:px-24 pt-28 lg:pt-0 relative z-10 overflow-x-hidden">
         
         {/* --- METİN ALANI --- */}
         <div className="text-left space-y-6 md:space-y-8 order-1 lg:order-1 w-full mt-2 lg:mt-0">
-          
           <h1 className="text-4xl md:text-7xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 pb-2 opacity-0 animate-[slideInLeft_1s_ease-out_forwards]">
             DeepAnnotation
           </h1>
@@ -51,15 +41,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* --- ANİMASYON ALANI (Mevcut Beyin Animasyonu) --- */}
-        <div className="flex justify-center items-center w-full order-2 lg:order-2 relative
-                      /* MOBİL: mt-4 ile yukarı çektik, translate-x-10 ile sağa ittik */
-                      mt-4 -translate-y-4 translate-x-10
-                      /* MASAÜSTÜ: Sabit pozisyon */
-                      lg:mt-0 lg:translate-x-16 lg:translate-y-12">
-          
+        {/* --- ANİMASYON ALANI --- */}
+        <div className="flex justify-center items-center w-full order-2 lg:order-2 relative mt-4 -translate-y-4 translate-x-10 lg:mt-0 lg:translate-x-16 lg:translate-y-12">
           <div className="absolute inset-0 bg-blue-600/10 blur-[80px] rounded-full pointer-events-none"></div>
-
           <div className="relative w-full max-w-[280px] md:max-w-[550px] z-10">
             {animationData && (
               <Lottie 
