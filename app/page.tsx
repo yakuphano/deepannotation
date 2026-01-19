@@ -1,37 +1,26 @@
 "use client"
 
-import React, { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
-// VideoBackground importunu buradan kaldırdık çünkü artık layout'ta var.
-
-const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
+import React from 'react';
 
 export default function Home() {
-  const [animationData, setAnimationData] = useState<any>(null);
-
-  useEffect(() => {
-    fetch("/lottie/ai-brain.json")
-      .then((res) => {
-        if (!res.ok) throw new Error("Dosya bulunamadı");
-        return res.json();
-      })
-      .then((data) => setAnimationData(data))
-      .catch((err) => console.error("Hata:", err));
-  }, []);
+  // State, useEffect ve Lottie importlarını sildik.
+  // Artık sadece yazı ve layout var.
 
   return (
-    // <VideoBackground /> BURADAN SİLİNDİ
-    
     <main className="relative">
-      <div className="min-h-screen flex flex-col lg:grid lg:grid-cols-2 gap-4 items-center px-6 md:px-24 pt-28 lg:pt-0 relative z-10 overflow-x-hidden">
+      {/* Grid yapısını (lg:grid-cols-2) kaldırdık.
+         Yerine 'flex-col' ve 'items-center' ekleyerek içeriği tam ortaya hizaladık.
+      */}
+      <div className="min-h-screen flex flex-col justify-center items-center px-6 md:px-24 pt-28 lg:pt-0 relative z-10 overflow-x-hidden">
         
-        {/* --- METİN ALANI --- */}
-        <div className="text-left space-y-6 md:space-y-8 order-1 lg:order-1 w-full mt-2 lg:mt-0">
+        {/* Yazı Alanı: Genişliği sınırlayıp (max-w-4xl) merkeze aldık */}
+        <div className="text-center space-y-6 md:space-y-8 w-full max-w-4xl mt-2 lg:mt-0">
+          
           <h1 className="text-4xl md:text-7xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 pb-2 opacity-0 animate-[slideInLeft_1s_ease-out_forwards]">
             DeepAnnotation
           </h1>
 
-          <div className="max-w-2xl space-y-4 md:space-y-6 text-base md:text-xl text-white/90 leading-relaxed font-light opacity-0 animate-[slideInLeft_1s_ease-out_0.5s_forwards]">
+          <div className="max-w-3xl mx-auto space-y-4 md:space-y-6 text-base md:text-xl text-white/90 leading-relaxed font-light opacity-0 animate-[slideInLeft_1s_ease-out_0.5s_forwards]">
             <p>
               At DeepAnnotation, we architect the definitive ground truth that powers the world&apos;s most advanced Artificial Intelligence systems. We go beyond simple data labeling to provide a comprehensive, enterprise-grade data infrastructure that transforms raw, unstructured information into high-fidelity training assets.
             </p>
@@ -41,19 +30,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* --- ANİMASYON ALANI --- */}
-        <div className="flex justify-center items-center w-full order-2 lg:order-2 relative mt-4 -translate-y-4 translate-x-10 lg:mt-0 lg:translate-x-16 lg:translate-y-12">
-          <div className="absolute inset-0 bg-blue-600/10 blur-[80px] rounded-full pointer-events-none"></div>
-          <div className="relative w-full max-w-[280px] md:max-w-[550px] z-10">
-            {animationData && (
-              <Lottie 
-                animationData={animationData} 
-                loop={true} 
-                className="w-full h-full" 
-              />
-            )}
-          </div>
-        </div>
+        {/* Animasyon Div'i tamamen kaldırıldı */}
 
       </div>
     </main>
