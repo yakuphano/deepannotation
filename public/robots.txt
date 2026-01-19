@@ -1,4 +1,205 @@
-User-agent: *
-Allow: /
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M. Yakup Hano - CV</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px;
+            background: #fff;
+        }
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .contact-info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .contact-info span {
+            margin-right: 15px;
+        }
+        h2 {
+            font-size: 18px;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 25px;
+            text-transform: uppercase;
+        }
+        .job {
+            margin-bottom: 15px;
+        }
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .company {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .role {
+            font-style: italic;
+            color: #555;
+        }
+        .date {
+            font-size: 14px;
+            color: #777;
+            text-align: right;
+            min-width: 150px;
+        }
+        ul {
+            margin-top: 5px;
+            padding-left: 20px;
+            font-size: 14px;
+        }
+        li {
+            margin-bottom: 3px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 14px;
+        }
+        .education-item {
+            margin-bottom: 10px;
+        }
+        /* Yazdırma Ayarları */
+        @media print {
+            body { padding: 0; margin: 20px; }
+            a { text-decoration: none; color: #000; }
+        }
+    </style>
+</head>
+<body>
 
-Sitemap: https://deepannotation.ai/sitemap.xml
+    <header>
+        <h1>M. Yakup Hano</h1>
+        <div class="contact-info">
+            <span>Izmir, Turkey</span> | 
+            <span>+90 538 330 21 22</span> | 
+            <span>yakup2122@gmail.com</span>
+        </div>
+    </header>
+
+    <section>
+        <h2>Professional Summary</h2>
+        <p style="font-size: 14px;">
+            Detail-oriented <strong>Data & AI Specialist</strong> and <strong>Content Moderator</strong> with a strong background in Computer Programming and International Relations. Proven track record in training Generative AI models (LLMs), ensuring search engine quality, and managing digital content compliance. Transitioned from a successful management career in hospitality, bringing strong skills in crisis management, team leadership, and analytical thinking.
+        </p>
+    </section>
+
+    <section>
+        <h2>Professional Experience</h2>
+
+        <div class="job">
+            <div class="job-header">
+                <div><span class="company">TELUS INTERNATIONAL</span> - <span class="role">Content Moderator</span></div>
+                <div class="date">May 2022 – Dec 2025</div>
+            </div>
+            <ul>
+                <li>Analyzed and moderated high volumes of user-generated content to ensure compliance with client safety policies.</li>
+                <li>Maintained a high quality score (98%+) in identifying sensitive content, protecting platform integrity.</li>
+                <li>Collaborated with international teams to update policy protocols based on emerging digital trends.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div><span class="company">OUTLIER (formerly Remotasks)</span> - <span class="role">Generative AI Specialist</span></div>
+                <div class="date">2024 – Present</div>
+            </div>
+            <ul>
+                <li>Evaluating and ranking AI-generated code and text responses to improve Large Language Models (LLMs) via RLHF.</li>
+                <li>Identifying factual inaccuracies and reasoning errors to ensure high-quality model training data.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div><span class="company">SIGMA AI</span> - <span class="role">AI Trainer (Kurdish Language)</span></div>
+                <div class="date">2025 – Present</div>
+            </div>
+            <ul>
+                <li>Training AI algorithms in NLP for the Kurdish language to improve translation accuracy.</li>
+                <li>Transcribing and annotating audio data with high linguistic precision.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div><span class="company">ONEFORMA</span> - <span class="role">Map Specialist</span></div>
+                <div class="date">2025 – Present</div>
+            </div>
+            <ul>
+                <li>Verifying geospatial data to enhance digital navigation system accuracy.</li>
+                <li>Analyzing complex map queries and Point-of-Interest (POI) data.</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <div><span class="company">GINI TALENT</span> - <span class="role">Search Quality Specialist</span></div>
+                <div class="date">2024 – Present</div>
+            </div>
+            <ul>
+                <li>Assessing search engine results for relevance, authority, and user intent optimization.</li>
+            </ul>
+        </div>
+        
+        <div class="job">
+            <div class="job-header">
+                <div><span class="company">HOSPITALITY MANAGEMENT ROLES</span> - <span class="role">Manager / Supervisor</span></div>
+                <div class="date">2012 – 2019</div>
+            </div>
+            <ul>
+                <li><strong>Garden of Sun / Risus / Korumar Hotel:</strong> Managed large teams, oversaw budgets, and resolved operational crises under high pressure. developed strong leadership and communication skills.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+            <div>
+                <strong>Core:</strong> AI Data Training (RLHF), Content Moderation, Data Labeling, SEO/Search Analysis.
+            </div>
+            <div>
+                <strong>Software & Web:</strong> HTML5, CSS, MS Office (Advanced), Map Analysis Tools.
+            </div>
+            <div>
+                <strong>Languages:</strong> Turkish (Native), English (Professional), Kurdish (Native).
+            </div>
+            <div>
+                <strong>Soft Skills:</strong> Analytical Thinking, Crisis Management, Team Leadership.
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Education</h2>
+        <div class="education-item">
+            <strong>Anadolu University</strong> | Associate Degree in Computer Programming (2024)
+        </div>
+        <div class="education-item">
+            <strong>Anadolu University</strong> | Bachelor’s Degree in International Relations (2019)
+        </div>
+    </section>
+
+</body>
+</html>
