@@ -1,6 +1,7 @@
 import "./globals.css"
 import Navbar from "./components/Navbar"
-import VideoBackground from "./components/VideoBackground" // 1. Video bileşenini buraya çağırdık
+import Footer from "./components/Footer" // 1. YENİ EKLENEN
+import VideoBackground from "./components/VideoBackground"
 import type { Metadata, Viewport } from "next"
 import Script from "next/script"
 
@@ -57,14 +58,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
       </head>
-      {/* 2. bg-transparent yaparak videonun görünmesini sağladık */}
-      <body className="min-h-screen text-white bg-transparent overflow-x-hidden">
+      <body className="min-h-screen text-white bg-transparent overflow-x-hidden flex flex-col">
         
-        {/* 3. VİDEO ARKA PLANI BURAYA EKLENDİ (Tüm sayfalar için geçerli) */}
         <VideoBackground />
         
         <Navbar />
-        <main>{children}</main>
+        
+        {/* flex-grow: Sayfa içeriği az olsa bile footer'ı en aşağı iter */}
+        <main className="flex-grow">{children}</main>
+        
+        {/* 2. FOOTER BURAYA EKLENDİ */}
+        <Footer />
+        
       </body>
     </html>
   )
