@@ -2,10 +2,10 @@ import Link from "next/link"
 import { Linkedin, Twitter, Instagram, Github, Mail } from "lucide-react"
 
 const socialLinks = [
-  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: Github, href: "https://github.com", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/110795107/admin/dashboard/", label: "LinkedIn" },
+  { icon: Twitter, href: "https://x.com/DeepAnnotation", label: "Twitter" },
+  { icon: Instagram, href: "https://www.instagram.com/deepannotation/", label: "Instagram" },
+  { icon: Github, href: "https://github.com/yakuphano/deepannotation", label: "GitHub" },
 ]
 
 export default function Footer() {
@@ -37,7 +37,7 @@ export default function Footer() {
           
           {/* Mail İkonu (Opsiyonel) */}
           <Link 
-            href="mailto:info@deepannotation.ai" 
+            href="mailto:https://www.deepannotation.ai/contact" 
             className="text-white/60 hover:text-blue-400 transition-colors duration-300 transform hover:scale-110"
           >
             <Mail size={24} />
