@@ -1,28 +1,23 @@
 import Link from "next/link"
-// 1. Github ikonunu import listesinden kaldırdık
 import { Linkedin, Twitter, Instagram, Mail } from "lucide-react"
 
 const socialLinks = [
-  { icon: Linkedin, href: "https://www.linkedin.com/company/110795107/admin/dashboard/", label: "LinkedIn" },
-  { icon: Twitter, href: "https://x.com/DeepAnnotation", label: "Twitter" },
-  { icon: Instagram, href: "https://www.instagram.com/deepannotation/", label: "Instagram" },
-  // 2. Buradaki GitHub satırını sildik
+  { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
 ]
 
 export default function Footer() {
   return (
-    <footer className="w-full py-8 relative z-10 mt-20 border-t border-white/10 bg-black/40 backdrop-blur-md">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
+    // DÜZENLEME: 
+    // - mt-20 kaldırıldı (Gereksiz boşluk yapıyordu).
+    // - py-8 yerine py-4 (Daha ince bir şerit).
+    <footer className="w-full py-4 relative z-10 border-t border-white/10 bg-black/40 backdrop-blur-md">
+      
+      {/* İçeriği tek bir merkezde topladık (flex justify-center) */}
+      <div className="max-w-[1440px] mx-auto px-6 flex justify-center items-center">
         
-        {/* Sol Kısım */}
-        <div className="text-center md:text-left">
-          <p className="text-white/60 text-sm">
-            © {new Date().getFullYear()} DeepAnnotation. All rights reserved.
-          </p>
-        </div>
-
-        {/* Sağ Kısım */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-8">
           {socialLinks.map((item) => (
             <Link
               key={item.label}
