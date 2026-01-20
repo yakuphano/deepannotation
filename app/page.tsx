@@ -5,16 +5,13 @@ import React from 'react';
 export default function Home() {
   return (
     // DÜZENLEME:
-    // pt-28: Mobilde üstten boşluğu artırarak yazıları aşağı indirdik.
-    // pb-4: Alttan boşluğu azalttık ki sayfa taşmasın.
-    // md:py-0: Masaüstünde (büyük ekran) bu boşlukları sıfırladık.
-    <div className="w-full flex-1 flex flex-col justify-center items-center px-6 md:px-24 pt-28 pb-4 md:py-0">
+    // pt-28 -> pt-20: Yazıları biraz daha yukarı çektik (Navbar'a bindirmeden).
+    // pb-4 -> pb-0: Alttaki ekstra boşluğu kaldırdık.
+    <div className="w-full flex-1 flex flex-col justify-center items-center px-6 md:px-24 pt-20 pb-0 md:py-0">
       
       {/* Yazı Alanı */}
       <div className="text-center space-y-6 md:space-y-8 w-full max-w-4xl">
         
-        {/* Mobilde yazı boyutunu 'text-4xl'den 'text-3xl'e çekebiliriz eğer hala sığmazsa. 
-            Şimdilik 4xl bıraktım. */}
         <h1 className="text-4xl md:text-7xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 pb-2 opacity-0 animate-[slideInLeft_1s_ease-out_forwards]">
           DeepAnnotation
         </h1>
