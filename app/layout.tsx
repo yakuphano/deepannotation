@@ -1,6 +1,6 @@
 import "./globals.css"
 import Navbar from "./components/Navbar"
-import Footer from "./components/Footer" // 1. YENİ EKLENEN
+import Footer from "./components/Footer"
 import VideoBackground from "./components/VideoBackground"
 import type { Metadata, Viewport } from "next"
 import Script from "next/script"
@@ -58,16 +58,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
       </head>
-      <body className="min-h-screen text-white bg-transparent overflow-x-hidden flex flex-col">
+      
+      {/* DÜZENLEME: 
+         - min-h-screen: Sayfa en az ekran boyu kadar olsun.
+         - flex flex-col: İçeriği alt alta diz.
+         Böylece içerik azsa bile Footer en altta durur.
+      */}
+      <body className="min-h-screen flex flex-col text-white bg-transparent overflow-x-hidden">
         
         <VideoBackground />
         
         <Navbar />
         
-        {/* flex-grow: Sayfa içeriği az olsa bile footer'ı en aşağı iter */}
-        <main className="flex-grow">{children}</main>
+        {/* DÜZENLEME:
+           - flex-grow: Aradaki boşluğu doldur.
+           - justify-center: İçindeki sayfayı dikeyde ortala.
+        */}
+        <main className="flex-grow flex flex-col justify-center relative z-10 w-full">
+          {children}
+        </main>
         
-        {/* 2. FOOTER BURAYA EKLENDİ */}
         <Footer />
         
       </body>
