@@ -46,9 +46,24 @@ export default function Contact() {
   return (
     <div className="min-h-screen flex items-center justify-center px-6 pt-32 pb-20 relative z-10">
       <div className="w-full max-w-2xl relative z-10">
-        <h1 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-8 text-center">
+        
+        {/* Ana Başlık */}
+        <h1 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6 text-center">
           Contact Us
         </h1>
+
+        {/* --- YENİ EKLENEN KISIM: Direkt İletişim Bilgisi --- */}
+        <p className="text-center text-slate-300 mb-8 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+          Interested in partnerships, NVIDIA credits, or custom datasets? <br className="hidden md:block" />
+          Contact us directly at{' '}
+          <a 
+            href="mailto:info@deepannotation.ai" 
+            className="text-blue-400 hover:text-blue-300 font-semibold underline transition-colors"
+          >
+            info@deepannotation.ai
+          </a>
+        </p>
+        {/* --------------------------------------------------- */}
 
         <div className="bg-slate-900/50 backdrop-blur-md border border-white/10 p-8 md:p-12 rounded-2xl">
           <form onSubmit={handleSubmit} className="space-y-6">
