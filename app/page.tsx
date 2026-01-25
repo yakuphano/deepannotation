@@ -16,7 +16,8 @@ export default function Home() {
 
         <div className="max-w-3xl mx-auto space-y-4 md:space-y-6 text-base md:text-xl text-white/90 leading-relaxed font-light opacity-0 animate-[slideInLeft_1s_ease-out_0.5s_forwards]">
           <p>
-            At DeepAnnotation, we architect the definitive ground truth that powers the world&apos;s most advanced Artificial Intelligence systems. We go beyond simple data labeling to provide a comprehensive, enterprise-grade data infrastructure that transforms raw, unstructured information into high-fidelity training assets.
+            className="mt-6 text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
+            At DeepAnnotation, we architect the definitive ground truth that powers the world’s most advanced AI systems — from computer vision and NLP to speech and search relevance. We provide high-quality human-verified and AI-assisted training and evaluation data designed for modern AI and LLMs.
           </p>
           <p>
             By synthesizing the nuanced understanding of expert human annotators with the efficiency of automated validation pipelines, we deliver the precision-driven datasets necessary to train robust, production-ready machine learning models.

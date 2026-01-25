@@ -1,0 +1,241 @@
+[33mcommit 9e48f1d3d1719159601505b126c59b1e38795277[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Wed Jan 21 22:01:51 2026 +0300
+
+    first commit
+
+[33mcommit 11343203303c3dd7a7705c0767d0e1afad91e659[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Wed Jan 21 00:54:48 2026 +0300
+
+    Footer telif hakkı yazısı geri eklendi
+
+[33mcommit c345135c0f2a441f0ea40dba933f031d3a863f58[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Wed Jan 21 00:49:09 2026 +0300
+
+    Eski layout ve page yapısına geri dönüldü, scroll sorunu yok
+
+[33mcommit 06fc8ffcec7572a2e89bd88259173b46c5941e93[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Wed Jan 21 00:40:27 2026 +0300
+
+    Mobil kaydırma sorunu 100dvh ve overflow-hidden ile çözüldü
+
+[33mcommit e0f69d378b54ed5a9f79df057a203565a63884fa[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Wed Jan 21 00:34:08 2026 +0300
+
+    Footer'dan telif yazısı kaldırıldı ve yükseklik azaltıldı
+
+[33mcommit 556144566509fac30457698b3f14ad44f3c417fb[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Wed Jan 21 00:28:34 2026 +0300
+
+    Mobil boşluklar azaltıldı, footer tek ekrana sığdırıldı
+
+[33mcommit 61629ea6e1bba09ff8ec4406669c3b2a3256d059[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Wed Jan 21 00:25:36 2026 +0300
+
+    Mobil görünümde yazılar aşağı alındı ve boşluk dengelendi
+
+[33mcommit 342a48af0f393dd8eb5dc3047b10dace07502d5b[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Wed Jan 21 00:21:38 2026 +0300
+
+    Layout ve Page mobil uyumlu tam ekran yapıldı
+
+[33mcommit 80f50a4070b42a570206b858d15cfcb83c9d3ba2[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Mon Jan 19 04:23:25 2026 +0300
+
+    Ana sayfadan eski animasyon kaldırıldı ve yazı ortalandı
+
+[33mcommit 135a0e34e6fce9fbe5bf3a92a04f4301ba7958b4[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Mon Jan 19 04:18:33 2026 +0300
+
+    Footer'dan Github ikonu kaldırıldı
+
+[33mcommit e929fb30cd35803243f4a5a27cdaf9be8dc31d91[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Mon Jan 19 04:10:52 2026 +0300
+
+    Sosyal medya linkleri güncellendi
+
+[33mcommit 3ad9b2eee5fcd3632b50c1e68f861b0b20480762[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Mon Jan 19 04:03:44 2026 +0300
+
+    Footer ve sosyal medya ikonları eklendi
+
+[33mcommit 8e722df6248eac2208aa9df28135ff5de10a1424[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Mon Jan 19 03:55:57 2026 +0300
+
+    Video arka plan tüm sayfalara (layout) uygulandı
+
+[33mcommit e4852e64ab8adfc2f3ed637ce18a0c709124d983[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Mon Jan 19 03:51:05 2026 +0300
+
+    Video arka plan eklendi ve koyu filtreler kaldırıldı
+
+[33mcommit 68140c67b8f44958b825c3fca1c209b4fcc3a084[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Mon Jan 19 03:44:01 2026 +0300
+
+    Arka plan video animasyonu eklendi
+
+[33mcommit de611a64983bc1cdd47bc2ad52994bebcc628c56[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Tue Jan 13 05:08:32 2026 +0300
+
+    Switch contact form to EmailJS
+
+[33mcommit 61a3a43a2a7f615ea587c549d0a42d7027cddc11[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Tue Jan 13 04:23:06 2026 +0300
+
+    Update Formspree ID to send to company email
+
+[33mcommit 1d506aedbdd0c7b5f109b5ec3590474b92b49318[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Tue Jan 13 03:21:41 2026 +0300
+
+    Final fix: Formspree integration with correct ID
+
+[33mcommit 1510707fa42a7e2b81aae329bf07d34ff73fa054[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Tue Jan 13 03:06:51 2026 +0300
+
+    Fix: Contact form switch to Formspree
+
+[33mcommit 7d12142b93879562a2c281d270f684eec7e83315[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Mon Jan 12 18:12:01 2026 +0300
+
+    Final: Linked contact form to SendPulse with the correct POST URL
+
+[33mcommit 3fc50ed8b1a1fe0c3b2b191bfa67f4ad1e2476a6[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Mon Jan 12 17:12:11 2026 +0300
+
+    Fix: Fully functional SendPulse contact form with state management
+
+[33mcommit a18431414e9367b17cfaefc3ffa767302700a7c9[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Mon Jan 12 16:57:34 2026 +0300
+
+    SEO: Added canonical URL to resolve Google Search Console duplicate page issue
+
+[33mcommit f308eb9c8a82e1f5cb7178f446eefc9822c09703[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 07:28:31 2026 +0300
+
+    Fix: Removed duplicate resolveJsonModule key in tsconfig.json
+
+[33mcommit 35d69fa84acdb06d2bd87c5cfd83274e5632b1a5[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 07:24:38 2026 +0300
+
+    Update: Changed Subject field to Company Name in Contact page
+
+[33mcommit 0335ebfedeb4936e9c83fb88332ad158addcf189[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 07:22:44 2026 +0300
+
+    Fix: Restored original contact page content and code structure with subtle border updates
+
+[33mcommit b3a3c4887b1d0cd46e33e531073c001b7a28dd7e[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 07:20:49 2026 +0300
+
+    UI: Aligned contact form borders with site background theme
+
+[33mcommit 1ac68b07df79b12f6a564683c5f398cd242b0479[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 07:18:20 2026 +0300
+
+    Design: Optimized Contact page inputs and frames for glassmorphism style
+
+[33mcommit 66742d06dc42510a915da77309ba923fe396f1e3[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 07:15:14 2026 +0300
+
+    Design: Refined Navbar colors and blur to match the deep background
+
+[33mcommit 8a7c654453fc0319bb45f05b88efe7517e04d5d0[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 07:11:04 2026 +0300
+
+    UI: Refined mobile positioning for text and animation
+
+[33mcommit 18041e6573eac3ab6c58d84d72aa2f0325663b8a[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 07:07:59 2026 +0300
+
+    UI: Mobile layout prioritized text positioning right below navbar
+
+[33mcommit 959f675877bbac7c278805b4a47f56fe8d83ad79[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 07:05:09 2026 +0300
+
+    UI: Shifted Lottie animation further right and down for better composition
+
+[33mcommit 125a419d822bd1f84be86a69c55cea47b027f4a7[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 07:00:31 2026 +0300
+
+    Fix: Applied slideInLeft animation exclusively to Home page elements
+
+[33mcommit 7e90b4cbb5ff63cf7180ea1b638bec1882b61d05[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 06:55:32 2026 +0300
+
+    Fix: Applied dynamic import for Lottie to resolve client-side exception
+
+[33mcommit 82c8501326671daa0c2c24e3693708dd9beed3c2[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 06:53:40 2026 +0300
+
+    Fix: Hardcoded Lottie JSON to ensure it loads correctly
+
+[33mcommit e3f2ff386049caabee8b4210a550084a36099b4b[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 06:51:04 2026 +0300
+
+    Fix: Replaced JSON import with dynamic fetch for Lottie to avoid build errors
+
+[33mcommit f443eb25647119949cf5b594bc5e60ae058d8420[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 06:37:08 2026 +0300
+
+    Fix: Home page layout aligned to left and added slideInLeft animation
+
+[33mcommit 0cc875f1f5f97585f96f4d0dc4a660a8e77ff865[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 06:34:02 2026 +0300
+
+    Fix: Updated globals.css with background settings and animation keyframes
+
+[33mcommit 60bc5aa5b8846657707da63956915f713bcea967[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 06:32:35 2026 +0300
+
+    Fix: Removed unwanted buttons and restored text animation on Home page
+
+[33mcommit 8cf6017e7ad352567534bc7930360631defeabcb[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 06:29:28 2026 +0300
+
+    Content: Home page hero text significantly expanded and enriched
+
+[33mcommit 206b699172ba1369c98e48505ad42d5bb02ab6ab[m
+Author: Yakup Hano <yakup2122@gmail.com>
+Date:   Sat Jan 10 06:26:46 2026 +0300
+
+    Content: Why Us page updated with extremely detailed, long-form technical descriptions
+
+[33mcommit 9e0e418f5ad319a823fe2ab9
