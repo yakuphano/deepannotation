@@ -13,8 +13,8 @@ const blogPosts = [
     readTime: "6 min read", 
     category: "Generative AI", 
     slug: "quality-annotation-llm-training", 
-    // YENİ GÖRSEL: Soyut veri ağları ve dil modeli akışı (Mavi/Mor)
-    image: "https://images.unsplash.com/photo-1655720357761-f18ea9e5e7e6?q=80&w=1200&auto=format&fit=crop" 
+    // PNG olarak güncellendi:
+    image: "/blog/llm-training.png" 
   },
   { 
     id: 2, 
@@ -24,8 +24,8 @@ const blogPosts = [
     readTime: "8 min read", 
     category: "MLOps Strategy", 
     slug: "human-in-the-loop-reliability", 
-    // YENİ GÖRSEL: Dijital arayüzle insan etkileşimi (HITL)
-    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1200&auto=format&fit=crop" 
+    // PNG olarak güncellendi:
+    image: "/blog/hitl-reliability.png" 
   },
   { 
     id: 3, 
@@ -35,8 +35,8 @@ const blogPosts = [
     readTime: "7 min read", 
     category: "Search & Retrieval", 
     slug: "search-relevance-best-practices", 
-    // YENİ GÖRSEL: Veri ağları üzerinde arama/büyüteç konsepti
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop" 
+    // PNG olarak güncellendi:
+    image: "/blog/search-relevance.png" 
   },
   { 
     id: 4, 
@@ -46,8 +46,8 @@ const blogPosts = [
     readTime: "10 min read", 
     category: "Autonomous Systems", 
     slug: "lidar-gpu-optimization", 
-    // YENİ GÖRSEL: Soyut 3D dijital yapı / nokta bulutu
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop" 
+    // PNG olarak güncellendi:
+    image: "/blog/lidar-gpu.png" 
   }
 ];
 
@@ -64,7 +64,7 @@ export default function BlogPage() {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-500"></div>
               <div className="relative p-6 bg-white/10 border border-white/20 rounded-2xl flex flex-col md:flex-row gap-6 items-center transition-all duration-300 group-hover:border-white/50 backdrop-blur-md">
                 
-                {/* Görsel */}
+                {/* Görsel Alanı */}
                 <div className="w-full md:w-48 h-48 md:h-32 flex-shrink-0 overflow-hidden rounded-xl">
                     <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                 </div>
