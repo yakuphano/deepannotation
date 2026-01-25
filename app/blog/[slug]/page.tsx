@@ -5,50 +5,50 @@ import { useParams } from 'next/navigation';
 import { CalendarDays, Clock, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
+// NVIDIA & Enterprise Odaklı Güncellenmiş Blog Verisi
 const blogPostsData: Record<string, { title: string; date: string; readTime: string; image: string; content: string[] }> = {
-  "quality-data-in-ai": {
-    title: "The Strategic Imperative of High-Fidelity Data",
-    date: "Jan 15, 2026",
-    readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200",
+  "quality-annotation-llm-training": {
+    title: "Why Quality Annotation Improves LLM Training",
+    date: "Feb 12, 2025",
+    readTime: "6 min read",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200",
     content: [
-      "In the contemporary AI landscape, the paradigm has shifted from 'Big Data' to 'Smart Data'. High-fidelity data annotation is now a strategic imperative.",
-      "At DeepAnnotation, we address the 'Garbage In, Garbage Out' challenge with multi-layer verification. Quality data ensures that models learn accurate features.",
-      "Furthermore, clean data accelerates model convergence, saving significant compute costs and building robust AI systems."
+      "In the era of Generative AI, the bottleneck has shifted from model architecture to data quality. Large Language Models (LLMs) are prone to hallucinations and reasoning errors when trained on noisy, unverified datasets. High-fidelity instruction tuning data is the definitive cure for these ailments.",
+      "At DeepAnnotation, we focus on 'Ground Truth Engineering'. Unlike basic crowdsourcing, our workflows involve domain experts who verify reasoning chains (CoT) and factual accuracy. This ensures that your foundation models learn to generalize correctly rather than memorizing noise.",
+      "Furthermore, clean, human-verified data significantly accelerates model convergence. By reducing the noise in the loss landscape, we help engineering teams save substantial GPU compute costs while achieving higher benchmarks on evaluation sets."
     ]
   },
-  "understanding-semantic-segmentation": {
-    title: "Advancements in Pixel-Level Semantic Segmentation",
-    date: "Jan 12, 2026",
-    readTime: "10 min read",
+  "human-in-the-loop-reliability": {
+    title: "How Human-in-the-Loop Improves Model Reliability",
+    date: "Feb 08, 2025",
+    readTime: "8 min read",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee481c?auto=format&fit=crop&q=80&w=1200",
+    content: [
+      "Deploying AI in production is not a one-time event; it is a continuous cycle. Model drift and edge cases inevitably degrade performance over time. The solution lies in a robust Human-in-the-Loop (HITL) strategy integrated directly into the MLOps pipeline.",
+      "We champion a dynamic feedback loop where low-confidence model predictions are automatically routed to human annotators for correction. This data is then fed back into the training set, creating a virtuous cycle of continuous improvement (Active Learning).",
+      "For mission-critical applications—from autonomous driving to medical diagnosis—HITL is not optional. It provides the necessary safety guardrails and explainability that purely automated systems lack, ensuring your AI remains reliable as real-world conditions evolve."
+    ]
+  },
+  "search-relevance-best-practices": {
+    title: "Best Practices for Search Relevance Datasets",
+    date: "Feb 01, 2025",
+    readTime: "7 min read",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200",
     content: [
-      "Semantic segmentation requires the classification of every individual pixel. For autonomous systems, this provides a granular understanding of the environment.",
-      "The year 2026 has brought new challenges with Level 5 autonomy. Models now require annotation that accounts for all weather and light conditions.",
-      "This level of detail allows AI to understand exact spatial occupancy, crucial for safe navigation in real-world scenarios."
+      "Retrieval-Augmented Generation (RAG) has made search relevance more critical than ever. An LLM is only as good as the context it retrieves. If your search engine returns irrelevant documents, the LLM will generate hallucinated answers.",
+      "We construct 'Golden Datasets' for search evaluation by pairing queries with documents graded by human experts on a multi-point relevance scale (e.g., Exact Match vs. Tangential). This nuanced understanding of semantic similarity is crucial for training dense retrievers and re-ranking models.",
+      "Our approach focuses on user intent modeling. By distinguishing between navigational, informational, and transactional queries, we help search engineers optimize their ranking algorithms to deliver the precise information users—and LLMs—are looking for."
     ]
   },
-  "future-of-nlp-trends": {
-    title: "The Evolution of NLP: From Sentiment to Intent Mapping",
-    date: "Jan 10, 2026",
-    readTime: "9 min read",
-    image: "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&q=80&w=1200",
+  "lidar-gpu-optimization": {
+    title: "Optimizing 3D Point Cloud Data for GPU Training",
+    date: "Jan 28, 2025",
+    readTime: "10 min read",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200",
     content: [
-      "LLMs have transformed technology, but their growth is fueled by complex text annotation beyond basic sentiment analysis.",
-      "Modern NLP datasets require annotators who understand linguistic subtleties. DeepAnnotation employs specialists for contextually rich data.",
-      "Looking toward 2027, the focus is on RLHF to fine-tune AI behavior safely and ethically for human interaction."
-    ]
-  },
-  "lidar-annotation-robotics": {
-    title: "Neural Robotics: Mastering 3D Point Cloud LiDAR Annotation",
-    date: "Jan 08, 2026",
-    readTime: "12 min read",
-    // SENİN GÖRSELİN BURADA KULLANILIYOR:
-    image: "/robotics-neural.jpg", 
-    content: [
-      "Robotics is undergoing a neural revolution. To navigate complex 3D spaces, robots rely on LiDAR sensors generating millions of data points per second.",
-      "Unlike 2D images, 3D data requires an understanding of depth, orientation, and velocity. Annotating moving objects involves tracking trajectory across frames.",
-      "The safety of robotic systems depends on the precision of their spatial training data. We enable the next generation of robots to interact safely."
+      "Autonomous systems rely on LiDAR sensors that generate millions of data points per second. Processing this raw data efficiently requires not just powerful GPUs, but also intelligently structured training data.",
+      "We specialize in optimizing 3D point cloud annotations for high-throughput training pipelines. By standardizing coordinate systems and implementing efficient cuboid labeling strategies, we minimize data loading bottlenecks during the training phase.",
+      "This optimization ensures that your NVIDIA GPU clusters spend their cycles learning features, not decoding inefficient data formats. From sensor fusion calibration to temporal tracking across frames, our data engineering ensures maximum hardware utilization."
     ]
   }
 };
