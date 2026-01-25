@@ -5,13 +5,13 @@ import { useParams } from 'next/navigation';
 import { CalendarDays, Clock, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
-// EŞLEŞTİRİLMİŞ VERİ SETİ
+// GÜNCELLENMİŞ NEURAL GÖRSELLERLE VERİ SETİ
 const blogPostsData: Record<string, { title: string; date: string; readTime: string; image: string; content: string[] }> = {
   "quality-annotation-llm-training": {
     title: "Why Quality Annotation Improves LLM Training",
     date: "Feb 12, 2025",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1655720357761-f18ea9e5e7e6?q=80&w=1200&auto=format&fit=crop",
     content: [
       "In the era of Generative AI, the bottleneck has shifted from model architecture to data quality. Large Language Models (LLMs) are prone to hallucinations and reasoning errors when trained on noisy, unverified datasets.",
       "At DeepAnnotation, we focus on 'Ground Truth Engineering'. Unlike basic crowdsourcing, our workflows involve domain experts who verify reasoning chains (CoT) and factual accuracy.",
@@ -22,7 +22,7 @@ const blogPostsData: Record<string, { title: string; date: string; readTime: str
     title: "How Human-in-the-Loop Improves Model Reliability",
     date: "Feb 08, 2025",
     readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1200&auto=format&fit=crop",
     content: [
       "Deploying AI in production is not a one-time event; it is a continuous cycle. Model drift and edge cases inevitably degrade performance over time.",
       "We champion a robust Human-in-the-Loop (HITL) strategy integrated directly into the MLOps pipeline. Low-confidence predictions are routed to human experts.",
@@ -33,7 +33,7 @@ const blogPostsData: Record<string, { title: string; date: string; readTime: str
     title: "Best Practices for Search Relevance Datasets",
     date: "Feb 01, 2025",
     readTime: "7 min read",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop",
     content: [
       "Retrieval-Augmented Generation (RAG) has made search relevance more critical than ever. An LLM is only as good as the context it retrieves.",
       "We construct 'Golden Datasets' for search evaluation by pairing queries with documents graded by human experts on a multi-point relevance scale.",
@@ -44,7 +44,7 @@ const blogPostsData: Record<string, { title: string; date: string; readTime: str
     title: "Optimizing 3D Point Cloud Data for GPU Training",
     date: "Jan 28, 2025",
     readTime: "10 min read",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop",
     content: [
       "Autonomous systems rely on LiDAR sensors that generate millions of data points per second. Processing this efficienty requires structured data.",
       "We specialize in optimizing 3D point cloud annotations for high-throughput training pipelines, minimizing data loading bottlenecks.",

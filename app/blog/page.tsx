@@ -13,7 +13,8 @@ const blogPosts = [
     readTime: "6 min read", 
     category: "Generative AI", 
     slug: "quality-annotation-llm-training", 
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop" 
+    // YENİ GÖRSEL: Soyut veri ağları ve dil modeli akışı (Mavi/Mor)
+    image: "https://images.unsplash.com/photo-1655720357761-f18ea9e5e7e6?q=80&w=1200&auto=format&fit=crop" 
   },
   { 
     id: 2, 
@@ -23,7 +24,8 @@ const blogPosts = [
     readTime: "8 min read", 
     category: "MLOps Strategy", 
     slug: "human-in-the-loop-reliability", 
-    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?q=80&w=1200&auto=format&fit=crop" 
+    // YENİ GÖRSEL: Dijital arayüzle insan etkileşimi (HITL)
+    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1200&auto=format&fit=crop" 
   },
   { 
     id: 3, 
@@ -33,7 +35,8 @@ const blogPosts = [
     readTime: "7 min read", 
     category: "Search & Retrieval", 
     slug: "search-relevance-best-practices", 
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop" 
+    // YENİ GÖRSEL: Veri ağları üzerinde arama/büyüteç konsepti
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop" 
   },
   { 
     id: 4, 
@@ -43,7 +46,8 @@ const blogPosts = [
     readTime: "10 min read", 
     category: "Autonomous Systems", 
     slug: "lidar-gpu-optimization", 
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop" 
+    // YENİ GÖRSEL: Soyut 3D dijital yapı / nokta bulutu
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1200&auto=format&fit=crop" 
   }
 ];
 
