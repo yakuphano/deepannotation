@@ -11,7 +11,8 @@ const blogPostsData: Record<string, { title: string; date: string; readTime: str
     title: "Why Quality Annotation Improves LLM Training",
     date: "Feb 12, 2025",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=1200",
+    // YENİ GÖRSEL: Soyut sinir ağı ve veri akışı
+    image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=1200",
     content: [
       "In the era of Generative AI, the bottleneck has shifted from model architecture to data quality. Large Language Models (LLMs) are prone to hallucinations and reasoning errors when trained on noisy, unverified datasets. High-fidelity instruction tuning data is the definitive cure for these ailments.",
       "At DeepAnnotation, we focus on 'Ground Truth Engineering'. Unlike basic crowdsourcing, our workflows involve domain experts who verify reasoning chains (CoT) and factual accuracy. This ensures that your foundation models learn to generalize correctly rather than memorizing noise.",
@@ -22,8 +23,8 @@ const blogPostsData: Record<string, { title: string; date: string; readTime: str
     title: "How Human-in-the-Loop Improves Model Reliability",
     date: "Feb 08, 2025",
     readTime: "8 min read",
-    // YENİ GÜNCELLENMİŞ GÖRSEL (ÇALIŞAN BİR LİNK):
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200",
+    // YENİ GÖRSEL: İnsan ve dijital sinir ağı etkileşimi
+    image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&q=80&w=1200",
     content: [
       "Deploying AI in production is not a one-time event; it is a continuous cycle. Model drift and edge cases inevitably degrade performance over time. The solution lies in a robust Human-in-the-Loop (HITL) strategy integrated directly into the MLOps pipeline.",
       "We champion a dynamic feedback loop where low-confidence model predictions are automatically routed to human annotators for correction. This data is then fed back into the training set, creating a virtuous cycle of continuous improvement (Active Learning).",
@@ -34,6 +35,7 @@ const blogPostsData: Record<string, { title: string; date: string; readTime: str
     title: "Best Practices for Search Relevance Datasets",
     date: "Feb 01, 2025",
     readTime: "7 min read",
+    // MEVCUT GÖRSEL: Beğenilen görsel korundu
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200",
     content: [
       "Retrieval-Augmented Generation (RAG) has made search relevance more critical than ever. An LLM is only as good as the context it retrieves. If your search engine returns irrelevant documents, the LLM will generate hallucinated answers.",
@@ -45,7 +47,8 @@ const blogPostsData: Record<string, { title: string; date: string; readTime: str
     title: "Optimizing 3D Point Cloud Data for GPU Training",
     date: "Jan 28, 2025",
     readTime: "10 min read",
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200",
+    // YENİ GÖRSEL: LiDAR nokta bulutu / 3D veri görselleştirmesi
+    image: "https://images.unsplash.com/photo-1642132652075-225133c9416b?auto=format&fit=crop&q=80&w=1200",
     content: [
       "Autonomous systems rely on LiDAR sensors that generate millions of data points per second. Processing this raw data efficiently requires not just powerful GPUs, but also intelligently structured training data.",
       "We specialize in optimizing 3D point cloud annotations for high-throughput training pipelines. By standardizing coordinate systems and implementing efficient cuboid labeling strategies, we minimize data loading bottlenecks during the training phase.",
