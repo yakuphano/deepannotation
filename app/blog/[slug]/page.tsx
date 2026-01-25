@@ -22,7 +22,8 @@ const blogPostsData: Record<string, { title: string; date: string; readTime: str
     title: "How Human-in-the-Loop Improves Model Reliability",
     date: "Feb 08, 2025",
     readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee481c?auto=format&fit=crop&q=80&w=1200",
+    // YENİ GÜNCELLENMİŞ GÖRSEL (ÇALIŞAN BİR LİNK):
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200",
     content: [
       "Deploying AI in production is not a one-time event; it is a continuous cycle. Model drift and edge cases inevitably degrade performance over time. The solution lies in a robust Human-in-the-Loop (HITL) strategy integrated directly into the MLOps pipeline.",
       "We champion a dynamic feedback loop where low-confidence model predictions are automatically routed to human annotators for correction. This data is then fed back into the training set, creating a virtuous cycle of continuous improvement (Active Learning).",
