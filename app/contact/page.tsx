@@ -52,9 +52,9 @@ export default function Contact() {
           Contact Us
         </h1>
 
-        {/* --- YENİ EKLENEN KISIM: Direkt İletişim Bilgisi --- */}
+        {/* --- GÜNCELLENEN KISIM: NVIDIA credits kaldırıldı --- */}
         <p className="text-center text-slate-300 mb-8 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
-          Interested in partnerships, NVIDIA credits, or custom datasets? <br className="hidden md:block" />
+          Interested in partnerships or custom datasets? <br className="hidden md:block" />
           Contact us directly at{' '}
           <a 
             href="mailto:info@deepannotation.ai" 
