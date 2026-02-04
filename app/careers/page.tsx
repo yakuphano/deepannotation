@@ -32,12 +32,11 @@ export default function CareersPage() {
         </h2>
 
         <form
-  action="https://formspree.io/f/abcdwxyz"
+  action="https://formspree.io/f/xpqjazyw"
   method="POST"
   encType="multipart/form-data"
   className="space-y-4 max-w-md"
 >
-
           <input
             type="text"
             name="name"
