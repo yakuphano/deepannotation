@@ -1,15 +1,46 @@
 "use client"
 
+import { useState } from "react"
+
 export default function CareersPage() {
+  const [success, setSuccess] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setLoading(true)
+    setError("")
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    try {
+      const res = await fetch("/api/apply", {
+        method: "POST",
+        body: formData,
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong")
+      }
+
+      setSuccess(true)
+      form.reset()
+    } catch (err: any) {
+      setError(err.message || "Submission failed")
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <main className="container mx-auto p-6 pt-32">
 
-      {/* Page Title */}
-      <h1 className="text-3xl font-bold mb-4">
-        Careers
-      </h1>
+      <h1 className="text-3xl font-bold mb-4">Careers</h1>
 
-      {/* Job Listings */}
       <p>Current open positions:</p>
 
       <ul className="mt-4 space-y-3 list-disc list-inside">
@@ -21,25 +52,22 @@ export default function CareersPage() {
         <li>Text Annotation</li>
       </ul>
 
-      {/* Application Form */}
-      <div className="mt-10">
-        <h2 className="text-2xl font-semibold mb-4">
-          Apply
-        </h2>
+      <div className="mt-10 max-w-md">
+        <h2 className="text-2xl font-semibold mb-4">Apply</h2>
 
-        <form
-          action="/api/apply"
-          method="POST"
-          encType="multipart/form-data"
-          className="space-y-4 max-w-md"
-        >
-          {/* Redirect after submit (ileride kullanabiliriz) */}
-          <input
-            type="hidden"
-            name="_redirect"
-            value="http://localhost:3000/careers?success=true"
-          />
+        {success && (
+          <div className="mb-4 p-3 bg-green-100 text-green-800 rounded">
+            Thank you for applying! We have received your CV.
+          </div>
+        )}
 
+        {error && (
+          <div className="mb-4 p-3 bg-red-100 text-red-800 rounded">
+            {error}
+          </div>
+        )}
+
+        <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
             name="name"
@@ -56,7 +84,6 @@ export default function CareersPage() {
             className="w-full border p-2 rounded"
           />
 
-          {/* CV Upload */}
           <div className="flex flex-col gap-1">
             <label className="text-sm font-medium text-gray-700">
               Upload CV
@@ -69,26 +96,22 @@ export default function CareersPage() {
               required
               className="w-full border p-2 rounded"
             />
-
-            <p className="text-xs text-gray-500">
-              Accepted formats: PDF, DOC, DOCX
-            </p>
           </div>
 
           <button
             type="submit"
-            className="bg-black text-white px-4 py-2 rounded"
+            disabled={loading}
+            className="bg-black text-white px-4 py-2 rounded disabled:opacity-50"
           >
-            Submit Application
+            {loading ? "Submitting..." : "Submit Application"}
           </button>
         </form>
 
-        {/* Alternative contact */}
         <p className="mt-6 text-sm text-gray-600">
           Alternatively, you can send your CV directly to{" "}
           <a
             href="mailto:info@deepannotation.ai"
-            className="text-blue-600 underline hover:text-blue-800"
+            className="text-blue-600 underline"
           >
             info@deepannotation.ai
           </a>
