@@ -1,6 +1,12 @@
+"use client"
+
+import { useState } from "react"
+
 export default function CareersPage() {
+  const [fileName, setFileName] = useState("No file chosen")
+
   return (
-    <main className="container mx-auto p-6">
+    <main className="container mx-auto p-6 pt-32">
 
       {/* Page Title */}
       <h1 className="text-3xl font-bold mb-4">
@@ -47,13 +53,35 @@ export default function CareersPage() {
             className="w-full border p-2 rounded"
           />
 
-          <input
-            type="file"
-            name="cv"
-            accept=".pdf,.doc,.docx"
-            required
-            className="w-full"
-          />
+          {/* Custom file input */}
+          <div className="flex items-center gap-4">
+            <label
+              htmlFor="cv"
+              className="cursor-pointer bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700 transition"
+            >
+              Choose file
+            </label>
+
+            <span className="text-sm text-gray-400">
+              {fileName}
+            </span>
+
+            <input
+              id="cv"
+              type="file"
+              name="cv"
+              accept=".pdf,.doc,.docx"
+              required
+              className="hidden"
+              onChange={(e) => {
+                if (e.target.files && e.target.files.length > 0) {
+                  setFileName(e.target.files[0].name)
+                } else {
+                  setFileName("No file chosen")
+                }
+              }}
+            />
+          </div>
 
           <button
             type="submit"
@@ -65,5 +93,5 @@ export default function CareersPage() {
       </div>
 
     </main>
-  );
+  )
 }
