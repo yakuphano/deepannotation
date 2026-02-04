@@ -3,17 +3,18 @@
 import { useState } from "react"
 
 export default function CareersPage() {
-  const [success, setSuccess] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
   const [error, setError] = useState("")
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
+    e.preventDefault() // 🚨 KRİTİK: sayfa açılmasını ENGELLER
+
     setLoading(true)
     setError("")
+    setSuccess(false)
 
-    const form = e.currentTarget
-    const formData = new FormData(form)
+    const formData = new FormData(e.currentTarget)
 
     try {
       const res = await fetch("/api/apply", {
@@ -21,16 +22,14 @@ export default function CareersPage() {
         body: formData,
       })
 
-      const data = await res.json()
-
       if (!res.ok) {
-        throw new Error(data.error || "Something went wrong")
+        throw new Error("Submission failed")
       }
 
       setSuccess(true)
-      form.reset()
-    } catch (err: any) {
-      setError(err.message || "Submission failed")
+      e.currentTarget.reset()
+    } catch (err) {
+      setError("Something went wrong. Please try again.")
     } finally {
       setLoading(false)
     }
@@ -56,18 +55,19 @@ export default function CareersPage() {
         <h2 className="text-2xl font-semibold mb-4">Apply</h2>
 
         {success && (
-          <div className="mb-4 p-3 bg-green-100 text-green-800 rounded">
-            Thank you for applying! We have received your CV.
+          <div className="mb-4 p-3 rounded bg-green-100 text-green-800">
+            ✅ Thank you! Your application has been received.
           </div>
         )}
 
         {error && (
-          <div className="mb-4 p-3 bg-red-100 text-red-800 rounded">
+          <div className="mb-4 p-3 rounded bg-red-100 text-red-800">
             {error}
           </div>
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
+
           <input
             type="text"
             name="name"
@@ -84,11 +84,11 @@ export default function CareersPage() {
             className="w-full border p-2 rounded"
           />
 
+          {/* CV upload button */}
           <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium text-gray-700">
+            <label className="text-sm font-medium">
               Upload CV
             </label>
-
             <input
               type="file"
               name="cv"
@@ -98,17 +98,18 @@ export default function CareersPage() {
             />
           </div>
 
+          {/* Submit button */}
           <button
             type="submit"
             disabled={loading}
-            className="bg-black text-white px-4 py-2 rounded disabled:opacity-50"
+            className="w-full bg-black text-white px-4 py-2 rounded disabled:opacity-50"
           >
             {loading ? "Submitting..." : "Submit Application"}
           </button>
         </form>
 
         <p className="mt-6 text-sm text-gray-600">
-          Alternatively, you can send your CV directly to{" "}
+          Or send your CV directly to{" "}
           <a
             href="mailto:info@deepannotation.ai"
             className="text-blue-600 underline"
