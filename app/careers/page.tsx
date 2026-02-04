@@ -8,11 +8,11 @@ export default function CareersPage() {
   const [error, setError] = useState("")
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault() // 🚨 KRİTİK: sayfa açılmasını ENGELLER
+    e.preventDefault() // 🚫 sayfa yenilenmesini ENGELLER
 
     setLoading(true)
-    setError("")
     setSuccess(false)
+    setError("")
 
     const formData = new FormData(e.currentTarget)
 
@@ -26,9 +26,13 @@ export default function CareersPage() {
         throw new Error("Submission failed")
       }
 
+      // ✅ BAŞARILI
       setSuccess(true)
+      setError("") // 🔥 KRİTİK: error temizleniyor
       e.currentTarget.reset()
+
     } catch (err) {
+      setSuccess(false)
       setError("Something went wrong. Please try again.")
     } finally {
       setLoading(false)
@@ -54,12 +58,14 @@ export default function CareersPage() {
       <div className="mt-10 max-w-md">
         <h2 className="text-2xl font-semibold mb-4">Apply</h2>
 
+        {/* SUCCESS MESSAGE */}
         {success && (
           <div className="mb-4 p-3 rounded bg-green-100 text-green-800">
             ✅ Thank you! Your application has been received.
           </div>
         )}
 
+        {/* ERROR MESSAGE */}
         {error && (
           <div className="mb-4 p-3 rounded bg-red-100 text-red-800">
             {error}
@@ -84,7 +90,7 @@ export default function CareersPage() {
             className="w-full border p-2 rounded"
           />
 
-          {/* CV upload button */}
+          {/* CV UPLOAD */}
           <div className="flex flex-col gap-1">
             <label className="text-sm font-medium">
               Upload CV
@@ -98,7 +104,7 @@ export default function CareersPage() {
             />
           </div>
 
-          {/* Submit button */}
+          {/* SUBMIT BUTTON */}
           <button
             type="submit"
             disabled={loading}
