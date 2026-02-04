@@ -28,12 +28,12 @@ export default function CareersPage() {
         </h2>
 
         <form
-          action="https://formspree.io/f/xpqjazyw"
+          action="/api/apply"
           method="POST"
           encType="multipart/form-data"
           className="space-y-4 max-w-md"
         >
-          {/* Redirect after submit */}
+          {/* Redirect after submit (ileride kullanabiliriz) */}
           <input
             type="hidden"
             name="_redirect"
@@ -56,22 +56,22 @@ export default function CareersPage() {
             className="w-full border p-2 rounded"
           />
 
-          {/* CV Link */}
+          {/* CV Upload */}
           <div className="flex flex-col gap-1">
             <label className="text-sm font-medium text-gray-700">
-              CV Link
+              Upload CV
             </label>
 
             <input
-              type="url"
-              name="cv_link"
-              placeholder="https://drive.google.com/..."
+              type="file"
+              name="cv"
+              accept=".pdf,.doc,.docx"
               required
-              className="w-full border p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border p-2 rounded"
             />
 
             <p className="text-xs text-gray-500">
-              Upload your CV to Google Drive or Dropbox and paste the link here.
+              Accepted formats: PDF, DOC, DOCX
             </p>
           </div>
 
