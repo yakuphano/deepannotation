@@ -11,18 +11,18 @@ export default function CareersPage() {
       <p>Current open positions:</p>
 
       <ul className="mt-4 space-y-3 list-disc list-inside">
-  <li>Generative AI Trainer</li>
-  <li>Search Relevance</li>
-  <li>Image Annotation</li>
-  <li>Video Annotation</li>
-  <li>Speech Transcription</li>
-  <li>Text Annotation</li>
-</ul>
+        <li>Generative AI Trainer</li>
+        <li>Search Relevance</li>
+        <li>Image Annotation</li>
+        <li>Video Annotation</li>
+        <li>Speech Transcription</li>
+        <li>Text Annotation</li>
+      </ul>
 
       {/* Application Form */}
       <div className="mt-10">
         <h2 className="text-2xl font-semibold mb-4">
-          Job Application Form
+          Apply
         </h2>
 
         <form
