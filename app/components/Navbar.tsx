@@ -74,7 +74,7 @@ export default function Navbar() {
         {/* MOBİL MENÜ LİNK LİSTESİ */}
         <div className={`
           md:hidden overflow-hidden transition-all duration-300 ease-in-out border-t border-white/5
-          ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+          ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}
         `}>
           {/* Mobil menü arka planı genel tasarıma uyarlandı */}
           <div className="flex flex-col bg-black/60 backdrop-blur-2xl">
