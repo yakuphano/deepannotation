@@ -49,11 +49,16 @@ export default function CareersPage() {
 
         {/* LEFT SIDE */}
         <div className="text-left">
-          <h1 className="text-3xl font-bold mb-4">Careers</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+  Careers
+</h1>
 
-          <p className="mb-4">Current open positions:</p>
+<p className="mb-6 text-lg md:text-xl text-gray-300">
+  Current open positions:
+</p>
 
-          <ul className="space-y-2 list-disc list-inside">
+<ul className="space-y-3 list-disc list-inside text-lg md:text-xl">
+
             <li>Generative AI Trainer</li>
             <li>Search Relevance</li>
             <li>Image Annotation</li>
@@ -63,7 +68,8 @@ export default function CareersPage() {
         </div>
 
         {/* CENTER / RIGHT SIDE */}
-        <div className="flex md:justify-center">
+        <div className="flex md:justify-start md:pl-12">
+
           <div className="w-full max-w-md">
 
             <h2 className="text-2xl font-semibold mb-4">Apply</h2>
