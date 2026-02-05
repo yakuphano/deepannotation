@@ -62,7 +62,7 @@ export default function CareersPage() {
         className="
           relative mt-16
           md:absolute md:left-1/2 md:top-1/2
-          md:-translate-x-1/2 md:-translate-y-[55%]
+          md:-translate-y-[65%]
           w-full px-6
         "
       >
