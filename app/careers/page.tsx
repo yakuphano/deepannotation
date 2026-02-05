@@ -45,20 +45,19 @@ export default function CareersPage() {
     <main className="container mx-auto p-6 pt-32 max-w-6xl">
 
       {/* GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
         {/* LEFT SIDE */}
         <div className="text-left">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-  Careers
-</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Careers
+          </h1>
 
-<p className="mb-6 text-lg md:text-xl text-gray-300">
-  Current open positions:
-</p>
+          <p className="mb-6 text-lg md:text-xl text-gray-300">
+            Current open positions:
+          </p>
 
-<ul className="space-y-3 list-disc list-inside text-lg md:text-xl">
-
+          <ul className="space-y-3 list-disc list-inside text-lg md:text-xl">
             <li>Generative AI Trainer</li>
             <li>Search Relevance</li>
             <li>Image Annotation</li>
@@ -67,9 +66,8 @@ export default function CareersPage() {
           </ul>
         </div>
 
-        {/* CENTER / RIGHT SIDE */}
-        <div className="flex md:justify-start md:pl-12">
-
+        {/* RIGHT SIDE – VISUALLY CENTERED */}
+        <div className="flex md:justify-center md:-ml-16">
           <div className="w-full max-w-md">
 
             <h2 className="text-2xl font-semibold mb-4">Apply</h2>
