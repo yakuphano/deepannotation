@@ -1,9 +1,13 @@
 export const runtime = "nodejs"
 
 import { NextResponse } from "next/server"
+import nodemailer from "nodemailer"
 
 export async function POST(req: Request) {
   try {
+    // 🔍 ENV KONTROLÜ (GEÇİCİ)
+    console.log("MAIL CHECK:", process.env.MAIL_USER)
+
     const formData = await req.formData()
 
     const name = formData.get("name")
@@ -21,16 +25,43 @@ export async function POST(req: Request) {
       )
     }
 
-    // Debug – canlıda da log düşer (Vercel logs)
-    console.log("New application:")
-    console.log("Name:", name)
-    console.log("Email:", email)
-    console.log("CV:", cv.name, cv.size)
+    // CV → Buffer
+    const arrayBuffer = await cv.arrayBuffer()
+    const buffer = Buffer.from(arrayBuffer)
 
-    return NextResponse.json(
-      { success: true },
-      { status: 200 }
-    )
+    // Mail transporter
+    const transporter = nodemailer.createTransport({
+      host: process.env.MAIL_HOST,
+      port: Number(process.env.MAIL_PORT),
+      secure: false,
+      auth: {
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS,
+      },
+    })
+
+    // Mail gönder
+    await transporter.sendMail({
+      from: `"DeepAnnotation Careers" <${process.env.MAIL_USER}>`,
+      to: process.env.MAIL_TO,
+      replyTo: email,
+      subject: `New Career Application – ${name}`,
+      text: `
+New career application received.
+
+Name: ${name}
+Email: ${email}
+`,
+      attachments: [
+        {
+          filename: cv.name,
+          content: buffer,
+        },
+      ],
+    })
+
+    return NextResponse.json({ success: true }, { status: 200 })
+
   } catch (error) {
     console.error("Apply API error:", error)
     return NextResponse.json(
