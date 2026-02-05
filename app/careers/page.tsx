@@ -1,11 +1,13 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 export default function CareersPage() {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  const formRef = useRef<HTMLFormElement | null>(null)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -14,7 +16,7 @@ export default function CareersPage() {
     setSuccess(false)
     setError(null)
 
-    const formData = new FormData(e.currentTarget)
+    const formData = new FormData(formRef.current!)
 
     try {
       const res = await fetch("/api/apply", {
@@ -27,9 +29,15 @@ export default function CareersPage() {
         throw new Error(data?.error || "Submission failed")
       }
 
+      // ✅ BAŞARILI
       setSuccess(true)
-      e.currentTarget.reset()
+      setError(null)
+
+      // ✅ SAFE RESET
+      formRef.current?.reset()
+
     } catch (err: any) {
+      setSuccess(false)
       setError(err.message || "Something went wrong. Please try again.")
     } finally {
       setLoading(false)
@@ -66,8 +74,11 @@ export default function CareersPage() {
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        className="space-y-4"
+      >
         <input
           type="text"
           name="name"
