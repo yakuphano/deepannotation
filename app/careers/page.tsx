@@ -33,7 +33,6 @@ export default function CareersPage() {
       setSuccess(true)
       setFileName("No file chosen")
       formRef.current?.reset()
-
     } catch (err: any) {
       setError(err.message || "Something went wrong. Please try again.")
     } finally {
@@ -42,15 +41,15 @@ export default function CareersPage() {
   }
 
   return (
-    <main className="container mx-auto p-6 pt-32">
+    <main className="w-full px-6 pt-32 pb-20">
 
-      {/* WRAPPER – deliberately narrower */}
-      <div className="mx-auto max-w-5xl">
+      {/* CENTER WRAPPER */}
+      <div className="mx-auto max-w-[1100px]">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-start justify-center">
 
-          {/* LEFT */}
-          <div>
+          {/* LEFT BLOCK */}
+          <div className="md:pl-12">
             <h1 className="text-4xl font-bold mb-6">
               Careers
             </h1>
@@ -68,8 +67,8 @@ export default function CareersPage() {
             </ul>
           </div>
 
-          {/* RIGHT */}
-          <div>
+          {/* RIGHT BLOCK */}
+          <div className="md:pr-12">
             <h2 className="text-4xl font-bold mb-6">
               Apply
             </h2>
