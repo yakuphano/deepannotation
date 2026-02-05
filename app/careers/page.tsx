@@ -25,14 +25,12 @@ export default function CareersPage() {
         body: formData,
       })
 
-      if (!res.ok) {
-        throw new Error("Submission failed")
-      }
+      if (!res.ok) throw new Error("Submission failed")
 
       setSuccess(true)
       setFileName("No file chosen")
       formRef.current?.reset()
-    } catch (err: any) {
+    } catch {
       setError("Something went wrong. Please try again.")
     } finally {
       setLoading(false)
@@ -40,10 +38,10 @@ export default function CareersPage() {
   }
 
   return (
-    <main className="relative w-full pt-32 pb-20">
+    <main className="relative w-full pt-28 pb-24">
 
-      {/* LEFT – CAREERS */}
-      <div className="max-w-md px-6">
+      {/* CAREERS – LEFT BUT PULLED RIGHT */}
+      <div className="relative z-10 max-w-md pl-16 md:pl-32">
         <h1 className="text-4xl font-bold mb-6">Careers</h1>
 
         <p className="mb-6 text-xl text-gray-300">
@@ -59,15 +57,16 @@ export default function CareersPage() {
         </ul>
       </div>
 
-      {/* CENTER – APPLY (ABSOLUTE CENTER) */}
-      <div className="
-  relative mt-20
-  md:absolute md:left-1/2 md:top-24 md:-translate-x-1/2
-  w-full md:w-auto
-  px-6
-">
-
-        <div className="w-full max-w-md mx-auto">
+      {/* APPLY – TRUE CENTER + HIGHER */}
+      <div
+        className="
+          relative mt-16
+          md:absolute md:left-1/2 md:top-1/2
+          md:-translate-x-1/2 md:-translate-y-[55%]
+          w-full px-6
+        "
+      >
+        <div className="mx-auto max-w-md">
 
           <h2 className="text-4xl font-bold mb-6 text-center">
             Apply
@@ -85,11 +84,7 @@ export default function CareersPage() {
             </div>
           )}
 
-          <form
-            ref={formRef}
-            onSubmit={handleSubmit}
-            className="space-y-4"
-          >
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
             <input
               type="text"
               name="name"
@@ -112,21 +107,19 @@ export default function CareersPage() {
               <div className="flex items-center gap-3">
                 <input
                   type="file"
-                  name="cv"
                   id="cv"
+                  name="cv"
                   accept=".pdf,.doc,.docx"
                   required
                   className="hidden"
                   onChange={(e) =>
-                    setFileName(
-                      e.target.files?.[0]?.name || "No file chosen"
-                    )
+                    setFileName(e.target.files?.[0]?.name || "No file chosen")
                   }
                 />
 
                 <label
                   htmlFor="cv"
-                  className="cursor-pointer bg-black/80 hover:bg-black text-white px-4 py-2 rounded transition"
+                  className="cursor-pointer bg-black/80 hover:bg-black text-white px-4 py-2 rounded"
                 >
                   Choose file
                 </label>
@@ -144,9 +137,7 @@ export default function CareersPage() {
                 w-full py-2 rounded
                 bg-black text-white
                 border border-blue-500
-                cursor-pointer
                 hover:bg-blue-600
-                hover:border-blue-400
                 transition
                 disabled:opacity-50
               "
@@ -164,7 +155,6 @@ export default function CareersPage() {
               info@deepannotation.ai
             </a>
           </p>
-
         </div>
       </div>
     </main>
