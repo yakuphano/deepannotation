@@ -42,17 +42,13 @@ export default function CareersPage() {
 
   return (
     <main className="w-full pt-32 pb-20">
-
-      {/* 🔥 THIS IS THE FIX */}
+      {/* CENTERED CONTENT WIDTH */}
       <div className="mx-auto max-w-[900px] px-6">
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
 
           {/* LEFT */}
           <div>
-            <h1 className="text-4xl font-bold mb-6">
-              Careers
-            </h1>
+            <h1 className="text-4xl font-bold mb-6">Careers</h1>
 
             <p className="mb-6 text-xl text-gray-300">
               Current open positions:
@@ -67,11 +63,9 @@ export default function CareersPage() {
             </ul>
           </div>
 
-          {/* RIGHT */}
-          <div>
-            <h2 className="text-4xl font-bold mb-6">
-              Apply
-            </h2>
+          {/* RIGHT – APPLY (SHIFTED LEFT) */}
+          <div className="md:-ml-12">
+            <h2 className="text-4xl font-bold mb-6">Apply</h2>
 
             {success && (
               <div className="mb-4 p-3 rounded bg-green-100 text-green-800">
@@ -106,10 +100,9 @@ export default function CareersPage() {
                 className="w-full border p-2 rounded"
               />
 
+              {/* FILE */}
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium">
-                  Upload CV
-                </label>
+                <label className="text-sm font-medium">Upload CV</label>
 
                 <div className="flex items-center gap-3">
                   <input
