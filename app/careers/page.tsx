@@ -45,7 +45,7 @@ export default function CareersPage() {
     <main className="container mx-auto p-6 pt-32 max-w-6xl">
 
       {/* GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
         {/* LEFT SIDE */}
         <div className="text-left">
