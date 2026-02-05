@@ -22,7 +22,6 @@ export async function POST(req: Request) {
       )
     }
 
-    // CV → Buffer
     const buffer = Buffer.from(await cv.arrayBuffer())
 
     const transporter = nodemailer.createTransport({
@@ -30,14 +29,14 @@ export async function POST(req: Request) {
       port: Number(process.env.MAIL_PORT),
       secure: false,
       auth: {
-        user: process.env.MAIL_USER,
+        user: process.env.MAIL_USER, // Gmail SMTP
         pass: process.env.MAIL_PASS,
       },
     })
 
     /* 1️⃣ ŞİRKETE GİDEN MAIL */
     await transporter.sendMail({
-      from: `"DeepAnnotation Careers" <${process.env.MAIL_USER}>`,
+      from: `"DeepAnnotation Careers" <info@deepannotation.ai>`,
       to: process.env.MAIL_TO,
       replyTo: email,
       subject: `New Career Application – ${name}`,
@@ -57,8 +56,9 @@ Email: ${email}
 
     /* 2️⃣ ADAYA OTOMATİK CEVAP */
     await transporter.sendMail({
-      from: `"DeepAnnotation" <${process.env.MAIL_USER}>`,
+      from: `"DeepAnnotation" <info@deepannotation.ai>`,
       to: email,
+      replyTo: "info@deepannotation.ai",
       subject: "Your application has been received",
       text: `
 Hi ${name},
@@ -70,6 +70,7 @@ If your profile is a good fit, we will contact you.
 
 Best regards,
 DeepAnnotation Team
+info@deepannotation.ai
 `,
     })
 
