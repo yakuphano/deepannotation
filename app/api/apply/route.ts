@@ -6,7 +6,6 @@ import nodemailer from "nodemailer"
 export async function POST(req: Request) {
   try {
     // 🔍 ENV KONTROLÜ (GEÇİCİ)
-    console.log("MAIL CHECK:", process.env.MAIL_USER)
 
     const formData = await req.formData()
 
