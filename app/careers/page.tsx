@@ -5,14 +5,14 @@ import { useState } from "react"
 export default function CareersPage() {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
-  const [error, setError] = useState("")
+  const [error, setError] = useState<string | null>(null)
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault() // 🚫 sayfa yenilenmesini ENGELLER
+    e.preventDefault()
 
     setLoading(true)
     setSuccess(false)
-    setError("")
+    setError(null)
 
     const formData = new FormData(e.currentTarget)
 
@@ -23,30 +23,27 @@ export default function CareersPage() {
       })
 
       if (!res.ok) {
-        throw new Error("Submission failed")
+        const data = await res.json().catch(() => null)
+        throw new Error(data?.error || "Submission failed")
       }
 
-      // ✅ BAŞARILI
       setSuccess(true)
-      setError("") // 🔥 KRİTİK: error temizleniyor
       e.currentTarget.reset()
-
-    } catch (err) {
-      setSuccess(false)
-      setError("Something went wrong. Please try again.")
+    } catch (err: any) {
+      setError(err.message || "Something went wrong. Please try again.")
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <main className="container mx-auto p-6 pt-32">
+    <main className="container mx-auto p-6 pt-32 max-w-xl">
 
       <h1 className="text-3xl font-bold mb-4">Careers</h1>
 
-      <p>Current open positions:</p>
+      <p className="mb-4">Current open positions:</p>
 
-      <ul className="mt-4 space-y-3 list-disc list-inside">
+      <ul className="mb-10 space-y-2 list-disc list-inside">
         <li>Generative AI Trainer</li>
         <li>Search Relevance</li>
         <li>Image Annotation</li>
@@ -55,75 +52,67 @@ export default function CareersPage() {
         <li>Text Annotation</li>
       </ul>
 
-      <div className="mt-10 max-w-md">
-        <h2 className="text-2xl font-semibold mb-4">Apply</h2>
+      <h2 className="text-2xl font-semibold mb-4">Apply</h2>
 
-        {/* SUCCESS MESSAGE */}
-        {success && (
-          <div className="mb-4 p-3 rounded bg-green-100 text-green-800">
-            ✅ Thank you! Your application has been received.
-          </div>
-        )}
+      {success && (
+        <div className="mb-4 p-3 rounded bg-green-100 text-green-800">
+          ✅ Thank you! Your application has been received.
+        </div>
+      )}
 
-        {/* ERROR MESSAGE */}
-        {error && (
-          <div className="mb-4 p-3 rounded bg-red-100 text-red-800">
-            {error}
-          </div>
-        )}
+      {error && (
+        <div className="mb-4 p-3 rounded bg-red-100 text-red-800">
+          {error}
+        </div>
+      )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4">
 
+        <input
+          type="text"
+          name="name"
+          placeholder="Full Name"
+          required
+          className="w-full border p-2 rounded"
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          required
+          className="w-full border p-2 rounded"
+        />
+
+        <div className="flex flex-col gap-1">
+          <label className="text-sm font-medium">Upload CV</label>
           <input
-            type="text"
-            name="name"
-            placeholder="Full Name"
+            type="file"
+            name="cv"
+            accept=".pdf,.doc,.docx"
             required
             className="w-full border p-2 rounded"
           />
+        </div>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            required
-            className="w-full border p-2 rounded"
-          />
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full bg-black text-white py-2 rounded disabled:opacity-50"
+        >
+          {loading ? "Submitting..." : "Submit Application"}
+        </button>
+      </form>
 
-          {/* CV UPLOAD */}
-          <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium">
-              Upload CV
-            </label>
-            <input
-              type="file"
-              name="cv"
-              accept=".pdf,.doc,.docx"
-              required
-              className="w-full border p-2 rounded"
-            />
-          </div>
-
-          {/* SUBMIT BUTTON */}
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-black text-white px-4 py-2 rounded disabled:opacity-50"
-          >
-            {loading ? "Submitting..." : "Submit Application"}
-          </button>
-        </form>
-
-        <p className="mt-6 text-sm text-gray-600">
-          Or send your CV directly to{" "}
-          <a
-            href="mailto:info@deepannotation.ai"
-            className="text-blue-600 underline"
-          >
-            info@deepannotation.ai
-          </a>
-        </p>
-      </div>
+      <p className="mt-6 text-sm text-gray-600">
+        Or send your CV directly to{" "}
+        <a
+          href="mailto:info@deepannotation.ai"
+          className="text-blue-600 underline"
+        >
+          info@deepannotation.ai
+        </a>
+      </p>
 
     </main>
   )
