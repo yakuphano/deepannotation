@@ -5,8 +5,6 @@ import nodemailer from "nodemailer"
 
 export async function POST(req: Request) {
   try {
-    // 🔍 ENV KONTROLÜ (GEÇİCİ)
-
     const formData = await req.formData()
 
     const name = formData.get("name")
@@ -25,10 +23,8 @@ export async function POST(req: Request) {
     }
 
     // CV → Buffer
-    const arrayBuffer = await cv.arrayBuffer()
-    const buffer = Buffer.from(arrayBuffer)
+    const buffer = Buffer.from(await cv.arrayBuffer())
 
-    // Mail transporter
     const transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
       port: Number(process.env.MAIL_PORT),
@@ -39,7 +35,7 @@ export async function POST(req: Request) {
       },
     })
 
-    // Mail gönder
+    /* 1️⃣ ŞİRKETE GİDEN MAIL */
     await transporter.sendMail({
       from: `"DeepAnnotation Careers" <${process.env.MAIL_USER}>`,
       to: process.env.MAIL_TO,
@@ -57,6 +53,24 @@ Email: ${email}
           content: buffer,
         },
       ],
+    })
+
+    /* 2️⃣ ADAYA OTOMATİK CEVAP */
+    await transporter.sendMail({
+      from: `"DeepAnnotation" <${process.env.MAIL_USER}>`,
+      to: email,
+      subject: "Your application has been received",
+      text: `
+Hi ${name},
+
+Thank you for applying to DeepAnnotation.
+
+We have successfully received your application and our team will review it shortly.
+If your profile is a good fit, we will contact you.
+
+Best regards,
+DeepAnnotation Team
+`,
     })
 
     return NextResponse.json({ success: true }, { status: 200 })
