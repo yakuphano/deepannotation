@@ -49,7 +49,7 @@ export default function CareersPage() {
 
         {/* LEFT SIDE */}
         <div className="text-left">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
   Careers
 </h1>
 
