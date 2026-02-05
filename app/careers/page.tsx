@@ -129,12 +129,23 @@ export default function CareersPage() {
         </div>
 
         <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-black text-white py-2 rounded hover:bg-black/90 transition disabled:opacity-50"
-        >
-          {loading ? "Submitting..." : "Submit Application"}
-        </button>
+  type="submit"
+  disabled={loading}
+  className="
+    w-full py-2 rounded
+    bg-black text-white
+    border border-blue-500
+    cursor-pointer
+    hover:bg-blue-600
+    hover:border-blue-400
+    transition
+    disabled:opacity-50
+    disabled:cursor-not-allowed
+  "
+>
+  {loading ? "Submitting..." : "Submit Application"}
+</button>
+
       </form>
 
       <p className="mt-6 text-sm text-gray-600">
