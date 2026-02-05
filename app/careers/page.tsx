@@ -41,15 +41,15 @@ export default function CareersPage() {
   }
 
   return (
-    <main className="w-full px-6 pt-32 pb-20">
+    <main className="w-full pt-32 pb-20">
 
-      {/* CENTER WRAPPER */}
-      <div className="mx-auto max-w-[1100px]">
+      {/* 🔥 THIS IS THE FIX */}
+      <div className="mx-auto max-w-[900px] px-6">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-start justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
 
-          {/* LEFT BLOCK */}
-          <div className="md:pl-12">
+          {/* LEFT */}
+          <div>
             <h1 className="text-4xl font-bold mb-6">
               Careers
             </h1>
@@ -67,8 +67,8 @@ export default function CareersPage() {
             </ul>
           </div>
 
-          {/* RIGHT BLOCK */}
-          <div className="md:pr-12">
+          {/* RIGHT */}
+          <div>
             <h2 className="text-4xl font-bold mb-6">
               Apply
             </h2>
@@ -88,7 +88,7 @@ export default function CareersPage() {
             <form
               ref={formRef}
               onSubmit={handleSubmit}
-              className="space-y-4 max-w-md"
+              className="space-y-4"
             >
               <input
                 type="text"
@@ -106,7 +106,6 @@ export default function CareersPage() {
                 className="w-full border p-2 rounded"
               />
 
-              {/* FILE */}
               <div className="flex flex-col gap-2">
                 <label className="text-sm font-medium">
                   Upload CV
@@ -159,7 +158,7 @@ export default function CareersPage() {
               </button>
             </form>
 
-            <p className="mt-6 text-sm text-gray-600 max-w-md">
+            <p className="mt-6 text-sm text-gray-600">
               Or send your CV directly to{" "}
               <a
                 href="mailto:info@deepannotation.ai"
