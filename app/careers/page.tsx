@@ -42,35 +42,37 @@ export default function CareersPage() {
   }
 
   return (
-    <main className="container mx-auto p-6 pt-32 max-w-6xl">
+    <main className="container mx-auto p-6 pt-32">
 
-      {/* GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      {/* WRAPPER – deliberately narrower */}
+      <div className="mx-auto max-w-5xl">
 
-        {/* LEFT SIDE */}
-        <div className="text-left">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Careers
-          </h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
 
-          <p className="mb-6 text-lg md:text-xl text-gray-300">
-            Current open positions:
-          </p>
+          {/* LEFT */}
+          <div>
+            <h1 className="text-4xl font-bold mb-6">
+              Careers
+            </h1>
 
-          <ul className="space-y-3 list-disc list-inside text-lg md:text-xl">
-            <li>Generative AI Trainer</li>
-            <li>Search Relevance</li>
-            <li>Image Annotation</li>
-            <li>Video Annotation</li>
-            <li>Speech Transcription</li>
-          </ul>
-        </div>
+            <p className="mb-6 text-xl text-gray-300">
+              Current open positions:
+            </p>
 
-        {/* RIGHT SIDE – VISUALLY CENTERED */}
-        <div className="flex md:justify-center md:-ml-16">
-          <div className="w-full max-w-md">
+            <ul className="space-y-3 list-disc list-inside text-xl">
+              <li>Generative AI Trainer</li>
+              <li>Search Relevance</li>
+              <li>Image Annotation</li>
+              <li>Video Annotation</li>
+              <li>Speech Transcription</li>
+            </ul>
+          </div>
 
-            <h2 className="text-2xl font-semibold mb-4">Apply</h2>
+          {/* RIGHT */}
+          <div>
+            <h2 className="text-4xl font-bold mb-6">
+              Apply
+            </h2>
 
             {success && (
               <div className="mb-4 p-3 rounded bg-green-100 text-green-800">
@@ -87,7 +89,7 @@ export default function CareersPage() {
             <form
               ref={formRef}
               onSubmit={handleSubmit}
-              className="space-y-4"
+              className="space-y-4 max-w-md"
             >
               <input
                 type="text"
@@ -105,9 +107,11 @@ export default function CareersPage() {
                 className="w-full border p-2 rounded"
               />
 
-              {/* FILE UPLOAD */}
+              {/* FILE */}
               <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium">Upload CV</label>
+                <label className="text-sm font-medium">
+                  Upload CV
+                </label>
 
                 <div className="flex items-center gap-3">
                   <input
@@ -137,7 +141,6 @@ export default function CareersPage() {
                 </div>
               </div>
 
-              {/* SUBMIT */}
               <button
                 type="submit"
                 disabled={loading}
@@ -157,7 +160,7 @@ export default function CareersPage() {
               </button>
             </form>
 
-            <p className="mt-6 text-sm text-gray-600">
+            <p className="mt-6 text-sm text-gray-600 max-w-md">
               Or send your CV directly to{" "}
               <a
                 href="mailto:info@deepannotation.ai"
@@ -166,10 +169,9 @@ export default function CareersPage() {
                 info@deepannotation.ai
               </a>
             </p>
-
           </div>
-        </div>
 
+        </div>
       </div>
     </main>
   )
