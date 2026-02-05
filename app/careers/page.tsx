@@ -61,11 +61,12 @@ export default function CareersPage() {
 
       {/* CENTER – APPLY (ABSOLUTE CENTER) */}
       <div className="
-        relative mt-20
-        md:absolute md:left-1/2 md:top-32 md:-translate-x-1/2
-        w-full md:w-auto
-        px-6
-      ">
+  relative mt-20
+  md:absolute md:left-1/2 md:top-24 md:-translate-x-1/2
+  w-full md:w-auto
+  px-6
+">
+
         <div className="w-full max-w-md mx-auto">
 
           <h2 className="text-4xl font-bold mb-6 text-center">
