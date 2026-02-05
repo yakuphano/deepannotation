@@ -41,128 +41,129 @@ export default function CareersPage() {
   }
 
   return (
-    <main className="w-full pt-32 pb-20">
-      {/* CENTERED CONTENT WIDTH */}
-      <div className="mx-auto max-w-[900px] px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
+    <main className="w-full pt-32 pb-20 flex justify-center">
 
-          {/* LEFT */}
-          <div>
-            <h1 className="text-4xl font-bold mb-6">Careers</h1>
+      {/* CENTER COLUMN */}
+      <div className="w-full max-w-xl px-6 text-center">
 
-            <p className="mb-6 text-xl text-gray-300">
-              Current open positions:
-            </p>
+        {/* CAREERS */}
+        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+          Careers
+        </h1>
 
-            <ul className="space-y-3 list-disc list-inside text-xl">
-              <li>Generative AI Trainer</li>
-              <li>Search Relevance</li>
-              <li>Image Annotation</li>
-              <li>Video Annotation</li>
-              <li>Speech Transcription</li>
-            </ul>
+        <p className="mb-6 text-xl text-gray-300">
+          Current open positions:
+        </p>
+
+        <ul className="mb-12 space-y-3 text-lg md:text-xl">
+          <li>• Generative AI Trainer</li>
+          <li>• Search Relevance</li>
+          <li>• Image Annotation</li>
+          <li>• Video Annotation</li>
+          <li>• Speech Transcription</li>
+        </ul>
+
+        {/* APPLY */}
+        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          Apply
+        </h2>
+
+        {success && (
+          <div className="mb-4 p-3 rounded bg-green-100 text-green-800 text-left">
+            ✅ Thank you! Your application has been received.
           </div>
+        )}
 
-          {/* RIGHT – APPLY (SHIFTED LEFT) */}
-          <div className="md:-ml-12">
-            <h2 className="text-4xl font-bold mb-6">Apply</h2>
+        {error && (
+          <div className="mb-4 p-3 rounded bg-red-100 text-red-800 text-left">
+            {error}
+          </div>
+        )}
 
-            {success && (
-              <div className="mb-4 p-3 rounded bg-green-100 text-green-800">
-                ✅ Thank you! Your application has been received.
-              </div>
-            )}
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className="space-y-4 text-left"
+        >
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            required
+            className="w-full border p-2 rounded"
+          />
 
-            {error && (
-              <div className="mb-4 p-3 rounded bg-red-100 text-red-800">
-                {error}
-              </div>
-            )}
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+            className="w-full border p-2 rounded"
+          />
 
-            <form
-              ref={formRef}
-              onSubmit={handleSubmit}
-              className="space-y-4"
-            >
+          {/* FILE */}
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-medium">
+              Upload CV
+            </label>
+
+            <div className="flex items-center gap-3">
               <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
+                type="file"
+                name="cv"
+                id="cv"
+                accept=".pdf,.doc,.docx"
                 required
-                className="w-full border p-2 rounded"
+                className="hidden"
+                onChange={(e) =>
+                  setFileName(
+                    e.target.files?.[0]?.name || "No file chosen"
+                  )
+                }
               />
 
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                required
-                className="w-full border p-2 rounded"
-              />
-
-              {/* FILE */}
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-medium">Upload CV</label>
-
-                <div className="flex items-center gap-3">
-                  <input
-                    type="file"
-                    name="cv"
-                    id="cv"
-                    accept=".pdf,.doc,.docx"
-                    required
-                    className="hidden"
-                    onChange={(e) =>
-                      setFileName(
-                        e.target.files?.[0]?.name || "No file chosen"
-                      )
-                    }
-                  />
-
-                  <label
-                    htmlFor="cv"
-                    className="cursor-pointer bg-black/80 hover:bg-black text-white px-4 py-2 rounded transition"
-                  >
-                    Choose file
-                  </label>
-
-                  <span className="text-sm text-gray-400 truncate">
-                    {fileName}
-                  </span>
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                disabled={loading}
-                className="
-                  w-full py-2 rounded
-                  bg-black text-white
-                  border border-blue-500
-                  cursor-pointer
-                  hover:bg-blue-600
-                  hover:border-blue-400
-                  transition
-                  disabled:opacity-50
-                  disabled:cursor-not-allowed
-                "
+              <label
+                htmlFor="cv"
+                className="cursor-pointer bg-black/80 hover:bg-black text-white px-4 py-2 rounded transition"
               >
-                {loading ? "Submitting..." : "Submit Application"}
-              </button>
-            </form>
+                Choose file
+              </label>
 
-            <p className="mt-6 text-sm text-gray-600">
-              Or send your CV directly to{" "}
-              <a
-                href="mailto:info@deepannotation.ai"
-                className="text-blue-600 underline"
-              >
-                info@deepannotation.ai
-              </a>
-            </p>
+              <span className="text-sm text-gray-400 truncate">
+                {fileName}
+              </span>
+            </div>
           </div>
 
-        </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className="
+              w-full py-2 rounded
+              bg-black text-white
+              border border-blue-500
+              cursor-pointer
+              hover:bg-blue-600
+              hover:border-blue-400
+              transition
+              disabled:opacity-50
+              disabled:cursor-not-allowed
+            "
+          >
+            {loading ? "Submitting..." : "Submit Application"}
+          </button>
+        </form>
+
+        <p className="mt-6 text-sm text-gray-600">
+          Or send your CV directly to{" "}
+          <a
+            href="mailto:info@deepannotation.ai"
+            className="text-blue-600 underline"
+          >
+            info@deepannotation.ai
+          </a>
+        </p>
+
       </div>
     </main>
   )
