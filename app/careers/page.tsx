@@ -6,6 +6,7 @@ export default function CareersPage() {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [fileName, setFileName] = useState("No file chosen")
 
   const formRef = useRef<HTMLFormElement | null>(null)
 
@@ -29,11 +30,9 @@ export default function CareersPage() {
         throw new Error(data?.error || "Submission failed")
       }
 
-      // ✅ BAŞARILI
       setSuccess(true)
       setError(null)
-
-      // ✅ SAFE RESET
+      setFileName("No file chosen")
       formRef.current?.reset()
 
     } catch (err: any) {
@@ -95,21 +94,44 @@ export default function CareersPage() {
           className="w-full border p-2 rounded"
         />
 
-        <div className="flex flex-col gap-1">
-          <label className="text-sm font-medium">Upload CV</label>
-          <input
-            type="file"
-            name="cv"
-            accept=".pdf,.doc,.docx"
-            required
-            className="w-full border p-2 rounded"
-          />
+        {/* CUSTOM FILE UPLOAD */}
+        <div className="flex flex-col gap-2">
+          <label className="text-sm font-medium">
+            Upload CV
+          </label>
+
+          <div className="flex items-center gap-3">
+            <input
+              type="file"
+              name="cv"
+              id="cv"
+              accept=".pdf,.doc,.docx"
+              required
+              className="hidden"
+              onChange={(e) =>
+                setFileName(
+                  e.target.files?.[0]?.name || "No file chosen"
+                )
+              }
+            />
+
+            <label
+              htmlFor="cv"
+              className="cursor-pointer bg-black/80 hover:bg-black text-white px-4 py-2 rounded transition"
+            >
+              Choose file
+            </label>
+
+            <span className="text-sm text-gray-500 truncate">
+              {fileName}
+            </span>
+          </div>
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-black text-white py-2 rounded disabled:opacity-50"
+          className="w-full bg-black text-white py-2 rounded hover:bg-black/90 transition disabled:opacity-50"
         >
           {loading ? "Submitting..." : "Submit Application"}
         </button>
