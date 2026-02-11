@@ -9,25 +9,25 @@ const teamMembers = [
     id: 1,
     name: "Muhammed Yakup Hano",
     role: "Co-Founder & CEO",
-    bio: "Responsible for business strategy, client relationships, and partnerships in AI data services.",
+    bio: "Responsible for business strategy, client relationships, and partnerships driving innovation in data annotation and AI services.",
     image: "/team/muhammed.jpg", // public/team/muhammed.jpg dosyası
-    linkedin: "#", // Varsa linki ekleyin
-    mail: "mailto:muhammed@deepannotation.ai" // Mail adresi
+    linkedin: "https://www.linkedin.com/in/m-yakup-hano-31a00b208/", // Varsa linki ekleyin
+    mail: "mailto:yakup.hano@deepannotation.ai" // Mail adresi
   },
   {
     id: 2,
     name: "Emrah Solhan",
-    role: "Co-Founder & Technical Lead",
-    bio: "Focuses on data pipelines, tooling, and AI-assisted annotation and evaluation workflows.",
+    role: "Co-Founder & Technical Lead, Finance & Compliance Manager",
+    bio: "Focuses on accounting operations, tax filings, and managing regulatory compliance for the data annotation business.",
     image: "/team/emrah.jpg", // public/team/emrah.jpg dosyası
     linkedin: "#",
-    mail: "mailto:emrah@deepannotation.ai"
+    mail: "mailto:emrah.solhan@deepannotation.ai"
   },
   {
     id: 3,
     name: "Özgür Aykut",
-    role: "Co-Founder & Head of AI Operations",
-    bio: "Leads annotation workflows, quality control processes, and human-in-the-loop operations.",
+    role: "Lead AI Quality Strategist",
+    bio: "Defines AI quality strategies and drives excelence in human-in-the-loop workflows.",
     image: "/team/ozgur.jpg", // public/team/ozgur.jpg dosyası
     linkedin: "#",
     mail: "mailto:ozgur@deepannotation.ai"
