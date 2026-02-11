@@ -20,7 +20,7 @@ const teamMembers = [
     role: "Co-Founder & Technical Lead, Finance & Compliance Manager",
     bio: "Focuses on accounting operations, tax filings, and managing regulatory compliance for the data annotation business.",
     image: "/team/emrah.jpg", // public/team/emrah.jpg dosyası
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/emrah-solhan-3b8646228",
     mail: "mailto:emrah.solhan@deepannotation.ai"
   },
   {
