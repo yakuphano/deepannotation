@@ -25,19 +25,22 @@ export async function POST(req: Request) {
     const buffer = Buffer.from(await cv.arrayBuffer())
 
     const transporter = nodemailer.createTransport({
-      host: process.env.MAIL_HOST,
-      port: Number(process.env.MAIL_PORT),
+      host: "smtp.gmail.com",
+      port: 587,
       secure: false,
       auth: {
-        user: process.env.MAIL_USER, // Gmail SMTP
+        user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
     })
 
+    // 🔎 bağlantı doğrulama (debug için iyi)
+    await transporter.verify()
+
     /* 1️⃣ ŞİRKETE GİDEN MAIL */
     await transporter.sendMail({
-      from: `"DeepAnnotation Careers" <info@deepannotation.ai>`,
-      to: process.env.MAIL_TO,
+      from: `"DeepAnnotation Careers" <${process.env.MAIL_USER}>`,
+      to: "careers@deepannotation.ai",
       replyTo: email,
       subject: `New Career Application – ${name}`,
       text: `
@@ -45,7 +48,7 @@ New career application received.
 
 Name: ${name}
 Email: ${email}
-`,
+      `,
       attachments: [
         {
           filename: cv.name,
@@ -56,9 +59,8 @@ Email: ${email}
 
     /* 2️⃣ ADAYA OTOMATİK CEVAP */
     await transporter.sendMail({
-      from: `"DeepAnnotation" <info@deepannotation.ai>`,
+      from: `"DeepAnnotation" <${process.env.MAIL_USER}>`,
       to: email,
-      replyTo: "info@deepannotation.ai",
       subject: "Your application has been received",
       text: `
 Hi ${name},
@@ -70,8 +72,8 @@ If your profile is a good fit, we will contact you.
 
 Best regards,
 DeepAnnotation Team
-info@deepannotation.ai
-`,
+careers@deepannotation.ai
+      `,
     })
 
     return NextResponse.json({ success: true }, { status: 200 })
