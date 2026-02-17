@@ -11,6 +11,7 @@ export async function POST(req: Request) {
     const email = formData.get("email")
     const cv = formData.get("cv")
 
+    // Form validation
     if (
       typeof name !== "string" ||
       typeof email !== "string" ||
@@ -22,22 +23,23 @@ export async function POST(req: Request) {
       )
     }
 
+    // CV buffer
     const buffer = Buffer.from(await cv.arrayBuffer())
 
+    // Gmail / Google Workspace SMTP
     const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false,
+      host: process.env.MAIL_HOST,
+      port: Number(process.env.MAIL_PORT),
+      secure: Number(process.env.MAIL_PORT) === 465,
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
       },
     })
 
-    // 🔎 bağlantı doğrulama (debug için iyi)
-    await transporter.verify()
-
-    /* 1️⃣ ŞİRKETE GİDEN MAIL */
+    /* ===============================
+       1️⃣ ŞİRKETE GİDEN MAIL
+       =============================== */
     await transporter.sendMail({
       from: `"DeepAnnotation Careers" <${process.env.MAIL_USER}>`,
       to: "careers@deepannotation.ai",
@@ -57,7 +59,9 @@ Email: ${email}
       ],
     })
 
-    /* 2️⃣ ADAYA OTOMATİK CEVAP */
+    /* ===============================
+       2️⃣ ADAYA OTOMATİK CEVAP
+       =============================== */
     await transporter.sendMail({
       from: `"DeepAnnotation" <${process.env.MAIL_USER}>`,
       to: email,
