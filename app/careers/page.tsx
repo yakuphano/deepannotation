@@ -90,7 +90,7 @@ export default function CareersPage() {
               name="name"
               placeholder="Full Name"
               required
-              className="w-full border p-2 rounded"
+              className="w-full border p-2 rounded text-black"
             />
 
             <input
@@ -98,7 +98,7 @@ export default function CareersPage() {
               name="email"
               placeholder="Email Address"
               required
-              className="w-full border p-2 rounded"
+              className="w-full border p-2 rounded text-black"
             />
 
             <div className="flex flex-col gap-2">
@@ -119,7 +119,7 @@ export default function CareersPage() {
 
                 <label
                   htmlFor="cv"
-                  className="cursor-pointer bg-black/80 hover:bg-black text-white px-4 py-2 rounded"
+                  className="cursor-pointer bg-black/80 hover:bg-black text-white px-4 py-2 rounded border border-white/20"
                 >
                   Choose file
                 </label>
@@ -146,13 +146,14 @@ export default function CareersPage() {
             </button>
           </form>
 
-          <p className="mt-6 text-sm text-gray-600 text-center">
+          {/* Mail adresi careers@deepannotation.ai olarak güncellendi */}
+          <p className="mt-6 text-sm text-gray-400 text-center">
             Or send your CV directly to{" "}
             <a
-              href="mailto:info@deepannotation.ai"
-              className="text-blue-600 underline"
+              href="mailto:careers@deepannotation.ai"
+              className="text-blue-400 underline hover:text-blue-300"
             >
-              info@deepannotation.ai
+              careers@deepannotation.ai
             </a>
           </p>
         </div>

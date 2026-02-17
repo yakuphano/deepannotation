@@ -29,15 +29,15 @@ export async function POST(req: Request) {
       port: Number(process.env.MAIL_PORT),
       secure: false,
       auth: {
-        user: process.env.MAIL_USER, // Gmail SMTP
-        pass: process.env.MAIL_PASS,
+        user: process.env.MAIL_USER, // Gmail veya SMTP kullanıcı adı
+        pass: process.env.MAIL_PASS, // SMTP şifresi veya Uygulama şifresi
       },
     })
 
-    /* 1️⃣ ŞİRKETE GİDEN MAIL */
+    /* 1️⃣ ŞİRKETE GİDEN MAIL - Alıcı careers@deepannotation.ai olarak güncellendi */
     await transporter.sendMail({
       from: `"DeepAnnotation Careers" <info@deepannotation.ai>`,
-      to: process.env.MAIL_TO,
+      to: "careers@deepannotation.ai",
       replyTo: email,
       subject: `New Career Application – ${name}`,
       text: `
@@ -54,11 +54,11 @@ Email: ${email}
       ],
     })
 
-    /* 2️⃣ ADAYA OTOMATİK CEVAP */
+    /* 2️⃣ ADAYA OTOMATİK CEVAP - Yanıt adresi careers@deepannotation.ai olarak güncellendi */
     await transporter.sendMail({
       from: `"DeepAnnotation" <info@deepannotation.ai>`,
       to: email,
-      replyTo: "info@deepannotation.ai",
+      replyTo: "careers@deepannotation.ai",
       subject: "Your application has been received",
       text: `
 Hi ${name},
@@ -70,7 +70,7 @@ If your profile is a good fit, we will contact you.
 
 Best regards,
 DeepAnnotation Team
-info@deepannotation.ai
+careers@deepannotation.ai
 `,
     })
 
