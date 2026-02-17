@@ -11,7 +11,6 @@ export async function POST(req: Request) {
     const email = formData.get("email")
     const cv = formData.get("cv")
 
-    // Form validation
     if (
       typeof name !== "string" ||
       typeof email !== "string" ||
@@ -23,26 +22,22 @@ export async function POST(req: Request) {
       )
     }
 
-    // CV buffer
     const buffer = Buffer.from(await cv.arrayBuffer())
 
-    // Gmail / Google Workspace SMTP
     const transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
       port: Number(process.env.MAIL_PORT),
-      secure: Number(process.env.MAIL_PORT) === 465,
+      secure: false,
       auth: {
-        user: process.env.MAIL_USER,
+        user: process.env.MAIL_USER, // Gmail SMTP
         pass: process.env.MAIL_PASS,
       },
     })
 
-    /* ===============================
-       1️⃣ ŞİRKETE GİDEN MAIL
-       =============================== */
+    /* 1️⃣ ŞİRKETE GİDEN MAIL */
     await transporter.sendMail({
-      from: `"DeepAnnotation Careers" <${process.env.MAIL_USER}>`,
-      to: "careers@deepannotation.ai",
+      from: `"DeepAnnotation Careers" <info@deepannotation.ai>`,
+      to: process.env.MAIL_TO,
       replyTo: email,
       subject: `New Career Application – ${name}`,
       text: `
@@ -50,7 +45,7 @@ New career application received.
 
 Name: ${name}
 Email: ${email}
-      `,
+`,
       attachments: [
         {
           filename: cv.name,
@@ -59,12 +54,11 @@ Email: ${email}
       ],
     })
 
-    /* ===============================
-       2️⃣ ADAYA OTOMATİK CEVAP
-       =============================== */
+    /* 2️⃣ ADAYA OTOMATİK CEVAP */
     await transporter.sendMail({
-      from: `"DeepAnnotation" <${process.env.MAIL_USER}>`,
+      from: `"DeepAnnotation" <info@deepannotation.ai>`,
       to: email,
+      replyTo: "info@deepannotation.ai",
       subject: "Your application has been received",
       text: `
 Hi ${name},
@@ -76,8 +70,8 @@ If your profile is a good fit, we will contact you.
 
 Best regards,
 DeepAnnotation Team
-careers@deepannotation.ai
-      `,
+info@deepannotation.ai
+`,
     })
 
     return NextResponse.json({ success: true }, { status: 200 })

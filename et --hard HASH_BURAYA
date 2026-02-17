@@ -1,0 +1,119 @@
+[33m923aa02[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Fix apply API - clean Gmail SMTP config
+[33m024f8c4[m Update careers form to send applications to careers@deepannotation.ai via Google Workspace SMTP
+[33m5c03b58[m Favicon boyutu optimize edildi ve yeni ikon eklendi
+[33m6c1b648[m İkon boyutu tarayıcı sekmesi için büyütüldü
+[33m4d77bb9[m Mise à jour du favicon avec l'icône cérébrale personnalisée
+[33md2b786a[m İkon rengi koyu turkuaz olarak güncellendi
+[33mbd295c1[m Yeni özel ikon sisteme eklendi ve renkler güncellendi
+[33m4930b1f[m İkon rengi koyu turkuaz olarak güncellendi
+[33mb391c7f[m Koyu mavi beyin ikonu güncellendi
+[33m3f3121e[m İkon belirginliği ve kalınlığı artırıldı
+[33m08dbcf6[m İkon büyütüldü ve yol kontrol edildi
+[33m6fe9ccf[m Şeffaf arka planlı beyin ikonu güncellendi
+[33m9ea1b0c[m update
+[33mdc92c01[m update
+[33md8c9010[m update
+[33m4edd211[m Koyu mor beyin ikonu eklendi
+[33m484920b[m Beyin ikonu mor renk ile güncellendi
+[33mc2f22f8[m Favicon rengi mor olarak güncellendi
+[33mafb2a33[m Favicon rengi mor olarak güncellendi
+[33mc917742[m Meet the Leadership bölümü güncellendi
+[33mcd9ef28[m Meet the Leadership bölümü güncellendi
+[33md1dd30b[m Fix apply section horizontal overflow and align visually
+[33ma7ba1d1[m Align apply heading with careers heading vertically
+[33meeb75f8[m Visually center apply section and balance careers alignment
+[33m006c709[m Move apply section slightly upward
+[33m0df5f1b[m Absolutely center apply form while keeping careers on the left
+[33m87670d0[m Move careers list to left and center apply form on desktop
+[33mb85c36e[m Center careers and apply content in a single column layout
+[33me78b91f[m Shift apply section slightly left for better visual balance
+[33ma1f0e2e[m Constrain careers content width to center layout visually
+[33m0266f33[m Visually center careers content and apply form toward page middle
+[33mcdbff65[m Center careers content and align Apply and Careers headings equally
+[33m9cbb5db[m Visually center apply form closer to middle on desktop
+[33mf02a82a[m Fine-tune careers layout spacing and text sizing
+[33m331ea19[m Increase careers text size and center apply form better on desktop
+[33maceec77[m Increase careers text size and center apply form better on desktop
+[33m6ddd24c[m Split careers page into left info and centered apply form on desktop
+[33mb369b55[m Style submit button with blue border and pointer cursor
+[33mea9fb65[m Improve careers form UI with custom file upload button
+[33m1b012a6[m Send applicant confirmation email from info@deepannotation.ai
+[33m2bba4d8[m Send confirmation email to applicant
+[33me4ff6d8[m Remove debug log from apply API
+[33m3073f71[m Send CV as PDF attachment via email
+[33mf255b7c[m Fix form reset bug and prevent success/error conflict
+[33m6169559[m Stabilize careers form and backend apply endpoint
+[33m694a449[m Fix success and error message conflict on careers form
+[33mecdddf9[m Fix careers form to prevent page reload and improve UX
+[33m062fd20[m Fix careers form submission to prevent blank page
+[33m7539476[m Add backend apply endpoint and enable CV upload
+[33m702b06c[m Update careers contact email to info@deepannotation.ai
+[33m861c665[m Fix Formspree endpoint for careers form
+[33m56e0952[m Connect careers application form to Formspree
+[33m1f1592c[m Fix mobile menu height to show all nav items
+[33m073bfad[m Improve careers layout and dynamic file input label
+[33mec406f4[m Update careers positions list
+[33m442ed64[m Update careers positions list
+[33mf3a015f[m Add Careers link to navbar
+[33m0654a8e[m Change careers page language to English
+[33m81480b5[m Ana sayfaya slogan eklendi
+[33m958693d[m Footer linkleri a etiketi ile düzeltildi
+[33m7ecd24b[m About sayfasina kurucu ekip eklendi
+[33mb32b824[m Contact sayfasindan NVIDIA credits ibaresi kaldirildi
+[33me2630ba[m Blog resimleri PNG uzantisi ile guncellendi
+[33mb1d6703[m Updated blog images to professional neural theme
+[33m8b89ffe[m Force update blog images v2
+[33m319c633[m Blog detay sayfasindaki gorseller konuya uygun neural temalarla guncellendi
+[33m0f9bb40[m Fix broken image link in blog post
+[33mb648c84[m Blog ana sayfa ve detay sayfalari NVIDIA icerigiyle guncellendi
+[33m4283aaf[m Contact sayfasina direkt iletisim ve NVIDIA partnership bilgisi eklendi
+[33md85682f[m Why Us metni teknik eklemelerle guncellendi
+[33m3c5ea8d[m Services sayfasina AI Workflow Context eklendi
+[33m22a31d1[m Ana sayfa metni duzeltildi
+[33m26994e1[m Update homepage hero description
+[33m9e48f1d[m first commit
+[33m1134320[m Footer telif hakkı yazısı geri eklendi
+[33mc345135[m Eski layout ve page yapısına geri dönüldü, scroll sorunu yok
+[33m06fc8ff[m Mobil kaydırma sorunu 100dvh ve overflow-hidden ile çözüldü
+[33me0f69d3[m Footer'dan telif yazısı kaldırıldı ve yükseklik azaltıldı
+[33m5561445[m Mobil boşluklar azaltıldı, footer tek ekrana sığdırıldı
+[33m61629ea[m Mobil görünümde yazılar aşağı alındı ve boşluk dengelendi
+[33m342a48a[m Layout ve Page mobil uyumlu tam ekran yapıldı
+[33m80f50a4[m Ana sayfadan eski animasyon kaldırıldı ve yazı ortalandı
+[33m135a0e3[m Footer'dan Github ikonu kaldırıldı
+[33me929fb3[m Sosyal medya linkleri güncellendi
+[33m3ad9b2e[m Footer ve sosyal medya ikonları eklendi
+[33m8e722df[m Video arka plan tüm sayfalara (layout) uygulandı
+[33me4852e6[m Video arka plan eklendi ve koyu filtreler kaldırıldı
+[33m68140c6[m Arka plan video animasyonu eklendi
+[33mde611a6[m Switch contact form to EmailJS
+[33m61a3a43[m Update Formspree ID to send to company email
+[33m1d506ae[m Final fix: Formspree integration with correct ID
+[33m1510707[m Fix: Contact form switch to Formspree
+[33m7d12142[m Final: Linked contact form to SendPulse with the correct POST URL
+[33m3fc50ed[m Fix: Fully functional SendPulse contact form with state management
+[33ma184314[m SEO: Added canonical URL to resolve Google Search Console duplicate page issue
+[33mf308eb9[m Fix: Removed duplicate resolveJsonModule key in tsconfig.json
+[33m35d69fa[m Update: Changed Subject field to Company Name in Contact page
+[33m0335ebf[m Fix: Restored original contact page content and code structure with subtle border updates
+[33mb3a3c48[m UI: Aligned contact form borders with site background theme
+[33m1ac68b0[m Design: Optimized Contact page inputs and frames for glassmorphism style
+[33m66742d0[m Design: Refined Navbar colors and blur to match the deep background
+[33m8a7c654[m UI: Refined mobile positioning for text and animation
+[33m18041e6[m UI: Mobile layout prioritized text positioning right below navbar
+[33m959f675[m UI: Shifted Lottie animation further right and down for better composition
+[33m125a419[m Fix: Applied slideInLeft animation exclusively to Home page elements
+[33m7e90b4c[m Fix: Applied dynamic import for Lottie to resolve client-side exception
+[33m82c8501[m Fix: Hardcoded Lottie JSON to ensure it loads correctly
+[33me3f2ff3[m Fix: Replaced JSON import with dynamic fetch for Lottie to avoid build errors
+[33mf443eb2[m Fix: Home page layout aligned to left and added slideInLeft animation
+[33m0cc875f[m Fix: Updated globals.css with background settings and animation keyframes
+[33m60bc5aa[m Fix: Removed unwanted buttons and restored text animation on Home page
+[33m8cf6017[m Content: Home page hero text significantly expanded and enriched
+[33m206b699[m Content: Why Us page updated with extremely detailed, long-form technical descriptions
+[33m9e0e418[m UI: Updated background image (removed white light) and fixed global styles
+[33m4140b6a[m Content: Services page descriptions enriched and quote button removed
+[33mbb3243c[m Content: About Us core values updated, hyphens removed, font size increased to text-base
+[33me864049[m Content: Core Values and Vision sections expanded with richer text
+[33m712c154[m UI: All icons changed to white color on all transparent cards
+[33m1621057[m UI: Blo
