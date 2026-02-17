@@ -8,7 +8,7 @@ export default function VideoBackground() {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
       >
-        <source src="/backroundvideo.mp4" type="video/mp4" />
+        <source src="/backgroundvideo.mp4" type="video/mp4" />
         Tarayıcınız video etiketini desteklemiyor.
       </video>
     </div>
