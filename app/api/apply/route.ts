@@ -39,11 +39,9 @@ export async function POST(req: Request) {
     })
 
     /* 1️⃣ ŞİRKETE GİDEN MAİL (Başvuru Bildirimi) */
+    // Gmail'in "Ben" demesini engellemek için en standart format
     await transporter.sendMail({
-      from: {
-        name: "DeepAnnotation Careers",
-        address: process.env.MAIL_USER as string,
-      },
+      from: `"DeepAnnotation Careers" <${process.env.MAIL_USER}>`,
       to: "careers@deepannotation.ai",
       replyTo: email,
       subject: `New Career Application – ${name}`,
@@ -63,10 +61,7 @@ Email: ${email}
 
     /* 2️⃣ ADAYA GİDEN OTOMATİK TEŞEKKÜR MAİLİ */
     await transporter.sendMail({
-      from: {
-        name: "DeepAnnotation HR",
-        address: process.env.MAIL_USER as string,
-      },
+      from: `"DeepAnnotation HR" <${process.env.MAIL_USER}>`,
       to: email,
       replyTo: "careers@deepannotation.ai",
       subject: "Thank you for your application - DeepAnnotation",
