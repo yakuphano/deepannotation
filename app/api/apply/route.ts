@@ -24,14 +24,14 @@ export async function POST(req: Request) {
 
     const buffer = Buffer.from(await cv.arrayBuffer())
 
-    // SMTP Ayarları: .env dosyanızda MAIL_USER=careers@deepannotation.ai olmalı
+    // SMTP Ayarları
     const transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
       port: Number(process.env.MAIL_PORT),
       secure: process.env.MAIL_PORT === "465", 
       auth: {
-        user: process.env.MAIL_USER, // careers@deepannotation.ai buradan gelecek
-        pass: process.env.MAIL_PASS, // careers@deepannotation.ai adresi için aldığınız uygulama şifresi
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS,
       },
       tls: {
         rejectUnauthorized: false
@@ -40,13 +40,12 @@ export async function POST(req: Request) {
 
     /* 1️⃣ ŞİRKETE GİDEN MAİL (Başvuru Bildirimi) */
     await transporter.sendMail({
-      // Gönderen kısmını kurumsal mailiniz yaptık
       from: {
-  name: "DeepAnnotation Careers",
-  address: process.env.MAIL_USER as string,
-},
+        name: "DeepAnnotation Careers",
+        address: process.env.MAIL_USER as string,
+      },
       to: "careers@deepannotation.ai",
-      replyTo: email, // Şirket içindeki kişi bu maile yanıt verirse adaya gitsin
+      replyTo: email,
       subject: `New Career Application – ${name}`,
       text: `
 New career application received.
@@ -64,8 +63,10 @@ Email: ${email}
 
     /* 2️⃣ ADAYA GİDEN OTOMATİK TEŞEKKÜR MAİLİ */
     await transporter.sendMail({
-      // Burası adaya careers@deepannotation.ai adresinden gidecek
-      from: `"DeepAnnotation HR" <${process.env.MAIL_USER}>`,
+      from: {
+        name: "DeepAnnotation HR",
+        address: process.env.MAIL_USER as string,
+      },
       to: email,
       replyTo: "careers@deepannotation.ai",
       subject: "Thank you for your application - DeepAnnotation",
