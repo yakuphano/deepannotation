@@ -41,7 +41,10 @@ export async function POST(req: Request) {
     /* 1️⃣ ŞİRKETE GİDEN MAİL (Başvuru Bildirimi) */
     await transporter.sendMail({
       // Gönderen kısmını kurumsal mailiniz yaptık
-      from: `"DeepAnnotation Careers" <${process.env.MAIL_USER}>`,
+      from: {
+  name: "DeepAnnotation Careers",
+  address: process.env.MAIL_USER as string,
+},
       to: "careers@deepannotation.ai",
       replyTo: email, // Şirket içindeki kişi bu maile yanıt verirse adaya gitsin
       subject: `New Career Application – ${name}`,
