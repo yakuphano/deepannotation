@@ -24,26 +24,26 @@ export async function POST(req: Request) {
 
     const buffer = Buffer.from(await cv.arrayBuffer())
 
-    // 16 haneli kodu .env dosyanızda MAIL_PASS kısmına eklediğinizden emin olun
+    // SMTP Ayarları: .env dosyanızda MAIL_USER=careers@deepannotation.ai olmalı
     const transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
       port: Number(process.env.MAIL_PORT),
-      secure: process.env.MAIL_PORT === "465", // 465 ise true, 587 ise false (Gmail genelde 587 kullanılır)
+      secure: process.env.MAIL_PORT === "465", 
       auth: {
-        user: process.env.MAIL_USER, // info@deepannotation.ai
-        pass: process.env.MAIL_PASS, // Aldığınız 16 haneli uygulama şifresi
+        user: process.env.MAIL_USER, // careers@deepannotation.ai buradan gelecek
+        pass: process.env.MAIL_PASS, // careers@deepannotation.ai adresi için aldığınız uygulama şifresi
       },
-      // Sertifika ve bağlantı hatalarını minimize etmek için eklendi
       tls: {
         rejectUnauthorized: false
       }
     })
 
-    /* 1️⃣ ŞİRKETE GİDEN MAIL */
+    /* 1️⃣ ŞİRKETE GİDEN MAİL (Başvuru Bildirimi) */
     await transporter.sendMail({
+      // Gönderen kısmını kurumsal mailiniz yaptık
       from: `"DeepAnnotation Careers" <${process.env.MAIL_USER}>`,
       to: "careers@deepannotation.ai",
-      replyTo: email,
+      replyTo: email, // Şirket içindeki kişi bu maile yanıt verirse adaya gitsin
       subject: `New Career Application – ${name}`,
       text: `
 New career application received.
@@ -59,13 +59,13 @@ Email: ${email}
       ],
     })
 
-    /* 2️⃣ ADAYA OTOMATİK CEVAP */
+    /* 2️⃣ ADAYA GİDEN OTOMATİK TEŞEKKÜR MAİLİ */
     await transporter.sendMail({
-      // 'from' kısmı mutlaka yetkili olan MAIL_USER ile aynı veya bağlantılı olmalı
-      from: `"DeepAnnotation" <${process.env.MAIL_USER}>`,
+      // Burası adaya careers@deepannotation.ai adresinden gidecek
+      from: `"DeepAnnotation HR" <${process.env.MAIL_USER}>`,
       to: email,
       replyTo: "careers@deepannotation.ai",
-      subject: "Your application has been received",
+      subject: "Thank you for your application - DeepAnnotation",
       text: `
 Hi ${name},
 
