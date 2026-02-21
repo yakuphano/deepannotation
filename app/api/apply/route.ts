@@ -24,7 +24,6 @@ export async function POST(req: Request) {
 
     const buffer = Buffer.from(await cv.arrayBuffer())
 
-    // SMTP Ayarları
     const transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST,
       port: Number(process.env.MAIL_PORT),
@@ -39,12 +38,17 @@ export async function POST(req: Request) {
     })
 
     /* 1️⃣ ŞİRKETE GİDEN MAİL (Başvuru Bildirimi) */
-    // Gmail'in "Ben" demesini engellemek için en standart format
     await transporter.sendMail({
       from: `"DeepAnnotation Careers" <${process.env.MAIL_USER}>`,
+      sender: "DeepAnnotation Careers", // Gmail'i ismi basmaya zorlamak için ekledik
       to: "careers@deepannotation.ai",
-      replyTo: email,
+      replyTo: email, 
       subject: `New Career Application – ${name}`,
+      headers: {
+        "X-Entity-Ref-ID": Date.now().toString(),
+        "Importance": "high",
+        "X-Priority": "1 (Highest)"
+      },
       text: `
 New career application received.
 
@@ -62,6 +66,7 @@ Email: ${email}
     /* 2️⃣ ADAYA GİDEN OTOMATİK TEŞEKKÜR MAİLİ */
     await transporter.sendMail({
       from: `"DeepAnnotation HR" <${process.env.MAIL_USER}>`,
+      sender: "DeepAnnotation HR",
       to: email,
       replyTo: "careers@deepannotation.ai",
       subject: "Thank you for your application - DeepAnnotation",
