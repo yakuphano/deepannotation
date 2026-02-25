@@ -6,6 +6,7 @@ export default function VideoBackground() {
         loop
         muted
         playsInline
+        poster="/video-poster.jpg" // Burayı ekledik
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src="/backgroundvideo.mp4" type="video/mp4" />
