@@ -11,7 +11,7 @@ export default function Home() {
         
         {/* Ana Başlık */}
         <h1 className="text-4xl md:text-7xl font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60 pb-2 opacity-0 animate-[slideInLeft_1s_ease-out_forwards]">
-          DeepAnnotation
+          Deep Annotation
         </h1>
 
         {/* --- EKLENEN SLOGAN --- */}
