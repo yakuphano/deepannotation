@@ -14,7 +14,6 @@ const navItems = [
   { label: "Blog", href: "/blog" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
-  
 ]
 
 export default function Navbar() {
@@ -22,7 +21,6 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    /* Arka plan bg-black/40 ve blur artırıldı (backdrop-blur-xl) */
     <header className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-white/10 transition-colors duration-500">
       <nav className="max-w-[1440px] mx-auto">
         
@@ -44,8 +42,9 @@ export default function Navbar() {
                 className="relative z-10 object-contain brightness-110 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]"
               />
             </div>
+            {/* BURASI DEĞİŞTİRİLDİ: DeepAnnotation -> Deep */}
             <span className="text-xl md:text-2xl font-black text-white tracking-tighter group-hover:text-blue-400 transition-colors duration-300">
-              DeepAnnotation
+              Deep
             </span>
           </Link>
 
@@ -76,7 +75,6 @@ export default function Navbar() {
           md:hidden overflow-hidden transition-all duration-300 ease-in-out border-t border-white/5
           ${isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"}
         `}>
-          {/* Mobil menü arka planı genel tasarıma uyarlandı */}
           <div className="flex flex-col bg-black/60 backdrop-blur-2xl">
             {navItems.map((item) => (
               <Link
