@@ -7,31 +7,31 @@ import { Users, Target, Zap, Maximize, ShieldCheck, Eye, Linkedin, Mail } from '
 const teamMembers = [
   {
     id: 1,
-    name: "Muhammed Yakup Hano",
-    role: "Co-Founder & CEO",
-    bio: "Responsible for business strategy, client relationships, and partnerships driving innovation in data annotation and AI services.",
-    image: "/team/muhammed.jpg", // public/team/muhammed.jpg dosyası
-    linkedin: "https://www.linkedin.com/in/m-yakup-hano-31a00b208/", // Varsa linki ekleyin
-    mail: "mailto:yakup.hano@deepannotation.ai" // Mail adresi
+    name: "M. Yakup Hano",
+    role: "Co-Founder (Technical/Product)",
+    bio: "Software development and artificial intelligence systems",
+    image: "/team/muhammed.jpg",
+    linkedin: "https://www.linkedin.com/in/m-yakup-hano-31a00b208",
+    mail: "mailto:yakup.hano@deepannotation.ai",
   },
   {
     id: 2,
     name: "Emrah Solhan",
-    role: "Co-Founder & Technical Lead, Finance & Compliance Manager",
-    bio: "Focuses on accounting operations, tax filings, and managing regulatory compliance for the data annotation business.",
-    image: "/team/emrah.jpg", // public/team/emrah.jpg dosyası
+    role: "Co-Founder (Business/Operations)",
+    bio: "Operations, business development and management",
+    image: "/team/emrah.jpg",
     linkedin: "https://www.linkedin.com/in/emrah-solhan-3b8646228",
-    mail: "mailto:emrah.solhan@deepannotation.ai"
+    mail: "mailto:emrah.solhan@deepannotation.ai",
   },
   {
     id: 3,
     name: "Özgür Aykut",
-    role: "Lead AI Quality Strategist",
-    bio: "Defines AI quality strategies and drives excelence in human-in-the-loop workflows.",
-    image: "/team/ozgur.jpg", // public/team/ozgur.jpg dosyası
+    role: "Quality Strategist",
+    bio: "Artificial intelligence quality processes and business development",
+    image: "/team/ozgur.jpg",
     linkedin: "#",
-    mail: "mailto:ozgur@deepannotation.ai"
-  }
+    mail: "mailto:ozgur@deepannotation.ai",
+  },
 ];
 
 export default function AboutPage() {
@@ -165,10 +165,21 @@ export default function AboutPage() {
 
                     {/* Sosyal İkonlar */}
                     <div className="flex gap-4 pt-4 border-t border-white/10 w-full justify-center">
-                      <a href={member.linkedin} className="text-slate-500 hover:text-blue-400 transition-colors">
+                      <a
+                        href={member.linkedin}
+                        className="text-slate-500 hover:text-blue-400 transition-colors"
+                        {...(member.linkedin.startsWith("http")
+                          ? { target: "_blank", rel: "noopener noreferrer" as const }
+                          : {})}
+                        aria-label={`${member.name} on LinkedIn`}
+                      >
                         <Linkedin size={20} />
                       </a>
-                      <a href={member.mail} className="text-slate-500 hover:text-white transition-colors">
+                      <a
+                        href={member.mail}
+                        className="text-slate-500 hover:text-white transition-colors"
+                        aria-label={`Email ${member.name}`}
+                      >
                         <Mail size={20} />
                       </a>
                     </div>
