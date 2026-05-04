@@ -4,6 +4,7 @@ import Footer from "./components/Footer"
 import VideoBackground from "./components/VideoBackground"
 import type { Metadata, Viewport } from "next"
 import Script from "next/script"
+import { headers } from "next/headers"
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -40,41 +41,54 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-NM1989RPBG"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const headersList = await headers()
+  const pathname = headersList.get("x-pathname") ?? ""
+  const isStudio = pathname.startsWith("/studio")
+
+  const analyticsScripts = (
+    <>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-NM1989RPBG"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
             gtag('config', 'G-NM1989RPBG');
           `}
-        </Script>
-      </head>
-      
+      </Script>
+    </>
+  )
+
+  if (isStudio) {
+    return (
+      <html lang="en">
+        <head>{analyticsScripts}</head>
+        <body className="min-h-screen bg-[#101112] text-white">{children}</body>
+      </html>
+    )
+  }
+
+  return (
+    <html lang="en">
+      <head>{analyticsScripts}</head>
+
       {/* BU KOD DOĞRUDUR:
           - min-h-screen: Sayfa en az ekran boyu kadar olur ama içerik artarsa uzar.
           - overflow-x-hidden: Sadece yan taşmayı engeller. Dikey scroll çalışır.
       */}
       <body className="min-h-screen flex flex-col text-white bg-transparent overflow-x-hidden">
-        
         <VideoBackground />
-        
+
         <Navbar />
-        
-        <main className="flex-grow flex flex-col justify-center relative z-10 w-full">
-          {children}
-        </main>
-        
+
+        <main className="flex-grow flex flex-col justify-center relative z-10 w-full">{children}</main>
+
         <Footer />
-        
       </body>
     </html>
   )

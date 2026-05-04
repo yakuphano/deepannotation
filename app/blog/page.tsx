@@ -1,100 +1,104 @@
-"use client"
+import React from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { ChevronRight, CalendarDays } from "lucide-react"
+import { getSanityClient, isSanityConfigured } from "@/lib/sanity.client"
+import { POSTS_QUERY } from "@/lib/sanity.queries"
+import type { SanityBlogPostListItem } from "@/lib/sanity.types"
+import { urlFor } from "@/lib/sanity.image"
 
-import React from 'react';
-import Link from 'next/link';
-import { ChevronRight, CalendarDays, Clock } from 'lucide-react';
-
-const blogPosts = [
-  { 
-    id: 1, 
-    title: "Why Quality Annotation Improves LLM Training", 
-    excerpt: "How high-fidelity, human-verified instruction tuning datasets prevent hallucinations and improve reasoning capabilities in Large Language Models (LLMs).", 
-    date: "Feb 12, 2025", 
-    readTime: "6 min read", 
-    category: "Generative AI", 
-    slug: "quality-annotation-llm-training", 
-    // PNG olarak güncellendi:
-    image: "/blog/llm-training.png" 
-  },
-  { 
-    id: 2, 
-    title: "How Human-in-the-Loop Improves Model Reliability", 
-    excerpt: "Integrating human feedback (RLHF) directly into MLOps pipelines to handle edge cases and reduce model drift in production environments.", 
-    date: "Feb 08, 2025", 
-    readTime: "8 min read", 
-    category: "MLOps Strategy", 
-    slug: "human-in-the-loop-reliability", 
-    // PNG olarak güncellendi:
-    image: "/blog/hitl-reliability.png" 
-  },
-  { 
-    id: 3, 
-    title: "Best Practices for Search Relevance Datasets", 
-    excerpt: "Creating ground truth for retrieval-augmented generation (RAG) and semantic search engines using expert-graded query-document pairs.", 
-    date: "Feb 01, 2025", 
-    readTime: "7 min read", 
-    category: "Search & Retrieval", 
-    slug: "search-relevance-best-practices", 
-    // PNG olarak güncellendi:
-    image: "/blog/search-relevance.png" 
-  },
-  { 
-    id: 4, 
-    title: "Optimizing 3D Point Cloud Data for GPU Training", 
-    excerpt: "Structuring LiDAR and sensor fusion data to maximize throughput in NVIDIA-powered training clusters for autonomous systems.", 
-    date: "Jan 28, 2025", 
-    readTime: "10 min read", 
-    category: "Autonomous Systems", 
-    slug: "lidar-gpu-optimization", 
-    // PNG olarak güncellendi:
-    image: "/blog/lidar-gpu.png" 
+function formatDate(iso?: string) {
+  if (!iso) return ""
+  try {
+    return new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+    }).format(new Date(iso))
+  } catch {
+    return ""
   }
-];
+}
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  let posts: SanityBlogPostListItem[] = []
+
+  if (isSanityConfigured()) {
+    try {
+      posts = await getSanityClient().fetch<SanityBlogPostListItem[]>(POSTS_QUERY)
+    } catch {
+      posts = []
+    }
+  }
+
   return (
     <div className="min-h-screen bg-transparent text-white pt-32 pb-20">
       <div className="container mx-auto px-6 max-w-5xl">
         <h1 className="text-4xl md:text-6xl font-black mb-12 tracking-tighter text-center">
           Insights & Research
         </h1>
-        <div className="grid gap-8">
-          {blogPosts.map((post) => (
-            <Link href={`/blog/${post.slug}`} key={post.id} className="group relative block">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-500"></div>
-              <div className="relative p-6 bg-white/10 border border-white/20 rounded-2xl flex flex-col md:flex-row gap-6 items-center transition-all duration-300 group-hover:border-white/50 backdrop-blur-md">
-                
-                {/* Görsel Alanı */}
-                <div className="w-full md:w-48 h-48 md:h-32 flex-shrink-0 overflow-hidden rounded-xl">
-                    <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                </div>
-                
-                {/* Metinler */}
-                <div className="flex-1">
-                  <span className="text-blue-300 text-xs font-bold uppercase tracking-widest bg-blue-900/30 px-2 py-1 rounded border border-blue-500/30">
-                    {post.category}
-                  </span>
-                  <h2 className="text-2xl font-bold mt-3 group-hover:text-blue-200 transition-colors leading-tight">
-                    {post.title}
-                  </h2>
-                  <p className="text-white/80 mt-3 text-sm leading-relaxed">
-                    {post.excerpt}
-                  </p>
-                  <div className="mt-3 flex items-center text-xs text-slate-400 space-x-4">
-                    <span>{post.date}</span>
-                    <span>•</span>
-                    <span>{post.readTime}</span>
+
+        {!isSanityConfigured() ? (
+          <p className="text-center text-white/70 max-w-xl mx-auto leading-relaxed">
+            Add <code className="text-blue-300">NEXT_PUBLIC_SANITY_PROJECT_ID</code> and{" "}
+            <code className="text-blue-300">NEXT_PUBLIC_SANITY_DATASET</code> to{" "}
+            <code className="text-blue-300">.env.local</code>, then create posts in{" "}
+            <Link href="/studio" className="text-blue-400 underline underline-offset-2">
+              /studio
+            </Link>
+            .
+          </p>
+        ) : posts.length === 0 ? (
+          <p className="text-center text-white/70">
+            No posts yet. Open{" "}
+            <Link href="/studio" className="text-blue-400 underline underline-offset-2">
+              Sanity Studio
+            </Link>{" "}
+            to publish your first article.
+          </p>
+        ) : (
+          <div className="grid gap-8">
+            {posts.map((post) => (
+              <Link href={`/blog/${post.slug}`} key={post._id} className="group relative block">
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-10 group-hover:opacity-30 transition duration-500" />
+                <div className="relative p-6 bg-white/10 border border-white/20 rounded-2xl flex flex-col md:flex-row gap-6 items-center transition-all duration-300 group-hover:border-white/50 backdrop-blur-md">
+                  <div className="w-full md:w-48 h-48 md:h-32 flex-shrink-0 overflow-hidden rounded-xl bg-slate-900/60 relative">
+                    {post.mainImage ? (
+                      <Image
+                        src={urlFor(post.mainImage).width(400).height(300).fit("crop").url()}
+                        alt={post.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 192px"
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    ) : null}
+                  </div>
+
+                  <div className="flex-1">
+                    <span className="text-blue-300 text-xs font-bold uppercase tracking-widest bg-blue-900/30 px-2 py-1 rounded border border-blue-500/30">
+                      Blog
+                    </span>
+                    <h2 className="text-2xl font-bold mt-3 group-hover:text-blue-200 transition-colors leading-tight">
+                      {post.title}
+                    </h2>
+                    {post.excerpt ? (
+                      <p className="text-white/80 mt-3 text-sm leading-relaxed line-clamp-3">{post.excerpt}</p>
+                    ) : null}
+                    <div className="mt-3 flex items-center text-xs text-slate-400 gap-2">
+                      <CalendarDays size={14} className="shrink-0" />
+                      <span>{formatDate(post.publishedAt) || "Draft"}</span>
+                    </div>
+                  </div>
+
+                  <div className="hidden md:block text-white group-hover:translate-x-2 transition-transform">
+                    <ChevronRight size={24} />
                   </div>
                 </div>
-                
-                <div className="hidden md:block text-white group-hover:translate-x-2 transition-transform">
-                   <ChevronRight size={24} />
-                </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </div>
-  );
+  )
 }
