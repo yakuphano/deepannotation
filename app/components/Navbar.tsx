@@ -34,9 +34,9 @@ export default function Navbar() {
           >
             <Image
               src="/deep-logo.png"
-              alt="Deep — High quality data for smarter AI"
+              alt="Deep Logo — High quality data for smarter AI"
               width={1024}
-              height={748}
+              height={861}
               priority
               className="h-9 w-auto max-w-[min(220px,52vw)] sm:max-w-[260px] md:h-11 md:max-w-[300px] object-contain object-left transition-opacity duration-300 group-hover:opacity-90 drop-shadow-[0_0_14px_rgba(59,130,246,0.2)]"
             />
