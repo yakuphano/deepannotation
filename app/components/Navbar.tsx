@@ -27,25 +27,19 @@ export default function Navbar() {
         {/* ÜST KISIM */}
         <div className="flex items-center justify-between px-6 md:px-12 py-5">
           
-          {/* LOGO VE PARLAYAN İKON */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative flex items-center justify-center">
-              {/* GLOW (PARLAMA) KATMANI */}
-              <div className="absolute w-8 h-8 bg-blue-500/40 rounded-full blur-xl group-hover:bg-blue-400/60 transition-all duration-500"></div>
-              
-              <Image 
-                src="/favicon.svg" 
-                alt="Logo Icon" 
-                width={38} 
-                height={38} 
-                priority
-                className="relative z-10 object-contain brightness-110 drop-shadow-[0_0_10px_rgba(59,130,246,0.5)]"
-              />
-            </div>
-            {/* BURASI DEĞİŞTİRİLDİ: DeepAnnotation -> Deep */}
-            <span className="text-xl md:text-2xl font-black text-white tracking-tighter group-hover:text-blue-400 transition-colors duration-300">
-              Deep
-            </span>
+          <Link
+            href="/"
+            className="flex items-center group shrink-0 min-w-0"
+            aria-label="Deep — Home"
+          >
+            <Image
+              src="/deep-logo.png"
+              alt="Deep — High quality data for smarter AI"
+              width={1024}
+              height={748}
+              priority
+              className="h-9 w-auto max-w-[min(220px,52vw)] sm:max-w-[260px] md:h-11 md:max-w-[300px] object-contain object-left transition-opacity duration-300 group-hover:opacity-90 drop-shadow-[0_0_14px_rgba(59,130,246,0.2)]"
+            />
           </Link>
 
           {/* MASAÜSTÜ MENÜ */}
