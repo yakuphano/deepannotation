@@ -1,55 +1,217 @@
 "use client"
 
-import { Brain, Database, Cpu } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
+import {
+  BoxSelect,
+  Video,
+  FileText,
+  Mic2,
+  Scale,
+  Layers,
+  ImageIcon,
+  Stethoscope,
+  Boxes,
+  ScanLine,
+  Radar,
+} from "lucide-react"
 
-const services = [
+type ServiceItem = {
+  title: string
+  subtitle: string
+  description: string
+  /** Short label + detail (shown as sub-grid / list) */
+  bullets?: { label: string; detail: string }[]
+  icon: LucideIcon
+  /** Top strip: icon + gradient hint for future hero images (MRI / point cloud) */
+  visualPreset?: "default" | "medical" | "lidar"
+}
+
+const services: ServiceItem[] = [
   {
     title: "Image Annotation",
-    context: "Support for training/validation pipelines in computer vision models, including GPU-accelerated model inference validation.",
-    description: "Unlock the full potential of computer vision with pixel-perfect labeling. From bounding boxes and polygon segmentation to keypoint annotation, we provide the high-fidelity training data needed for autonomous driving, medical imaging, and facial recognition systems.",
-    icon: Database,
+    subtitle: "High-precision visual data labeling for next-generation Computer Vision.",
+    description:
+      "Unlock the full potential of computer vision with pixel-perfect labeling. We provide high-fidelity training data tailored for autonomous driving, medical imaging, and retail analytics. Our specialized techniques include:",
+    bullets: [
+      {
+        label: "Bounding Boxes",
+        detail: "Precision 2D/3D boxing for object detection.",
+      },
+      {
+        label: "Polygon Segmentation",
+        detail: "Exact contouring for irregular shapes and complex environments.",
+      },
+      {
+        label: "Polyline Annotation",
+        detail: "Ideal for lane detection, wire recognition, and road markings.",
+      },
+      {
+        label: "Keypoint Labeling",
+        detail: "Facial landmarks, skeletal tracking, and human pose estimation.",
+      },
+      {
+        label: "Semantic Segmentation",
+        detail: "Pixel-level classification for scene understanding.",
+      },
+    ],
+    icon: BoxSelect,
   },
   {
-    title: "Search Relevance",
-    context: "Human-verified relevance scoring used in retrieval systems and LLM evaluation.",
-    description: "Optimize your search algorithms with human-verified relevance scoring. We evaluate query-document pairs, analyze user intent, and classify entities to ensure your search engine delivers the most accurate and meaningful results for every user interaction.",
-    icon: Brain,
+    title: "Medical Data Annotation",
+    subtitle: "HIPAA-compliant precision labeling for healthcare AI and diagnostic imaging.",
+    description:
+      "Accelerate medical breakthroughs with expert-level annotation of clinical data. We support radiologists and researchers with high-accuracy labeling of complex medical datasets.",
+    bullets: [
+      {
+        label: "Radiology Imaging",
+        detail: "Accurate contouring and segmentation for MRI, CT, and X-ray scans.",
+      },
+      {
+        label: "Pathology Slides",
+        detail: "Cell-level classification and tissue segmentation in digital pathology.",
+      },
+      {
+        label: "Anatomy Identification",
+        detail: "Detailed labeling of organs, lesions, and anomalies.",
+      },
+      {
+        label: "Compliance",
+        detail: "Secure workflows designed for sensitive healthcare information.",
+      },
+    ],
+    icon: Stethoscope,
+    visualPreset: "medical",
   },
   {
-    title: "Video Annotation",
-    context: "Temporal data validation for autonomous systems and dynamic scene understanding.",
-    description: "Train sophisticated temporal models with frame-by-frame video labeling. We handle complex object tracking, action recognition, and temporal segmentation, ensuring continuity and accuracy across dynamic video sequences for security and autonomous systems.",
-    icon: Cpu,
+    title: "LiDAR & 3D Point Cloud Annotation",
+    subtitle: "Advanced spatial data labeling for autonomous navigation and 3D scene reconstruction.",
+    description:
+      "Power your spatial awareness models with precise 3D sensor fusion data. We provide granular annotation for LiDAR point clouds, enabling robust performance in complex 3D environments.",
+    bullets: [
+      {
+        label: "3D Cuboid Labeling",
+        detail: "Accurate 3D bounding boxes for vehicles, pedestrians, and obstacles.",
+      },
+      {
+        label: "Point Cloud Segmentation",
+        detail: "Pixel-perfect classification of 3D points for terrain and obstacle mapping.",
+      },
+      {
+        label: "Multi-Sensor Fusion",
+        detail: "Synchronized annotation between LiDAR and camera feeds for enhanced perception.",
+      },
+      {
+        label: "Lanes & Boundaries",
+        detail: "3D polyline labeling for road geometry and infrastructure.",
+      },
+    ],
+    icon: Boxes,
+    visualPreset: "lidar",
   },
   {
-    title: "Speech Transcription",
-    context: "Accurate audio-to-text for training speech recognition and conversation models.",
-    description: "Convert audio into actionable data with high-accuracy transcription and linguistic validation. Our native speakers handle dialects, nuances, and multi-speaker environments to perfect your speech-to-text models and conversational AI agents.",
-    icon: Brain,
+    title: "Video Annotation & Temporal Tracking",
+    subtitle: "Master dynamic scene understanding with frame-by-frame continuity.",
+    description:
+      "Train sophisticated temporal models with seamless object tracking across video sequences.",
+    bullets: [
+      {
+        label: "Object Tracking (Interpolation)",
+        detail: "Maintaining unique IDs for objects across multiple frames.",
+      },
+      {
+        label: "Action Recognition",
+        detail: "Labeling specific human or machine behaviors over time.",
+      },
+      {
+        label: "Event Logging",
+        detail: "Identifying precise start and end points for complex activities.",
+      },
+    ],
+    icon: Video,
   },
   {
-    title: "Text Annotation",
-    context: "Semantic labeling for NLP tasks including NER, sentiment, and intent classification.",
-    description: "Empower your NLP models with deep semantic understanding. We offer granular sentiment analysis, named entity recognition (NER), and intent classification to help your AI grasp the subtleties of human language across diverse domains.",
-    icon: Database,
+    title: "Text & NLP Annotation",
+    subtitle: "Semantic labeling to bridge the gap between human language and AI.",
+    description:
+      "Empower your Large Language Models (LLMs) with deep linguistic understanding.",
+    bullets: [
+      {
+        label: "Named Entity Recognition (NER)",
+        detail: "Identifying people, places, organizations, and codes.",
+      },
+      {
+        label: "Sentiment & Intent Analysis",
+        detail: "Classifying the emotional tone and purpose of text.",
+      },
+      {
+        label: "Text Classification",
+        detail: "Categorizing documents into granular taxonomies.",
+      },
+    ],
+    icon: FileText,
   },
   {
-    title: "Other Services",
-    context: "Bespoke data collection and moderation for edge cases and custom dataset requirements.",
-    description: "Beyond standard labeling, we offer bespoke data solutions tailored to your unique needs. This includes ad-hoc data collection, content moderation, surveys, and information correction services designed to address niche edge cases.",
-    icon: Cpu,
+    title: "Audio & Speech Processing",
+    subtitle: "Converting human speech into structured, actionable datasets.",
+    description:
+      "High-accuracy transcription and linguistic validation in multi-speaker environments.",
+    bullets: [
+      {
+        label: "Phonetic Transcription",
+        detail: "Capturing nuances in dialect and pronunciation.",
+      },
+      {
+        label: "Speaker Diarization",
+        detail: "Correctly attributing speech to different participants.",
+      },
+      {
+        label: "Audio Classification",
+        detail: "Labeling background noise, emotion, and audio events.",
+      },
+    ],
+    icon: Mic2,
   },
   {
-    title: "AI Model Training",
-    context: "Custom architecture fine-tuning and performance optimization for production deployment.",
-    description: "Accelerate your path to production with our custom model training services. We fine-tune state-of-the-art architectures on your proprietary data, optimizing for specific performance metrics to deliver deployment-ready AI solutions.",
-    icon: Brain,
+    title: "Search Relevance & RLHF",
+    subtitle: "Human-in-the-loop evaluation for ranking and LLM performance.",
+    description:
+      "Optimize your algorithms with human-verified scoring and Reinforcement Learning from Human Feedback (RLHF).",
+    bullets: [
+      {
+        label: "Query-Document Pairing",
+        detail: "Evaluating the accuracy of search engine results.",
+      },
+      {
+        label: "Comparison Ranking",
+        detail: "Human preference testing for LLM responses.",
+      },
+      {
+        label: "Hallucination Detection",
+        detail: "Verifying the factual accuracy of AI-generated content.",
+      },
+    ],
+    icon: Scale,
   },
   {
-    title: "Enterprise AI Solutions",
-    context: "End-to-end MLOps integration and scalable infrastructure for mission-critical AI.",
-    description: "Scale your AI operations with end-to-end infrastructure support. We design and implement robust MLOps pipelines, manage scalable annotation workflows, and provide the strategic consulting needed to integrate AI into your core business processes.",
-    icon: Cpu,
+    title: "AI Model Training & MLOps",
+    subtitle: "Bespoke model fine-tuning and production-ready infrastructure.",
+    description:
+      "Accelerate your path to deployment with custom fine-tuning and performance optimization.",
+    bullets: [
+      {
+        label: "Custom Architecture Fine-tuning",
+        detail: "Tailoring SOTA models (YOLO, ResNet, Transformers) to your data.",
+      },
+      {
+        label: "Dataset Curating",
+        detail: "Cleaning and balancing datasets to reduce model bias.",
+      },
+      {
+        label: "End-to-End MLOps",
+        detail: "Integrating annotation pipelines directly into your CI/CD workflow.",
+      },
+    ],
+    icon: Layers,
   },
 ]
 
@@ -57,55 +219,104 @@ export default function ServicesPage() {
   return (
     <section className="min-h-screen px-6 py-20 md:py-32 bg-transparent text-white">
       <div className="max-w-6xl mx-auto">
-        
-        {/* Başlık Alanı */}
-        <h1 className="text-3xl md:text-5xl font-bold text-center mb-6 text-white">
+        <h1 className="text-3xl md:text-5xl font-bold text-center mb-6 text-white tracking-tight">
           Our Services
         </h1>
 
-        <p className="text-center text-white/90 max-w-2xl mx-auto mb-12 md:mb-16 text-sm md:text-base">
-          Enterprise-grade AI services trusted by global teams building
-          mission-critical machine learning systems.
+        <p className="text-center text-white/90 max-w-2xl mx-auto mb-12 md:mb-16 text-sm md:text-base leading-relaxed">
+          Enterprise-grade AI services trusted by global teams building mission-critical machine learning systems.
         </p>
 
-        {/* Hizmet Kartları */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon
+            const preset = service.visualPreset ?? "default"
+            const PlaceholderIcon =
+              preset === "medical" ? ScanLine : preset === "lidar" ? Radar : ImageIcon
+            const stripGradient =
+              preset === "medical"
+                ? "from-emerald-950/70 via-slate-900/85 to-cyan-950/35"
+                : preset === "lidar"
+                  ? "from-violet-950/60 via-slate-900/85 to-sky-950/45"
+                  : "from-slate-900/80 via-blue-950/40 to-purple-950/30"
+            const stripRadial =
+              preset === "medical"
+                ? "from-emerald-400/15 via-transparent to-transparent"
+                : preset === "lidar"
+                  ? "from-cyan-400/12 via-transparent to-transparent"
+                  : "from-blue-500/10 via-transparent to-transparent"
+            const bulletGrid = (service.bullets?.length ?? 0) > 3
+
             return (
               <div key={index} className="group relative">
-                {/* Glow Efekti */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                
-                {/* Kart Tasarımı */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-15 group-hover:opacity-35 transition duration-500" />
+
                 <div
                   className="
                     relative rounded-2xl border border-white/20 p-6 md:p-8
-                    bg-white/10 backdrop-blur-md transition-all duration-300
-                    group-hover:border-white/50
+                    bg-white/[0.06] backdrop-blur-md transition-all duration-300
+                    group-hover:border-white/40
                     h-full flex flex-col
                   "
                 >
-                  <Icon className="w-10 h-10 md:w-12 md:h-12 text-white mb-4 md:mb-6 group-hover:scale-110 transition-transform" />
+                  {/* Visual placeholder — replace with next/image when MRI / point-cloud assets exist */}
+                  <div
+                    className={`relative mb-5 h-32 md:h-36 rounded-xl overflow-hidden border border-white/10 bg-gradient-to-br ${stripGradient} flex items-center justify-center`}
+                  >
+                    <div
+                      className={`absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] ${stripRadial}`}
+                    />
+                    <PlaceholderIcon
+                      className="relative w-14 h-14 md:w-16 md:h-16 text-white/25 group-hover:text-white/40 transition-colors"
+                      strokeWidth={preset === "default" ? 1 : 1.25}
+                      aria-hidden
+                    />
+                    <span className="sr-only">
+                      {preset === "medical"
+                        ? "Medical imaging annotation placeholder"
+                        : preset === "lidar"
+                          ? "3D point cloud visualization placeholder"
+                          : "Service visual placeholder"}
+                    </span>
+                  </div>
 
-                  <h3 className="text-xl md:text-2xl font-semibold mb-2 text-white">
-                    {service.title}
-                  </h3>
+                  <Icon
+                    className="w-9 h-9 md:w-10 md:h-10 text-blue-300 mb-3 group-hover:scale-105 transition-transform shrink-0"
+                    aria-hidden
+                  />
 
-                  {/* YENİ EKLENEN KISIM: AI Workflow Context */}
-                  <p className="text-blue-300 text-xs md:text-sm font-medium mb-4 italic border-l-2 border-blue-400 pl-3">
-                    {service.context}
+                  <h2 className="text-lg md:text-xl font-semibold text-white leading-snug mb-2">{service.title}</h2>
+
+                  <p className="text-blue-200/90 text-xs md:text-sm font-medium mb-3 leading-snug border-l-2 border-blue-400/70 pl-3 italic">
+                    {service.subtitle}
                   </p>
 
-                  <p className="text-white/90 leading-relaxed text-sm md:text-base">
-                    {service.description}
-                  </p>
+                  <p className="text-white/85 leading-relaxed text-sm mb-4 flex-1">{service.description}</p>
+
+                  {service.bullets?.length ? (
+                    <div
+                      className={
+                        bulletGrid
+                          ? "grid grid-cols-1 sm:grid-cols-2 gap-2.5 mt-auto pt-4 border-t border-white/10"
+                          : "space-y-2.5 mt-auto pt-4 border-t border-white/10"
+                      }
+                    >
+                      {service.bullets.map((b) => (
+                        <div
+                          key={b.label}
+                          className="rounded-lg bg-black/25 border border-white/5 px-3 py-2.5 text-left"
+                        >
+                          <p className="text-blue-200/95 text-xs font-semibold leading-tight mb-0.5">{b.label}</p>
+                          <p className="text-white/70 text-[11px] md:text-xs leading-relaxed">{b.detail}</p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
               </div>
             )
           })}
         </div>
-        
       </div>
     </section>
   )
