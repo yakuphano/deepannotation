@@ -1,4 +1,4 @@
-import groq from "groq"
+import { groq } from "next-sanity"
 
 export const POSTS_QUERY = groq`
   *[_type == "post" && defined(slug.current)] | order(publishedAt desc) {

@@ -1,8 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { PortableText, type PortableTextComponents } from "@portabletext/react"
-import type { PortableTextBlock } from "@portabletext/types"
+import { PortableText, type PortableTextBlock, type PortableTextComponents } from "next-sanity"
 import { urlFor } from "@/lib/sanity.image"
 
 const components: PortableTextComponents = {

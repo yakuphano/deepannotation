@@ -1,4 +1,4 @@
-import type { PortableTextBlock } from "@portabletext/types"
+import type { PortableTextBlock } from "next-sanity"
 
 export type SanityBlogPostListItem = {
   _id: string

@@ -14,9 +14,19 @@ export default function Footer() {
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
         
         {/* Sol Kısım: Telif Hakkı Yazısı */}
-        <div className="text-center md:text-left order-2 md:order-1">
+        <div className="text-center md:text-left order-2 md:order-1 space-y-1">
           <p className="text-white/60 text-xs md:text-sm font-light">
             © {new Date().getFullYear()} DeepAnnotation. All rights reserved.
+          </p>
+          <p className="text-white/45 text-xs">
+            <a
+              href="https://www.sanity.io/manage"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-400 transition-colors underline-offset-2 hover:underline"
+            >
+              Blog content (Sanity)
+            </a>
           </p>
         </div>
 

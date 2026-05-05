@@ -3,32 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --webpack",
+    "dev:turbo": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sanity:schema-deploy": "sanity schema deploy"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@lottiefiles/react-lottie-player": "^3.6.0",
-    "@portabletext/react": "^6.0.3",
-    "@portabletext/types": "^4.0.2",
     "@sanity/image-url": "^2.1.1",
-    "@sanity/vision": "^5.23.0",
     "framer-motion": "^12.23.26",
-    "groq": "^5.23.0",
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.561.0",
     "next": "16.0.10",
     "next-sanity": "^12.4.0",
     "nodemailer": "^6.10.1",
-    "react": "19.2.1",
-    "react-dom": "19.2.1",
-    "resend": "^6.6.0",
-    "sanity": "^5.23.0",
-    "styled-components": "^6.4.1"
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "resend": "^6.6.0"
   },
   "devDependencies": {
+    "sanity": "^5.23.0",
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^20",
