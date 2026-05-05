@@ -1,19 +1,12 @@
 "use client"
 
+import Image from "next/image"
 import type { LucideIcon } from "lucide-react"
-import {
-  BoxSelect,
-  Video,
-  FileText,
-  Mic2,
-  Scale,
-  Layers,
-  ImageIcon,
-  Stethoscope,
-  Boxes,
-  ScanLine,
-  Radar,
-} from "lucide-react"
+import { BoxSelect, Video, FileText, Mic2, Scale, Layers, Stethoscope, Boxes } from "lucide-react"
+
+/** Unsplash — replace with your own assets anytime (https://unsplash.com/license) */
+const us = (photoId: string) =>
+  `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=800&h=450&q=80`
 
 type ServiceItem = {
   title: string
@@ -22,7 +15,9 @@ type ServiceItem = {
   /** Short label + detail (shown as sub-grid / list) */
   bullets?: { label: string; detail: string }[]
   icon: LucideIcon
-  /** Top strip: icon + gradient hint for future hero images (MRI / point cloud) */
+  imageUrl: string
+  imageAlt: string
+  /** Subtle overlay tint on the hero photo */
   visualPreset?: "default" | "medical" | "lidar"
 }
 
@@ -55,6 +50,8 @@ const services: ServiceItem[] = [
       },
     ],
     icon: BoxSelect,
+    imageUrl: us("photo-1449965408869-eaa3f61731a7"),
+    imageAlt: "Urban street scene representing visual data for detection and segmentation",
   },
   {
     title: "Medical Data Annotation",
@@ -81,6 +78,8 @@ const services: ServiceItem[] = [
     ],
     icon: Stethoscope,
     visualPreset: "medical",
+    imageUrl: us("photo-1579684385127-1ef15d508118"),
+    imageAlt: "Clinical environment and medical imaging technology",
   },
   {
     title: "LiDAR & 3D Point Cloud Annotation",
@@ -107,6 +106,8 @@ const services: ServiceItem[] = [
     ],
     icon: Boxes,
     visualPreset: "lidar",
+    imageUrl: us("photo-1469854523086-cc02fe5d8804"),
+    imageAlt: "Highway and landscape representing spatial 3D sensing and navigation",
   },
   {
     title: "Video Annotation & Temporal Tracking",
@@ -128,6 +129,8 @@ const services: ServiceItem[] = [
       },
     ],
     icon: Video,
+    imageUrl: us("photo-1536240478700-b869277f8149"),
+    imageAlt: "Video production workspace with editing timeline",
   },
   {
     title: "Text & NLP Annotation",
@@ -149,6 +152,8 @@ const services: ServiceItem[] = [
       },
     ],
     icon: FileText,
+    imageUrl: us("photo-1455390582262-044cdead277a"),
+    imageAlt: "Desk with notes and writing tools for text-focused work",
   },
   {
     title: "Audio & Speech Processing",
@@ -170,6 +175,8 @@ const services: ServiceItem[] = [
       },
     ],
     icon: Mic2,
+    imageUrl: us("photo-1598488035139-bdbb2231ce04"),
+    imageAlt: "Studio microphone for speech and audio capture",
   },
   {
     title: "Search Relevance & RLHF",
@@ -191,6 +198,8 @@ const services: ServiceItem[] = [
       },
     ],
     icon: Scale,
+    imageUrl: us("photo-1460925895917-afdab827c52f"),
+    imageAlt: "Laptop displaying charts and search analytics",
   },
   {
     title: "AI Model Training & MLOps",
@@ -212,6 +221,8 @@ const services: ServiceItem[] = [
       },
     ],
     icon: Layers,
+    imageUrl: us("photo-1558494949-ef010cbdcc31"),
+    imageAlt: "Server racks in a data center for MLOps infrastructure",
   },
 ]
 
@@ -231,20 +242,12 @@ export default function ServicesPage() {
           {services.map((service, index) => {
             const Icon = service.icon
             const preset = service.visualPreset ?? "default"
-            const PlaceholderIcon =
-              preset === "medical" ? ScanLine : preset === "lidar" ? Radar : ImageIcon
-            const stripGradient =
+            const overlayTone =
               preset === "medical"
-                ? "from-emerald-950/70 via-slate-900/85 to-cyan-950/35"
+                ? "bg-gradient-to-t from-emerald-950/85 via-slate-950/35 to-transparent"
                 : preset === "lidar"
-                  ? "from-violet-950/60 via-slate-900/85 to-sky-950/45"
-                  : "from-slate-900/80 via-blue-950/40 to-purple-950/30"
-            const stripRadial =
-              preset === "medical"
-                ? "from-emerald-400/15 via-transparent to-transparent"
-                : preset === "lidar"
-                  ? "from-cyan-400/12 via-transparent to-transparent"
-                  : "from-blue-500/10 via-transparent to-transparent"
+                  ? "bg-gradient-to-t from-violet-950/85 via-slate-950/35 to-transparent"
+                  : "bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"
             const bulletGrid = (service.bullets?.length ?? 0) > 3
 
             return (
@@ -259,25 +262,16 @@ export default function ServicesPage() {
                     h-full flex flex-col
                   "
                 >
-                  {/* Visual placeholder — replace with next/image when MRI / point-cloud assets exist */}
-                  <div
-                    className={`relative mb-5 h-32 md:h-36 rounded-xl overflow-hidden border border-white/10 bg-gradient-to-br ${stripGradient} flex items-center justify-center`}
-                  >
-                    <div
-                      className={`absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] ${stripRadial}`}
+                  <div className="relative mb-5 h-32 md:h-40 rounded-xl overflow-hidden border border-white/10 bg-slate-900">
+                    <Image
+                      src={service.imageUrl}
+                      alt={service.imageAlt}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 360px"
                     />
-                    <PlaceholderIcon
-                      className="relative w-14 h-14 md:w-16 md:h-16 text-white/25 group-hover:text-white/40 transition-colors"
-                      strokeWidth={preset === "default" ? 1 : 1.25}
-                      aria-hidden
-                    />
-                    <span className="sr-only">
-                      {preset === "medical"
-                        ? "Medical imaging annotation placeholder"
-                        : preset === "lidar"
-                          ? "3D point cloud visualization placeholder"
-                          : "Service visual placeholder"}
-                    </span>
+                    <div className={`pointer-events-none absolute inset-0 ${overlayTone}`} />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-600/15 via-transparent to-purple-700/15" />
                   </div>
 
                   <Icon
