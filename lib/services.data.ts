@@ -111,27 +111,31 @@ export const SERVICES: ServiceDefinition[] = [
     bullets: [
       {
         label: "Radiology Imaging",
-        detail: "Accurate contouring and segmentation for MRI, CT, and X-ray scans.",
-        imageUrl: usImage("photo-1631549916768-4119b2e5f946", 1200, 800),
-        imageAlt: "MRI imaging environment",
+        detail:
+          "Accurate contouring and segmentation for MRI, CT, and X-ray scans.\n\nEnsure the highest standards of diagnostic accuracy with our specialized Radiology Imaging annotation services. We provide expert contouring and pixel-level segmentation for MRI, CT, and X-ray scans, enabling AI models to identify anatomical structures and pathological findings with clinical precision. Our team is trained to handle complex volumetric data and multi-modal imaging, delivering high-quality datasets for organ segmentation, tumor delineation, and anomaly detection. By bridging the gap between medical expertise and machine learning, we help accelerate the development of life-saving computer-aided diagnosis (CAD) systems.\n\nKey Features:\n\n• Advanced Delineation: Precise segmentation of organs, tissues, and lesions.\n\n• Multi-Modality Support: Expertise in MRI, CT, X-ray, and Ultrasound imagery.\n\n• Dice Coefficient Optimization: Focus on high-overlap accuracy for medical validation.\n\n• Anonymized Workflows: Secure handling of medical data adhering to privacy standards.",
+        imageUrl: "/services/medical-data-annotation/radiology-imaging.jpg",
+        imageAlt: "Radiology imaging annotation for MRI, CT, and X-ray workflows",
       },
       {
-        label: "Pathology Slides",
-        detail: "Cell-level classification and tissue segmentation in digital pathology.",
-        imageUrl: usImage("photo-1532187863486-abf9dbad1b99", 1200, 800),
-        imageAlt: "Microscopy and laboratory research",
+        label: "Pathology Slides Annotation",
+        detail:
+          "Cell-level classification and tissue segmentation in digital pathology.\n\nEnsure precise and reliable medical diagnoses with our expert pathology slide annotation services. We provide accurate contouring and semantic segmentation for whole slide images, enabling AI models to identify cell types, tissues, and disease markers with clinical accuracy.",
+        imageUrl: "/services/medical-data-annotation/pathology-slides.jpg",
+        imageAlt: "Digital pathology whole slide image annotation and segmentation",
       },
       {
         label: "Anatomy Identification",
-        detail: "Detailed labeling of organs, lesions, and anomalies.",
-        imageUrl: usImage("photo-1579154204601-01588f489e97", 1200, 800),
-        imageAlt: "Clinical consultation and healthcare documentation",
+        detail:
+          "Detailed labeling of organs, lesions, and anomalies.\n\nPower your medical AI with expert anatomical mapping. We provide precise point and area labeling for organs, skeletal structures, and vascular systems across MRI, CT, and 3D scans. Our high-fidelity annotations ensure clinical-grade accuracy for automated diagnosis and surgical planning.",
+        imageUrl: "/services/medical-data-annotation/anatomy-identification.jpg",
+        imageAlt: "Anatomical structure labeling on MRI, CT, and 3D medical imaging",
       },
       {
         label: "Compliance",
-        detail: "Secure workflows designed for sensitive healthcare information.",
-        imageUrl: usImage("photo-1563986768609-322da13575f3", 1200, 800),
-        imageAlt: "Digital security and data protection concept",
+        detail:
+          "Secure workflows designed for sensitive healthcare information.\n\nTrust your most sensitive healthcare data to our secure, industry-standard workflows. Our annotation processes are fully HIPAA and GDPR compliant, ensuring that Protected Health Information (PHI) is handled with end-to-end encryption, strict access controls, and de-identification protocols. We prioritize data integrity and patient privacy at every step of the labeling cycle.",
+        imageUrl: "/services/medical-data-annotation/Compliance.jpg",
+        imageAlt: "HIPAA and GDPR compliant secure healthcare data annotation workflows",
       },
     ],
   },
