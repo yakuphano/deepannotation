@@ -105,7 +105,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                 </div>
                 <div className={imageOnRight ? "lg:order-1" : ""}>
                   <h3 className="text-xl md:text-2xl font-bold text-white mb-4 leading-tight">{b.label}</h3>
-                  <p className="text-white/80 text-base md:text-lg leading-relaxed">{b.detail}</p>
+                  <p className="text-white/80 text-base md:text-lg leading-relaxed whitespace-pre-line">{b.detail}</p>
                 </div>
               </section>
             )
