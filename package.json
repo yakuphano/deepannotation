@@ -22,10 +22,11 @@
     "nodemailer": "^6.10.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "resend": "^6.6.0"
+    "resend": "^6.6.0",
+    "sanity": "^5.23.0",
+    "styled-components": "^6.1.19"
   },
   "devDependencies": {
-    "sanity": "^5.23.0",
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^20",
