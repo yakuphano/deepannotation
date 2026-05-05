@@ -58,41 +58,41 @@ export const SERVICES: ServiceDefinition[] = [
       "Unlock the full potential of computer vision with pixel-perfect labeling. We provide high-fidelity training data tailored for autonomous driving, medical imaging, and retail analytics. Our specialized techniques include:",
     iconKey: "boxSelect",
     visualPreset: "default",
-    heroImageUrl: usImage("photo-1449965408869-eaa3f61731a7", 1600, 900),
-    heroImageAlt: "Urban street scene representing visual data for detection and segmentation",
+    heroImageUrl: "/services/image-annotation/hero.jpg",
+    heroImageAlt: "Annotated imagery for detection, segmentation, and computer vision training data",
     bullets: [
       {
         label: "Bounding Boxes",
         detail:
-          "Precision 2D/3D boxing for object detection.\n\nElevate your computer vision models with our high-precision Bounding Box Annotation services. We specialize in drawing tight, accurate, 2D rectangular boxes around specific objects within your images and videos, enabling your algorithms to detect and localize items with exceptional reliability. Whether you are training models for autonomous vehicles, retail analytics, or security systems, our team ensures every bounding box is drawn meticulously to your project's specifications. We combine advanced tools with a dedicated \"human-in-the-loop\" approach to deliver large-scale, pixel-perfect datasets, accelerating your time-to-market.\n\nKey Features:\n\n• Precision and Consistency: Tight boxes for optimal model training.\n\n• Multi-Class Labeling: Support for various object types (e.g., Pedestrians, Vehicles, Obstacles).\n\n• Scalability: Rapid processing of large image datasets.\n\n• Flexible Workflows: Customized annotation rules tailored to your needs.",
+          "Precision 2D/3D boxing for object detection.\n\nTight boxes around objects in images and video for reliable detection and localization—built for autonomy, retail, security, and more. Human-in-the-loop QA at scale with rules matched to your specs.\n\n• Multi-class labels (pedestrians, vehicles, obstacles, …)\n• Consistent, tight boxes for training\n• Large batches processed quickly",
         imageUrl: "/services/image-annotation/bounding-boxes.jpg",
         imageAlt: "Bounding box annotation example for object detection",
       },
       {
         label: "Polygon Segmentation",
         detail:
-          "Exact contouring for irregular shapes and complex environments.\n\nAchieve pixel-level precision for complex object recognition with our professional Polygon Segmentation services. Unlike standard Bounding Boxes that only provide a general localization, our annotators meticulously map the exact contours and irregular shapes of objects by drawing multi-vertex polygons. This method eliminates background noise from the annotation, ensuring your semantic segmentation and instance segmentation models learn the most accurate boundaries. Whether you are working with aerial imagery for land use analysis, medical scans for lesion detection, or autonomous driving for road boundary detection, we deliver high-quality, vertex-rich datasets tailored to your specifications. Our \"human-in-the-loop\" approach guarantees the extreme accuracy required by state-of-the-art computer vision algorithms.\n\nKey Features:\n\n• Irregular Shape Mapping: Perfect for organic, curved, or multi-sided objects.\n\n• Pixel-Perfect Accuracy: Zero background leakage within the annotated area.\n\n• Vertex Density Control: Customizable smoothness based on model requirements.\n\n• Semantic & Instance Segmentation Support: Handling distinct object classes and individual object instances.",
+          "Exact contouring for irregular shapes and complex environments.\n\nMulti-vertex polygons trace true object outlines—better than boxes for organic shapes and clean masks. Fits aerial, medical, and driving use cases; human-in-the-loop for sharp boundaries.\n\n• Irregular and curved objects\n• Tight masks, minimal background bleed\n• Semantic and instance segmentation workflows",
         imageUrl: "/services/image-annotation/polygon-segmentation.jpg",
         imageAlt: "Polygon segmentation outlining precise object contours",
       },
       {
         label: "Polyline Annotation",
         detail:
-          "Ideal for lane detection, wire recognition, and road markings.\n\nMap the skeleton and direction of dynamic environments with our expert Polyline and Lane Annotation services. While bounding boxes encapsulate entire objects, polylines are specialized for tracing continuous linear and curvilinear features that define the topology and flow of a scene. This technique is indispensable for path planning, navigation, and structural analysis. We meticulously label lane markers, road boundaries, railway tracks, power lines, and rivers by connecting numerous high-density vertices. We don't just mark lines; we can encode key attributes such as line type (solid, dotted), color, and—critically—direction of travel, enabling your models to understand advanced environmental rules. Our rigorous human-in-the-loop validation guarantees the accurate capture of complex curves and topological connections essential for advanced robotics and ADAS applications.\n\nKey Features:\n\n• High-Density Vertex Tracing: Capturing complex, smooth curves with pixel-level alignment.\n\n• Attribute Encoding: Labels line type (solid, broken, double), color, and traffic flow direction.\n\n• Topological Connections: Defines how linear features intersect or branch off (e.g., exit ramps, intersections).\n\n• Scalability for ADAS & HD Maps: Ideal for creating datasets for Autonomous Driving and High-Definition Mapping.",
+          "Ideal for lane detection, wire recognition, and road markings.\n\nPolylines follow continuous lines—lanes, edges, tracks, wires—with dense vertices for smooth curves. Encode line type, color, and travel direction where you need rules, not just geometry.\n\n• Suited to path planning and HD maps / ADAS\n• Intersections and branches modeled clearly\n• Human-in-the-loop for complex topology",
         imageUrl: "/services/image-annotation/polyline-annotation.jpg",
         imageAlt: "Polyline and lane annotation for roads and linear features",
       },
       {
         label: "Keypoint Labeling",
         detail:
-          "Facial landmarks, skeletal tracking, and human pose estimation.\n\nUnlock advanced spatial understanding for your AI models with our high-precision Keypoint Labeling services. Also known as Landmark Annotation, this technique involves identifying specific interest points within an image to define the underlying structure, pose, or orientation of an object. We provide pixel-perfect point placement for human pose estimation, facial expression analysis, and skeletal tracking. Whether you are developing applications for sports analytics, gesture-controlled interfaces, or medical diagnostics, our annotators meticulously map joint connections and facial landmarks. By defining the exact \"skeleton\" of a subject, we enable your algorithms to recognize movement, track alignment, and understand complex human-machine interactions with unparalleled accuracy.\n\nKey Features:\n\n• Human Pose Estimation: Accurate mapping of skeletal joints (knees, elbows, shoulders) for motion analysis.\n\n• Facial Landmarks: Mapping specific points on eyes, nose, and mouth for emotion and identity recognition.\n\n• Visibility & Occlusion Handling: Identifying whether a point is visible, occluded, or out of frame.\n\n• Custom Skeleton Templates: Tailored point-to-point connection rules based on your model's specific architecture.",
+          "Facial landmarks, skeletal tracking, and human pose estimation.\n\nLandmark points capture structure, pose, and motion—body joints, facial features, or custom keypoint sets. Useful for sports, gestures, HCI, and clinical workflows.\n\n• Pose and facial landmark layouts\n• Visibility / occluded / out-of-frame tags\n• Skeleton topology matched to your model",
         imageUrl: "/services/image-annotation/keypoint-labeling.jpg",
         imageAlt: "Keypoint and landmark annotation for pose and facial structure",
       },
       {
         label: "Semantic Segmentation",
         detail:
-          "Pixel-level classification for scene understanding.\n\nTake your computer vision projects to the highest level of detail with our Semantic Segmentation services. Unlike object detection, which uses boxes to locate items, semantic segmentation involves classifying every single pixel in an image into a specific category. This creates a dense, color-coded map where every element—from the sky and road to individual pedestrians and vehicles—is identified with total environmental context. We provide meticulous, pixel-perfect masks that allow your models to understand not just what is in the scene, but exactly where it begins and ends. This is essential for high-stakes applications like autonomous driving, medical imaging, and precision agriculture where understanding the entire surroundings is critical for safety and performance.\n\nKey Features:\n\n• Pixel-Level Classification: Every pixel is assigned to a class (e.g., road, sidewalk, building).\n\n• Complete Scene Parsing: Ideal for background-to-foreground understanding.\n\n• High-Resolution Precision: Meticulous handling of complex boundaries and small objects.\n\n• Multi-Class Support: Efficiently labeling dozens of unique categories within a single frame.",
+          "Pixel-level classification for scene understanding.\n\nEvery pixel gets a class label so models see full scene context—not just object boxes. Sharp masks for boundaries and small objects; strong fit for driving, medical, and geospatial stacks.\n\n• Dense maps (road, sky, vegetation, people, …)\n• Full-frame scene parsing\n• Many classes per image, production-grade QA",
         imageUrl: "/services/image-annotation/semantic-segmentation.jpg",
         imageAlt: "Semantic segmentation masks showing per-pixel class labels",
       },
@@ -143,8 +143,8 @@ export const SERVICES: ServiceDefinition[] = [
       "Power your spatial awareness models with precise 3D sensor fusion data. We provide granular annotation for LiDAR point clouds, enabling robust performance in complex 3D environments.",
     iconKey: "boxes",
     visualPreset: "lidar",
-    heroImageUrl: usImage("photo-1469854523086-cc02fe5d8804", 1600, 900),
-    heroImageAlt: "Highway and landscape representing spatial 3D sensing and navigation",
+    heroImageUrl: usImage("photo-1506905925346-21bda4d32df4", 1600, 900),
+    heroImageAlt: "Open road and landscape representing spatial 3D sensing and navigation",
     bullets: [
       {
         label: "3D Cuboid Labeling",
@@ -167,7 +167,7 @@ export const SERVICES: ServiceDefinition[] = [
       {
         label: "Lanes & Boundaries",
         detail: "3D polyline labeling for road geometry and infrastructure.",
-        imageUrl: usImage("photo-1449965408869-eaa3f61731a7", 1200, 800),
+        imageUrl: usImage("photo-1449824913935-59a10b8d2000", 1200, 800),
         imageAlt: "Urban driving scene for road geometry labeling",
       },
     ],
