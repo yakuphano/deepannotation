@@ -35,7 +35,6 @@ export default async function BlogPage() {
   }
 
   const useSanityList = sanityPosts.length > 0
-  const showDemoBanner = isSanityConfigured() && !useSanityList
 
   return (
     <div className="min-h-screen bg-transparent text-white pt-32 pb-20">
@@ -43,36 +42,6 @@ export default async function BlogPage() {
         <h1 className="text-4xl md:text-6xl font-black mb-12 tracking-tighter text-center">
           Insights & Research
         </h1>
-
-        {showDemoBanner ? (
-          <p className="text-center text-amber-200/90 text-sm max-w-2xl mx-auto mb-8 leading-relaxed border border-amber-500/30 rounded-xl px-4 py-3 bg-amber-950/20">
-            No Sanity documents yet — showing sample articles below. Add posts in{" "}
-            <a
-              href="https://www.sanity.io/manage"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-400 underline underline-offset-2"
-            >
-              sanity.io/manage
-            </a>{" "}
-            (hosted Studio) to replace this list.
-          </p>
-        ) : null}
-
-        {!isSanityConfigured() ? (
-          <p className="text-center text-white/60 text-sm max-w-2xl mx-auto mb-10">
-            Sanity env vars are not set — showing sample articles. Configure env, then manage posts at{" "}
-            <a
-              href="https://www.sanity.io/manage"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-400 underline underline-offset-2"
-            >
-              sanity.io/manage
-            </a>
-            .
-          </p>
-        ) : null}
 
         <div className="grid gap-8">
           {useSanityList
