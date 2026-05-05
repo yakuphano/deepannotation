@@ -1,3 +1,19 @@
+/**
+ * Images: remote (Unsplash via `usImage`) **or** local files under `public/services/…`.
+ *
+ * Folders already exist in the repo (Windows path example):
+ *   `deepannotate\public\services\image-annotation\`
+ *   `deepannotate\public\services\medical-data-annotation\`
+ *   `deepannotate\public\services\lidar-3d-point-cloud\`
+ *   …same pattern for: video-annotation, text-nlp-annotation, audio-speech-processing,
+ *   search-relevance-rlhf, ai-model-training-mlops
+ *
+ * Drop `hero.webp` (or .jpg) there, then here set:
+ *   `heroImageUrl: "/services/image-annotation/hero.webp"`
+ * Bullet images: `imageUrl: "/services/image-annotation/bounding-boxes.webp"` etc.
+ * (URL path = no `public` — it maps to `public/services/...`.)
+ */
+
 /** Unsplash — https://unsplash.com/license */
 export function usImage(photoId: string, w: number, h: number) {
   return `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=${w}&h=${h}&q=80`
