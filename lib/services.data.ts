@@ -103,11 +103,11 @@ export const SERVICES: ServiceDefinition[] = [
     title: "Medical Data Annotation",
     subtitle: "HIPAA-compliant precision labeling for healthcare AI and diagnostic imaging.",
     description:
-      "Accelerate medical breakthroughs with expert-level annotation of clinical data. We support radiologists and researchers with high-accuracy labeling of complex medical datasets.",
+      "Radiology, digital pathology, anatomy mapping, and compliance-first workflows for regulated healthcare AI. Expert contouring and segmentation on MRI, CT, X-ray, and whole slide images—with HIPAA/GDPR-aligned handling of PHI from annotation through delivery.",
     iconKey: "stethoscope",
     visualPreset: "medical",
-    heroImageUrl: usImage("photo-1579684385127-1ef15d508118", 1600, 900),
-    heroImageAlt: "Clinical environment and medical imaging technology",
+    heroImageUrl: "/services/medical-data-annotation/hero.jpg",
+    heroImageAlt: "Medical imaging and clinical annotation for healthcare AI datasets",
     bullets: [
       {
         label: "Radiology Imaging",

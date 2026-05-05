@@ -3,6 +3,12 @@ import Link from "next/link"
 import { SERVICE_ICONS } from "@/lib/services.icons"
 import { SERVICES } from "@/lib/services.data"
 
+/** First paragraph on /services cards; full `detail` stays on the service detail page. */
+function bulletCardPreview(detail: string) {
+  const cut = detail.indexOf("\n\n")
+  return cut === -1 ? detail : detail.slice(0, cut)
+}
+
 export default function ServicesPage() {
   return (
     <section className="min-h-screen px-6 py-20 md:py-32 bg-transparent text-white">
@@ -88,8 +94,8 @@ export default function ServicesPage() {
                           className="rounded-lg bg-black/25 border border-white/5 px-3 py-2.5 text-left"
                         >
                           <p className="text-blue-200/95 text-xs font-semibold leading-tight mb-0.5">{b.label}</p>
-                          <p className="text-white/70 text-[11px] md:text-xs leading-relaxed line-clamp-2">
-                            {b.detail}
+                          <p className="text-white/70 text-[11px] md:text-xs leading-relaxed line-clamp-3">
+                            {bulletCardPreview(b.detail)}
                           </p>
                         </div>
                       ))}
