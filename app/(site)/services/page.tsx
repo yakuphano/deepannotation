@@ -31,17 +31,16 @@ export default function ServicesPage() {
               <Link
                 key={service.slug}
                 href={`/services/${service.slug}`}
-                className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-2xl"
+                className="group flex h-full min-h-0 flex-col focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent rounded-2xl"
               >
-                <div className="relative">
+                <div className="relative flex h-full min-h-0 flex-1 flex-col">
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur opacity-15 group-hover:opacity-35 transition duration-500" />
 
                   <div
                     className="
-                    relative rounded-2xl border border-white/20 p-6 md:p-8
+                    relative flex h-full min-h-0 flex-1 flex-col rounded-2xl border border-white/20 p-6 md:p-8
                     bg-white/[0.06] backdrop-blur-md transition-all duration-300
                     group-hover:border-white/50 group-hover:bg-white/[0.09]
-                    h-full flex flex-col
                   "
                   >
                     <div className="relative mb-5 h-32 md:h-40 rounded-xl overflow-hidden border border-white/10 bg-slate-900">
@@ -72,7 +71,7 @@ export default function ServicesPage() {
                       {service.subtitle}
                     </p>
 
-                    <p className="text-white/85 leading-relaxed text-sm mb-4 flex-1 line-clamp-4 md:line-clamp-3">
+                    <p className="text-white/85 min-h-0 flex-1 leading-relaxed text-sm mb-4 line-clamp-4 md:line-clamp-3">
                       {service.description}
                     </p>
 
