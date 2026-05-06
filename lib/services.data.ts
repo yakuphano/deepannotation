@@ -192,8 +192,9 @@ export const SERVICES: ServiceDefinition[] = [
     description:
       "Temporal labels for video: persistent tracks with interpolation, behavioral action windows, and frame-accurate event logs—with QA suited to production training.",
     iconKey: "video",
-    heroImageUrl: usImage("photo-1536240478700-b869277f8149", 1600, 900),
-    heroImageAlt: "Video production workspace with editing timeline",
+    heroImageUrl: "/services/video-annotation/Actionrecognition.jpg",
+    heroImageAlt:
+      "Video action recognition labels for human and machine activities over time",
     bullets: [
       {
         label: "Object Tracking (Interpolation)",
