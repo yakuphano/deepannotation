@@ -49,7 +49,7 @@ export type ServiceDefinition = {
   visualPreset?: "default" | "medical" | "lidar"
 }
 
-export const SERVICES: ServiceDefinition[
+export const SERVICES: ServiceDefinition[] = [
   {
     slug: "image-annotation",
     title: "Image Annotation",
