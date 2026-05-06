@@ -138,30 +138,37 @@ export const SERVICES: ServiceDefinition[] = [
   {
     slug: "audio-speech-processing",
     title: "Audio & Speech Processing",
-    subtitle: "Converting human speech into structured, actionable datasets.",
+    subtitle: "IPA phonetics, who-spoke-when diarization, and acoustic or scene-level labels.",
     description:
-      "High-accuracy transcription and linguistic validation in multi-speaker environments.",
+      "Speech and sound datasets for production ML: phonetic transcripts (including IPA), speaker diarization with overlaps and tight timestamps, plus event, emotion, noise, and scene classification—with QA matched to your specs.",
     iconKey: "mic2",
-    heroImageUrl: usImage("photo-1598488035139-bdbb2231ce04", 1600, 900),
-    heroImageAlt: "Studio microphone for speech and audio capture",
+    heroImageUrl: "/services/audio-speech-processing/speakerdiarization.jpg",
+    heroImageAlt:
+      "Speaker diarization timeline showing who spoke when on multi-speaker audio",
     bullets: [
       {
         label: "Phonetic Transcription",
-        detail: "Capturing nuances in dialect and pronunciation.",
-        imageUrl: usImage("photo-1470225620780-dba8ba36b745", 1200, 800),
-        imageAlt: "Concert and live audio atmosphere",
+        detail:
+          "Beyond word logs: IPA-style notation captures phones, stress, and dialect so synthesis, linguistics, and accent-robust ASR get structured ground truth.\n\nKey features:\n\n• IPA-level phones and articulation detail\n\n• Regional and speaker-specific nuance\n\n• Alignment to waveforms (incl. multi-channel)\n\n• Datasets for TTS, research, and accent coverage",
+        imageUrl: "/services/audio-speech-processing/phonetictranscription.jpg",
+        imageAlt:
+          "IPA-style phonetic transcription aligned with speech waveforms for dialect and accent modeling",
       },
       {
         label: "Speaker Diarization",
-        detail: "Correctly attributing speech to different participants.",
-        imageUrl: usImage("photo-1522202176988-66273c2fd55f", 1200, 800),
-        imageAlt: "Small group discussion for multi-speaker audio",
+        detail:
+          "Partition streams into who spoke when—stable speaker IDs, overlap regions, and precise in/out times for meetings, calls, and long-form transcription.\n\nKey features:\n\n• Track the same speaker across the file\n\n• Overlapping speech labeled cleanly\n\n• Millisecond-level segment boundaries\n\n• Mono or multi-track / multi-mic setups",
+        imageUrl: "/services/audio-speech-processing/speakerdiarization.jpg",
+        imageAlt:
+          "Speaker diarization timeline with who-spoke-when labels and overlap segments on multi-speaker audio",
       },
       {
         label: "Audio Classification",
-        detail: "Labeling background noise, emotion, and audio events.",
-        imageUrl: usImage("photo-1511379938547-c1f69419868d", 1200, 800),
-        imageAlt: "Headphones and music production desk",
+        detail:
+          "Label non-speech and paralinguistic cues—events, emotions, ambient scenes—so models hear context, not just words (security, automotive, assistants).\n\nKey features:\n\n• Discrete acoustic events (alarms, glass break, …)\n\n• Vocal emotion / stress / tone tags\n\n• Ambient noise profiles for denoise training\n\n• Whole-clip scene labels for context",
+        imageUrl: "/services/audio-speech-processing/audioclassification.jpg",
+        imageAlt:
+          "Labeled acoustic events, emotions, background noise, and scene classes for audio ML datasets",
       },
     ],
   },
