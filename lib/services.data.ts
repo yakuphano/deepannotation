@@ -216,7 +216,7 @@ export const SERVICES: ServiceDefinition[] = [
         label: "Event Logging",
         detail:
           "Exact begin/end of named sequences (e.g. kitchen workflows or plant line events) so models learn duration, frequency, and structure from long recordings.\n\nKey features:\n\n• Frame-accurate start and stop\n\n• Sequence categories (e.g. cooking, cleaning)\n\n• Overlapping and parallel events in one scene\n\n• Exports ready for temporal and deep-learning models",
-        imageUrl: "/services/video-annotation/eventlogging.jpg",
+        imageUrl: "/services/video-annotation/eventlogging.jpg?v=20260507",
         imageAlt:
           "Frame-accurate event logs with start and end timestamps on video timelines",
       },
