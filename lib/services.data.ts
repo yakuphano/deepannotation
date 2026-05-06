@@ -49,7 +49,7 @@ export type ServiceDefinition = {
   visualPreset?: "default" | "medical" | "lidar"
 }
 
-export const SERVICES: ServiceDefinition[] = [
+export const SERVICES: ServiceDefinition[
   {
     slug: "image-annotation",
     title: "Image Annotation",
@@ -99,43 +99,69 @@ export const SERVICES: ServiceDefinition[] = [
     ],
   },
   {
-    slug: "medical-data-annotation",
-    title: "Medical Data Annotation",
-    subtitle: "HIPAA-compliant precision labeling for healthcare AI and diagnostic imaging.",
+    slug: "video-annotation",
+    title: "Video Annotation & Temporal Tracking",
+    subtitle: "Tracking, actions, and timestamped events for video ML pipelines.",
     description:
-      "Radiology, digital pathology, anatomy mapping, and compliance-first workflows for regulated healthcare AI. Expert contouring and segmentation on MRI, CT, X-ray, and whole slide images—with HIPAA/GDPR-aligned handling of PHI from annotation through delivery.",
-    iconKey: "stethoscope",
-    visualPreset: "medical",
-    heroImageUrl: "/services/medical-data-annotation/hero.jpg",
-    heroImageAlt: "Medical imaging and clinical annotation for healthcare AI datasets",
+      "Temporal labels for video: persistent tracks with interpolation, behavioral action windows, and frame-accurate event logs—with QA suited to production training.",
+    iconKey: "video",
+    heroImageUrl: "/services/video-annotation/Actionrecognition.jpg",
+    heroImageAlt:
+      "Video action recognition labels for human and machine activities over time",
     bullets: [
       {
-        label: "Radiology Imaging",
+        label: "Object Tracking (Interpolation)",
         detail:
-          "Accurate contouring and segmentation for MRI, CT, and X-ray scans.\n\nExpert contouring and pixel-accurate masks on MRI, CT, X-ray, and ultrasound so models learn clear organ boundaries, lesions, and anomalies—not loose boxes. We cover volumetric stacks and multi-modal reads for CAD, triage, and quant workflows.\n\n• Organ and tumor delineation with overlap-focused QA\n• Secure, de-identified handoff aligned to clinical expectations",
-        imageUrl: "/services/medical-data-annotation/radiology-imaging.jpg",
-        imageAlt: "Radiology imaging annotation for MRI, CT, and X-ray workflows",
+          "Stable object IDs across the full clip, with paths interpolated between keyframes so you label faster without sacrificing smooth trajectories—ideal for warehouses, retail, and security.\n\nKey features:\n\n• IDs through occlusion and re-entry\n\n• Interpolation between keyframes\n\n• Workers, AMRs, equipment (multi-class)\n\n• Precise boxes on high-frame-rate footage",
+        imageUrl: "/services/video-annotation/objectTrackinginterpolation.png",
+        imageAlt:
+          "Object tracking with persistent IDs and interpolated paths between video keyframes",
       },
       {
-        label: "Pathology Slides Annotation",
+        label: "Action Recognition",
         detail:
-          "Cell-level classification and tissue segmentation in digital pathology.\n\nEnsure precise and reliable medical diagnoses with our expert pathology slide annotation services. We provide accurate contouring and semantic segmentation for whole slide images, enabling AI models to identify cell types, tissues, and disease markers with clinical accuracy.",
-        imageUrl: "/services/medical-data-annotation/pathology-slides.jpg",
-        imageAlt: "Digital pathology whole slide image annotation and segmentation",
+          "What objects do over time: clear start/end windows for activities like assembly, inspection, or machine operation—powering automation, safety, and operations analytics.\n\nKey features:\n\n• Frame-range action segments\n\n• Multi-step and human–machine behaviors\n\n• Triggers for alerts and workflows\n\n• QC thresholds for reliable training data",
+        imageUrl: "/services/video-annotation/Actionrecognition.jpg",
+        imageAlt:
+          "Video action recognition labels for human and machine activities over time",
       },
       {
-        label: "Anatomy Identification",
+        label: "Event Logging",
         detail:
-          "Detailed labeling of organs, lesions, and anomalies.\n\nPower your medical AI with expert anatomical mapping. We provide precise point and area labeling for organs, skeletal structures, and vascular systems across MRI, CT, and 3D scans. Our high-fidelity annotations ensure clinical-grade accuracy for automated diagnosis and surgical planning.",
-        imageUrl: "/services/medical-data-annotation/anatomy-identification.jpg",
-        imageAlt: "Anatomical structure labeling on MRI, CT, and 3D medical imaging",
+          "Exact begin/end of named sequences (e.g. kitchen workflows or plant line events) so models learn duration, frequency, and structure from long recordings.\n\nKey features:\n\n• Frame-accurate start and stop\n\n• Sequence categories (e.g. cooking, cleaning)\n\n• Overlapping and parallel events in one scene\n\n• Exports ready for temporal and deep-learning models",
+        imageUrl: "/services/video-annotation/eventlogging.jpg",
+        imageAlt:
+          "Frame-accurate event logs with start and end timestamps on video timelines",
+      },
+    ],
+  },
+  {
+    slug: "audio-speech-processing",
+    title: "Audio & Speech Processing",
+    subtitle: "Converting human speech into structured, actionable datasets.",
+    description:
+      "High-accuracy transcription and linguistic validation in multi-speaker environments.",
+    iconKey: "mic2",
+    heroImageUrl: usImage("photo-1598488035139-bdbb2231ce04", 1600, 900),
+    heroImageAlt: "Studio microphone for speech and audio capture",
+    bullets: [
+      {
+        label: "Phonetic Transcription",
+        detail: "Capturing nuances in dialect and pronunciation.",
+        imageUrl: usImage("photo-1470225620780-dba8ba36b745", 1200, 800),
+        imageAlt: "Concert and live audio atmosphere",
       },
       {
-        label: "Compliance",
-        detail:
-          "Secure workflows designed for sensitive healthcare information.\n\nTrust your most sensitive healthcare data to our secure, industry-standard workflows. Our annotation processes are fully HIPAA and GDPR compliant, ensuring that Protected Health Information (PHI) is handled with end-to-end encryption, strict access controls, and de-identification protocols. We prioritize data integrity and patient privacy at every step of the labeling cycle.",
-        imageUrl: "/services/medical-data-annotation/Compliance.jpg",
-        imageAlt: "HIPAA and GDPR compliant secure healthcare data annotation workflows",
+        label: "Speaker Diarization",
+        detail: "Correctly attributing speech to different participants.",
+        imageUrl: usImage("photo-1522202176988-66273c2fd55f", 1200, 800),
+        imageAlt: "Small group discussion for multi-speaker audio",
+      },
+      {
+        label: "Audio Classification",
+        detail: "Labeling background noise, emotion, and audio events.",
+        imageUrl: usImage("photo-1511379938547-c1f69419868d", 1200, 800),
+        imageAlt: "Headphones and music production desk",
       },
     ],
   },
@@ -186,39 +212,43 @@ export const SERVICES: ServiceDefinition[] = [
     ],
   },
   {
-    slug: "video-annotation",
-    title: "Video Annotation & Temporal Tracking",
-    subtitle: "Tracking, actions, and timestamped events for video ML pipelines.",
+    slug: "medical-data-annotation",
+    title: "Medical Data Annotation",
+    subtitle: "HIPAA-compliant precision labeling for healthcare AI and diagnostic imaging.",
     description:
-      "Temporal labels for video: persistent tracks with interpolation, behavioral action windows, and frame-accurate event logs—with QA suited to production training.",
-    iconKey: "video",
-    heroImageUrl: "/services/video-annotation/Actionrecognition.jpg",
-    heroImageAlt:
-      "Video action recognition labels for human and machine activities over time",
+      "Radiology, digital pathology, anatomy mapping, and compliance-first workflows for regulated healthcare AI. Expert contouring and segmentation on MRI, CT, X-ray, and whole slide images—with HIPAA/GDPR-aligned handling of PHI from annotation through delivery.",
+    iconKey: "stethoscope",
+    visualPreset: "medical",
+    heroImageUrl: "/services/medical-data-annotation/hero.jpg",
+    heroImageAlt: "Medical imaging and clinical annotation for healthcare AI datasets",
     bullets: [
       {
-        label: "Object Tracking (Interpolation)",
+        label: "Radiology Imaging",
         detail:
-          "Stable object IDs across the full clip, with paths interpolated between keyframes so you label faster without sacrificing smooth trajectories—ideal for warehouses, retail, and security.\n\nKey features:\n\n• IDs through occlusion and re-entry\n\n• Interpolation between keyframes\n\n• Workers, AMRs, equipment (multi-class)\n\n• Precise boxes on high-frame-rate footage",
-        imageUrl: "/services/video-annotation/objectTrackinginterpolation.png",
-        imageAlt:
-          "Object tracking with persistent IDs and interpolated paths between video keyframes",
+          "Accurate contouring and segmentation for MRI, CT, and X-ray scans.\n\nExpert contouring and pixel-accurate masks on MRI, CT, X-ray, and ultrasound so models learn clear organ boundaries, lesions, and anomalies—not loose boxes. We cover volumetric stacks and multi-modal reads for CAD, triage, and quant workflows.\n\n• Organ and tumor delineation with overlap-focused QA\n• Secure, de-identified handoff aligned to clinical expectations",
+        imageUrl: "/services/medical-data-annotation/radiology-imaging.jpg",
+        imageAlt: "Radiology imaging annotation for MRI, CT, and X-ray workflows",
       },
       {
-        label: "Action Recognition",
+        label: "Pathology Slides Annotation",
         detail:
-          "What objects do over time: clear start/end windows for activities like assembly, inspection, or machine operation—powering automation, safety, and operations analytics.\n\nKey features:\n\n• Frame-range action segments\n\n• Multi-step and human–machine behaviors\n\n• Triggers for alerts and workflows\n\n• QC thresholds for reliable training data",
-        imageUrl: "/services/video-annotation/Actionrecognition.jpg",
-        imageAlt:
-          "Video action recognition labels for human and machine activities over time",
+          "Cell-level classification and tissue segmentation in digital pathology.\n\nEnsure precise and reliable medical diagnoses with our expert pathology slide annotation services. We provide accurate contouring and semantic segmentation for whole slide images, enabling AI models to identify cell types, tissues, and disease markers with clinical accuracy.",
+        imageUrl: "/services/medical-data-annotation/pathology-slides.jpg",
+        imageAlt: "Digital pathology whole slide image annotation and segmentation",
       },
       {
-        label: "Event Logging",
+        label: "Anatomy Identification",
         detail:
-          "Exact begin/end of named sequences (e.g. kitchen workflows or plant line events) so models learn duration, frequency, and structure from long recordings.\n\nKey features:\n\n• Frame-accurate start and stop\n\n• Sequence categories (e.g. cooking, cleaning)\n\n• Overlapping and parallel events in one scene\n\n• Exports ready for temporal and deep-learning models",
-        imageUrl: "/services/video-annotation/eventlogging.jpg?v=20260507",
-        imageAlt:
-          "Frame-accurate event logs with start and end timestamps on video timelines",
+          "Detailed labeling of organs, lesions, and anomalies.\n\nPower your medical AI with expert anatomical mapping. We provide precise point and area labeling for organs, skeletal structures, and vascular systems across MRI, CT, and 3D scans. Our high-fidelity annotations ensure clinical-grade accuracy for automated diagnosis and surgical planning.",
+        imageUrl: "/services/medical-data-annotation/anatomy-identification.jpg",
+        imageAlt: "Anatomical structure labeling on MRI, CT, and 3D medical imaging",
+      },
+      {
+        label: "Compliance",
+        detail:
+          "Secure workflows designed for sensitive healthcare information.\n\nTrust your most sensitive healthcare data to our secure, industry-standard workflows. Our annotation processes are fully HIPAA and GDPR compliant, ensuring that Protected Health Information (PHI) is handled with end-to-end encryption, strict access controls, and de-identification protocols. We prioritize data integrity and patient privacy at every step of the labeling cycle.",
+        imageUrl: "/services/medical-data-annotation/Compliance.jpg",
+        imageAlt: "HIPAA and GDPR compliant secure healthcare data annotation workflows",
       },
     ],
   },
@@ -249,36 +279,6 @@ export const SERVICES: ServiceDefinition[] = [
         detail: "Categorizing documents into granular taxonomies.",
         imageUrl: usImage("photo-1504384308090-c894fdcc538d", 1200, 800),
         imageAlt: "Organized workspace representing structured categories",
-      },
-    ],
-  },
-  {
-    slug: "audio-speech-processing",
-    title: "Audio & Speech Processing",
-    subtitle: "Converting human speech into structured, actionable datasets.",
-    description:
-      "High-accuracy transcription and linguistic validation in multi-speaker environments.",
-    iconKey: "mic2",
-    heroImageUrl: usImage("photo-1598488035139-bdbb2231ce04", 1600, 900),
-    heroImageAlt: "Studio microphone for speech and audio capture",
-    bullets: [
-      {
-        label: "Phonetic Transcription",
-        detail: "Capturing nuances in dialect and pronunciation.",
-        imageUrl: usImage("photo-1470225620780-dba8ba36b745", 1200, 800),
-        imageAlt: "Concert and live audio atmosphere",
-      },
-      {
-        label: "Speaker Diarization",
-        detail: "Correctly attributing speech to different participants.",
-        imageUrl: usImage("photo-1522202176988-66273c2fd55f", 1200, 800),
-        imageAlt: "Small group discussion for multi-speaker audio",
-      },
-      {
-        label: "Audio Classification",
-        detail: "Labeling background noise, emotion, and audio events.",
-        imageUrl: usImage("photo-1511379938547-c1f69419868d", 1200, 800),
-        imageAlt: "Headphones and music production desk",
       },
     ],
   },
