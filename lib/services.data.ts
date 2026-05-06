@@ -188,30 +188,36 @@ export const SERVICES: ServiceDefinition[] = [
   {
     slug: "video-annotation",
     title: "Video Annotation & Temporal Tracking",
-    subtitle: "Master dynamic scene understanding with frame-by-frame continuity.",
+    subtitle: "Tracking, actions, and timestamped events for video ML pipelines.",
     description:
-      "Train sophisticated temporal models with seamless object tracking across video sequences.",
+      "Temporal labels for video: persistent tracks with interpolation, behavioral action windows, and frame-accurate event logs—with QA suited to production training.",
     iconKey: "video",
     heroImageUrl: usImage("photo-1536240478700-b869277f8149", 1600, 900),
     heroImageAlt: "Video production workspace with editing timeline",
     bullets: [
       {
         label: "Object Tracking (Interpolation)",
-        detail: "Maintaining unique IDs for objects across multiple frames.",
-        imageUrl: usImage("photo-1461896836934-ffe607ba8211", 1200, 800),
-        imageAlt: "Athletic motion representing tracked movement over time",
+        detail:
+          "Stable object IDs across the full clip, with paths interpolated between keyframes so you label faster without sacrificing smooth trajectories—ideal for warehouses, retail, and security.\n\nKey features:\n\n• IDs through occlusion and re-entry\n\n• Interpolation between keyframes\n\n• Workers, AMRs, equipment (multi-class)\n\n• Precise boxes on high-frame-rate footage",
+        imageUrl: "/services/video-annotation/objectTrackinginterpolation.png",
+        imageAlt:
+          "Object tracking with persistent IDs and interpolated paths between video keyframes",
       },
       {
         label: "Action Recognition",
-        detail: "Labeling specific human or machine behaviors over time.",
-        imageUrl: usImage("photo-1518611012118-696072aa579a", 1200, 800),
-        imageAlt: "Group activity and motion for behavioral labeling",
+        detail:
+          "What objects do over time: clear start/end windows for activities like assembly, inspection, or machine operation—powering automation, safety, and operations analytics.\n\nKey features:\n\n• Frame-range action segments\n\n• Multi-step and human–machine behaviors\n\n• Triggers for alerts and workflows\n\n• QC thresholds for reliable training data",
+        imageUrl: "/services/video-annotation/Actionrecognition.jpg",
+        imageAlt:
+          "Video action recognition labels for human and machine activities over time",
       },
       {
         label: "Event Logging",
-        detail: "Identifying precise start and end points for complex activities.",
-        imageUrl: usImage("photo-1501139088888-806b3b6764be", 1200, 800),
-        imageAlt: "Time and planning concept for event boundaries",
+        detail:
+          "Exact begin/end of named sequences (e.g. kitchen workflows or plant line events) so models learn duration, frequency, and structure from long recordings.\n\nKey features:\n\n• Frame-accurate start and stop\n\n• Sequence categories (e.g. cooking, cleaning)\n\n• Overlapping and parallel events in one scene\n\n• Exports ready for temporal and deep-learning models",
+        imageUrl: "/services/video-annotation/eventlogging.jpg",
+        imageAlt:
+          "Frame-accurate event logs with start and end timestamps on video timelines",
       },
     ],
   },
