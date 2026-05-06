@@ -142,19 +142,19 @@ export const SERVICES: ServiceDefinition[] = [
   {
     slug: "lidar-3d-point-cloud",
     title: "LiDAR & 3D Point Cloud Annotation",
-    subtitle: "Advanced spatial data labeling for autonomous navigation and 3D scene reconstruction.",
+    subtitle: "Cuboids, segmentation, sensor fusion, and road geometry for autonomy and 3D scenes.",
     description:
-      "Power your spatial awareness models with precise 3D sensor fusion data. We provide granular annotation for LiDAR point clouds, enabling robust performance in complex 3D environments.",
+      "LiDAR and 3D point cloud labeling for robust perception: volumetric cuboids, dense semantic segmentation, camera–LiDAR fusion, and lane or boundary polylines—matched to your pipeline and QA rules.",
     iconKey: "boxes",
     visualPreset: "lidar",
-    heroImageUrl: "/services/lidar-3d-point-cloud/lanesboundaries.jpg",
+    heroImageUrl: "/services/lidar-3d-point-cloud/3dcuboidlabeling.jpg",
     heroImageAlt:
-      "3D lane markings, road edges, and boundaries on LiDAR point cloud for HD mapping",
+      "3D cuboid labels on LiDAR point cloud for autonomous driving perception",
     bullets: [
       {
         label: "3D Cuboid Labeling",
         detail:
-          "Achieve precise volumetric understanding of spatial environments with our high-quality 3D Cuboid Labeling services. Unlike standard 2D bounding boxes that provide only general localization on flat images, our 3D cuboids encapsulate objects within a complex 3D Point Cloud or LiDAR scan. We draw meticulous volumetric boxes that define the exact width, length, and height of vehicles, pedestrians, and obstacles, ensuring pixel-perfect spatial alignment. This is critical for training autonomous driving models to accurately calculate depth, orientation, and occupancy. Whether you are working with complex urban intersections or rural landscapes, we deliver high-density, dimensionally accurate datasets tailored to your project's technical specifications.\n\nKey Features:\n\n• Volumetric Accuracy: Defining exact 3D dimensions (L/W/H).\n\n• Spatial Orientation: Capturing precise depth and orientation for motion planning.\n\n• LiDAR & Radar Integration: Efficiently labeling data from multiple advanced sensors.\n\n• Multi-Class Annotation: Robust handling of diverse categories (Cars, Trucks, Cyclists, Pedestrians).",
+          "Volumetric boxes on point clouds capture width, length, height, depth, and orientation for vehicles, pedestrians, and obstacles—beyond flat 2D boxes for autonomy and robotics.\n\nKey features:\n\n• Exact L/W/H (volumetric accuracy)\n\n• Pose and depth for motion planning\n\n• LiDAR and radar-friendly workflows\n\n• Multi-class: cars, trucks, cyclists, pedestrians",
         imageUrl: "/services/lidar-3d-point-cloud/3dcuboidlabeling.jpg",
         imageAlt:
           "3D cuboid volumetric boxes on LiDAR point cloud for vehicles, pedestrians, and obstacles",
@@ -162,7 +162,7 @@ export const SERVICES: ServiceDefinition[] = [
       {
         label: "Point Cloud Segmentation",
         detail:
-          "Achieve an exhaustive, point-wise understanding of your 3D environments with our premium Point Cloud Segmentation services. We categorize every single point in a LiDAR or 3D scan, transforming raw point data into a colorful, semantically segmented map. Our process provides pixel-perfect classification of complex terrain, delineating road surfaces, sidewalks, and vegetation while accurately mapping both static and dynamic obstacles like vehicles and buildings. This enables autonomous systems to interpret the complete spatial context of a scene, crucial for advanced path planning and obstacle avoidance. Whether for urban mapping or infrastructure analysis, we deliver high-density, precisely classified datasets tailored to your specifications.\n\nKey Features:\n\n• Point-Wise Classification: Full semantics applied to every point in the scan.\n\n• Terrain & Obstacle Delineation: Accurate partitioning of road surfaces and surrounding objects.\n\n• Dense Semantic Maps: Ideal for complex environment interpretation and path planning.\n\n• High Confidence Scoring: Rigorous quality control ensuring high overlap accuracy for all classes.",
+          "Per-point semantic labels turn scans into class maps—roads, sidewalks, vegetation, vehicles, buildings—so systems get full scene context for planning and avoidance.\n\nKey features:\n\n• Semantics on every point\n\n• Terrain vs. obstacles split cleanly\n\n• Dense maps for complex scenes\n\n• Strict QC and class consistency",
         imageUrl: "/services/lidar-3d-point-cloud/pointcloudsegmentation.jpg",
         imageAlt:
           "Semantically segmented LiDAR point cloud with terrain, roads, and obstacles classified",
@@ -170,7 +170,7 @@ export const SERVICES: ServiceDefinition[] = [
       {
         label: "Multi-Sensor Fusion",
         detail:
-          "Elevate your computer vision models with advanced perception through our Multi-Sensor Fusion Annotation services. This complex process involves synchronizing and aligning data from multiple sensors—most commonly LiDAR point clouds and high-resolution camera feeds—into a single, unified annotation space. By leveraging the geometric precision of LiDAR with the rich visual context of images, we provide fused 3D annotations that surpass the capabilities of any single sensor. Our annotators create tight, cross-validated volumetric cuboids and semantic segments that map precisely across 3D point space and 2D pixel space, crucial for robust object detection, tracking, and environmental understanding in autonomous driving and advanced robotics.\n\nKey Features:\n\n• LiDAR & Camera Sync: Precise spatiotemporal alignment of point cloud and video data.\n\n• Volumetric 3D Cuboids: Delineating accurate object dimensions, depth, and orientation.\n\n• Cross-Modal Validation: Strict quality checks ensuring annotations are consistent across all views (e.g., Bird's Eye, Camera).\n\n• Enhanced Spatial Context: Combining visual texture with structural data for reliable obstacle mapping.",
+          "Time- and space-aligned LiDAR plus camera (and related feeds) so cuboids and segments stay consistent in 3D and on images—stronger detection, tracking, and scene understanding.\n\nKey features:\n\n• Spatiotemporal sync of cloud and video\n\n• Accurate 3D cuboids and segments\n\n• Cross-view checks (e.g. BEV, camera)\n\n• Geometry plus visual texture for obstacles",
         imageUrl: "/services/lidar-3d-point-cloud/multisensorfusion.jpg",
         imageAlt:
           "Fused LiDAR and camera annotation with aligned 3D cuboids and semantic segments",
@@ -178,7 +178,7 @@ export const SERVICES: ServiceDefinition[] = [
       {
         label: "Lanes & Boundaries",
         detail:
-          "Enable high-definition (HD) mapping and precise motion planning with our specialized 3D Polyline annotation services. We map detailed road geometry and critical infrastructure by carefully tracing lane markings, road edges, curbs, and barriers within 3D Point Clouds. By capturing the exact curvature and elevation of the road, we provide the foundational data needed for autonomous vehicles to navigate complex intersections and maintain lane discipline with vertex-perfect accuracy.\n\nKey Features:\n\n• 3D Polyline Mapping: Precise delineation of lane dividers, centerlines, and road boundaries.\n\n• Infrastructure Detail: Expert labeling of curbs, guardrails, and traffic barriers.\n\n• HD Map Ready: Generating topological road data for advanced semantic navigation.\n\n• Elevation Accuracy: Capturing Z-axis data for realistic 3D path planning.",
+          "3D polylines trace lanes, road edges, curbs, and barriers with curvature and elevation for HD maps, intersections, and lane-keeping.\n\nKey features:\n\n• Dividers, centerlines, road limits\n\n• Curbs, guardrails, barriers\n\n• Topology-ready for navigation stacks\n\n• Reliable Z for 3D routing",
         imageUrl: "/services/lidar-3d-point-cloud/lanesboundaries.jpg",
         imageAlt:
           "3D polylines for lanes, road edges, and infrastructure on LiDAR point cloud",
