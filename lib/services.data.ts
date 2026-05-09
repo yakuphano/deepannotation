@@ -266,8 +266,9 @@ export const SERVICES: ServiceDefinition[] = [
     description:
       "Entity, tone, intent, and taxonomy labels your LLMs and classifiers can train on.",
     iconKey: "fileText",
-    heroImageUrl: usImage("photo-1455390582262-044cdead277a", 1600, 900),
-    heroImageAlt: "Desk with notes and writing tools for text-focused work",
+    heroImageUrl: "/services/text-nlp-annotation/Textclassification.jpg",
+    heroImageAlt:
+      "Text classification: documents organized into categories for NLP training data",
     bullets: [
       {
         label: "Named Entity Recognition (NER)",
